@@ -1,6 +1,8 @@
-﻿>## 1. **Interceptor Use Case and How It Differs from Middleware:**
+﻿
 
-<details><summary><b>Answer Explanations:</b></summary>
+>## 1. **Interceptor Use Case and How It Differs from Middleware:**
+
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Interceptor Use Case and How It Differs from Middleware**
 
@@ -156,13 +158,13 @@ In the context of web development, **interceptors** and **middleware** are both 
    - Interceptors focus on HTTP requests/responses, while middleware handles the entire request/response lifecycle.
 
 By understanding the use cases and differences between interceptors and middleware, you can effectively implement them in your applications.
-</details>
+
 
 ---
 
 >## 2. **Node.js Event-Driven Architecture (Event Loop):**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Node.js Event-Driven Architecture (Event Loop)**
 
@@ -328,13 +330,13 @@ if (isMainThread) {
    - Used for CPU-bound tasks to prevent blocking the main thread.
 
 By understanding Node.js's event-driven architecture and the event loop, you can build high-performance, scalable applications.
-</details>
+
 
 ---
 
 >## 3. **Tracking Sessions in Node.js:**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Tracking Sessions in Node.js**
 
@@ -491,13 +493,13 @@ For stateless session management, you can use **JSON Web Tokens (JWT)**. JWTs ar
    - Ideal for distributed systems and APIs.
 
 By understanding these methods, you can implement session tracking in Node.js applications effectively.
-  </details>
+  
 
 ---
 
 >## 4. **How Event-Driven Architecture Works:**
 
-<details><summary><b>Answer Explanation:</b></summary>
+<summary><b>Answer Explanation:</b></summary>
 
 #### **How Event-Driven Architecture Works**
 
@@ -630,13 +632,13 @@ File content: (contents of example.txt)
    - Web servers, GUI applications, real-time systems, and message brokers.
 
 By understanding event-driven architecture, you can design systems that are scalable, responsive, and modular.
-   </details>
+   
 
 ---
 
 >## 5. **Tracing User Data Through Express:**
   
-<details><summary><b>Answer Explanation:</b></summary>
+<summary><b>Answer Explanation:</b></summary>
 
 #### **Tracing User Data Through Express**
 Tracing user data in an Express.js application involves tracking and logging user-related information (e.g., user ID, session ID, IP address) as it flows through the application. This is useful for debugging, monitoring, and auditing purposes. Here's how you can trace user data in Express:
@@ -811,19 +813,19 @@ Third-party libraries like **morgan** (for logging) and **cls-hooked** (for cont
    - Debugging, monitoring, and auditing user activity.
   
 By implementing these techniques, you can effectively trace user data in your Express.js applications.
-   </details>
+   
 
 ---
 >## 6. **TypeDI in TypeORM:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - **TypeDI** is a dependency injection library for TypeScript and JavaScript. In TypeORM, it is used to manage the lifecycle of services and repositories by providing automatic dependency injection.
-   </details>
+   
 
 ---
 >## 7. **what cluster in nodejs and mongodb?**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Clusters in Node.js and MongoDB**
 
@@ -928,7 +930,7 @@ sharding:
    - MongoDB clustering is ideal for ensuring data availability and scalability in databases.
 
 By understanding clustering in both Node.js and MongoDB, you can design scalable, fault-tolerant, and high-performance applications.
-</details>
+
 
 ---
 
@@ -944,7 +946,7 @@ TypeORM is an Object-Relational Mapper (ORM) for TypeScript and JavaScript that 
 
 >## 9. **Clustering in Node.js:**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Clustering in Node.js**
 
@@ -1069,13 +1071,13 @@ For production environments, you can use **`pm2`**, a process manager for Node.j
    - A process manager that simplifies clustering and process management in production.
 
 By understanding clustering in Node.js, you can build high-performance, scalable applications that fully utilize multi-core systems.
-   </details>
+   
 
 ---
 
 >## 10. **Utilizing All CPU Cores in Node.js:**
 
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Utilizing All CPU Cores in Node.js**
 
@@ -1201,14 +1203,14 @@ if (isMainThread) {
 
 
 By understanding these techniques, you can fully utilize all CPU cores in your Node.js applications, improving performance and scalability.
-   </details>
+   
 
 ---
 
 
 >## 11. **For Node.js, why does Google use the V8 engine?**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Why Google Uses the V8 Engine for Node.js**
 
@@ -1270,7 +1272,7 @@ The **V8 engine** is a high-performance JavaScript engine developed by Google fo
    - V8's architecture complements Node.js's event-driven, non-blocking I/O model.
 
 By using the V8 engine, Node.js achieves high performance, scalability, and cross-platform compatibility, making it a powerful runtime for server-side JavaScript.
-</details>
+
 
 ---
 
@@ -1279,7 +1281,7 @@ By using the V8 engine, Node.js achieves high performance, scalability, and cros
 
 >## 12. **Handling Concurrency in Node.js:**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Handling Concurrency in Node.js**
 
@@ -1455,13 +1457,13 @@ Libraries like **`async`** and **`p-limit`** help manage concurrency by controll
 
 
 By understanding these techniques, you can effectively handle concurrency in Node.js applications.
-   </details>
+   
 
 ---
 
 >## 13. **How the Event Loop Works:**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Event Loop in Node.js**
 
@@ -1566,23 +1568,23 @@ File read complete
 
 
 By understanding the event loop, you can explain how Node.js achieves its high performance and scalability, making it ideal for I/O-bound applications like web servers, APIs, and real-time systems.
-   </details>
+   
 
 ---
 
 >## 14. **Why Use Express.js Framework?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - Express simplifies routing, middleware integration, and handling HTTP requests. It provides easy access to HTTP request and response objects and supports error handling, making development more efficient and scalable.
-   </details>
+   
 
 ---
 
 >## 15. **Higher-Order Component (HOC):**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - **HOC** is a pattern in React that involves a function taking a component and returning a new component with additional functionality or behavior, often used for code reuse and handling cross-cutting concerns (like authentication).
-   </details>
+   
 
 ---
 
@@ -1618,7 +1620,7 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 ---
 >## 18. **Use Case of the Event Emitter:**
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Use Case of the Event Emitter**
 
@@ -1795,28 +1797,28 @@ http.createServer((req, res) => {
    - Build event-driven APIs where actions trigger events.
 
 By understanding these use cases, you can effectively leverage the Event Emitter in your Node.js applications.
-   </details>
+   
 
 ---
 
 >## 19. **Lifecycle of the Event Emitter:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - The lifecycle includes the creation of an emitter instance, attaching event listeners with `.on()`, emitting events with `.emit()`, and removing listeners using `.removeListener()` or `.off()`.
-   </details>
+   
 
 ---
 
 >## 20. **Web APIs and Queues in the Event Loop:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - Web APIs (like `setTimeout`, `fetch`, etc.) are used for handling I/O operations. These APIs put callbacks into the callback queue when the operation is completed, which are then processed by the event loop during its phases.
-   </details>
+   
 
 ---
 
 >## 21. **What Is an Event Emitter? Example:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 ```javascript
 const EventEmitter = require("events");
@@ -1826,56 +1828,56 @@ emitter.on("event", () => {
 });
 emitter.emit("event"); // Prints 'Event occurred!'
 ```
-   </details>
+   
 
 ---
 
 >## 22. **Managing Tasks in a Scheduler:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 A scheduler would typically use a queue to manage tasks. Tasks are added to the queue and executed in order, based on a scheduling algorithm, possibly utilizing `setTimeout` or `setInterval` for periodic tasks.
-   </details>
+   
 
 ---
 
 >## 23. **Garbage Collection in Node.js:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - Garbage collection in Node.js is done by the V8 JavaScript engine. It automatically reclaims memory from objects no longer in use, ensuring that memory is efficiently managed.
-   </details>
+   
 
 ---
 
 >## 24. **Memory Leak and Prevention in Node.js:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - A **memory leak** happens when memory is allocated but not freed, usually caused by holding references to objects that are no longer needed.
 - **Prevention**: Use proper memory management techniques, like nullifying unused references and using tools like `heapdump` to analyze memory usage.
-   </details>
+   
 
 ---
 
 >## 25. **Web Workers:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - Web Workers are used for running JavaScript code in parallel threads, separate from the main thread, to offload heavy computations and prevent UI blocking.
-   </details>
+   
 
 ---
 
 >## 26. **Builder for NPM Package:**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 - **Webpack** or **Rollup** are commonly used for bundling and building NPM packages, as they allow you to optimize and package your code efficiently for distribution.
 
 Handling task/message queues in Node.js and NestJS typically involves using **message brokers** like **RabbitMQ**, **Kafka**, or **Redis Queue**. These systems help decouple services, scale operations, and improve reliability by ensuring tasks are processed asynchronously.
 
-  </details>
+  
 
 ---
 
 >## 27. how you can handle task/message queues in both **Node.js** and **NestJS**.
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 To use message queues in **Node.js**, you'll typically use libraries like `amqplib` for **RabbitMQ**, `kafkajs` for **Kafka**, or `ioredis` for **Redis Queue**.
 
@@ -2124,13 +2126,13 @@ By using **message queues** in **Node.js** or **NestJS**, you can decouple micro
 >2. Set up **Producers** to send messages to queues.
 >3. Implement **Consumers** to listen to and process messages.
 >4. Use NestJS’s built-in support for microservices to handle message queues effectively.
-  </details>
+  
 
 ---
 
 >## 28. What is Node.js and Where can you use it?
 
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 **What is Node.js?**
 
@@ -2194,12 +2196,12 @@ Node.js is versatile and can be used in various scenarios, including:
 
 By understanding Node.js and its use cases, you can demonstrate your ability to choose the right technology for specific project requirements during an interview.
 
-</details>
+
 
 ---
 
 >## 29. Why is Node.js `Single-threaded`? If Node.js is single-threaded, then how does it handle `concurrency`?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Why is Node.js Single-Threaded?**
 
@@ -2259,12 +2261,12 @@ This approach allows Node.js to handle thousands of concurrent connections with 
 
 By explaining this, you demonstrate a deep understanding of Node.js's architecture and its ability to handle concurrency despite being single-threaded.
 
-</details>
+
 
 ---
 
 >## 30.	Explain callback and callback hell in Node.js.
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Callback in Node.js**
 
@@ -2418,12 +2420,12 @@ In this example:
 
 By explaining these concepts clearly, you demonstrate your understanding of asynchronous programming in Node.js and your ability to write clean, maintainable code.
 
-</details>
+
 
 ---
 
 >## 31.	What are the module, exports and default export in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 In Node.js, **modules**, **exports**, and **default exports** are fundamental concepts for organizing and sharing code across different files. Here's a detailed explanation of each:
 
@@ -2555,12 +2557,12 @@ console.log(math.subtract(5, 3)); // Output: 2 (named export)
 - Modules are imported using `require()`.
 
 By understanding these concepts, you can demonstrate your ability to write modular, maintainable, and reusable code in Node.js.
-</details>
+
 
 ---
 
 >## 32. What does event-driven programming mean, event, event EventEmitter and event loop in Nodejs?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Event-Driven Programming in Node.js**
 
@@ -2692,12 +2694,12 @@ Explanation:
 
 By understanding these concepts, you can explain how Node.js achieves its high performance and scalability through event-driven programming.
 
-</details>
+
 
 ---
 
 >## 33. What is process.nextTick, setimmediat, setinterval, settimeout, nextTick and child process?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`setTimeout`**, and **child processes** are important concepts related to asynchronous execution and process management. Here's a detailed explanation of each:
 
@@ -2884,12 +2886,12 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
    - Used to create and manage child processes for running system commands or other scripts.
 
 By understanding these concepts, you can demonstrate your knowledge of asynchronous execution and process management in Node.js.
-</details>
+
 
 ---
 
 >## 34. What are the two types of API functions in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 In Node.js, API functions can be broadly categorized into two types based on their execution behavior:
 
@@ -3026,12 +3028,12 @@ Data loaded: (Contents of data.txt)
    - Use for I/O-bound tasks and scalable applications.
 
 By understanding these two types of APIs, you can choose the right approach based on the requirements of your application.
-</details>
+
 
 ---
 
 >## 35. What is the package.json and package.lock.json file in Nodejs?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 In Node.js, **`package.json`** and **`package-lock.json`** are two essential files that manage dependencies, scripts, and metadata for a Node.js project. Here's a detailed explanation of each:
 
@@ -3184,13 +3186,13 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
    - `package-lock.json` ensures exact versions are used.
 
 By understanding these files, you can demonstrate your ability to manage dependencies and ensure consistency in Node.js projects.
-</details>
+
 
 ---
 
 >## 36.How would you use a URL module in Node.js?
 
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 In Node.js, the **`url` module** provides utilities for parsing, formatting, and resolving URLs. It is a core module, so you don't need to install it separately. Here's how you can use the `url` module:
 
@@ -3376,14 +3378,14 @@ server.listen(3000, () => {
    - 
 
 By understanding the `url` module, you can effectively work with URLs in Node.js, making your applications more dynamic and robust.
-</details>
+
 
 ---
 
 
 >## 37. **What is a passport in Node.js?**
  
-<details><summary><b>Answer Explanations:</b></summary>
+<summary><b>Answer Explanations:</b></summary>
 
 #### **Passport in Node.js**
 
@@ -3566,12 +3568,12 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
    - Implementing user authentication, third-party login, and token-based authentication.
   
 By understanding Passport, you can implement secure and flexible authentication mechanisms in your Node.js applications.
-</details>
+
 
 ---
 
 >## 38. what is express.js and how it help in node application
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **What is Express.js?**
 
@@ -3734,12 +3736,12 @@ app.listen(3000, () => {
    - Building RESTful APIs, web applications, and real-time applications.
 
 By understanding Express.js, you can demonstrate your ability to build efficient and scalable web applications using Node.js.
-</details>
+
 
 ---
 
 >## 39.	What are Buffer and Streams in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 In Node.js, **Buffers** and **Streams** are fundamental concepts for handling binary data and managing data flow efficiently. They are particularly useful for working with large datasets, file systems, and network communications.
 
@@ -3903,12 +3905,12 @@ writableStream.end(() => {
    - Streams: Large files, real-time data, network communications.
 
 By understanding Buffers and Streams, you can demonstrate your ability to handle data efficiently in Node.js, especially for I/O-bound tasks.
-</details>
+
 
 ---
 
 >## 40.	How do you create a simple server in Node.js that returns Hello World and express.js and how use secure network for nodejs?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **1. Creating a Simple Server in Node.js (Without Express)**
 
@@ -4049,12 +4051,12 @@ To secure your Node.js server, you need to use **HTTPS** instead of HTTP. HTTPS 
    - For production, use certificates from a trusted CA.
 
 By understanding these concepts, you can demonstrate your ability to create and secure web servers in Node.js.
-</details>
+
 
 ---
 
 >## 41. Explain the concept of middleware in Node.js.
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Middleware in Node.js**
 
@@ -4223,12 +4225,12 @@ app.listen(3000, () => {
 6. **Ending the Cycle:** Use `res.send()` or similar methods to end the request-response cycle.
 
 By understanding middleware, you can demonstrate your ability to modularize and manage the flow of requests in a Node.js application.
-</details>
+
 
 ---
 
 >## 42.	What is REPL in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **REPL in Node.js**
 
@@ -4365,12 +4367,12 @@ To exit the REPL, you can:
 6. **Underscore Variable:** `_` holds the result of the last expression.
 
 By understanding the REPL, you can demonstrate your ability to quickly test and debug JavaScript code in Node.js.
-</details>
+
 
 ---
 
 >## 43.	What is piping in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Piping in Node.js**
 
@@ -4508,12 +4510,12 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
    - Data transformation.
 
 By understanding piping, you can demonstrate your ability to handle data flow efficiently in Node.js, especially for I/O-bound tasks.
-</details>
+
 
 ---
 
 >## 44. What is a reactor pattern in Node.js? How Does Node.js Use the Reactor Pattern?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Reactor Pattern in Node.js**
 
@@ -4642,12 +4644,12 @@ server.listen(3000, () => {
    - Scalability, efficiency, simplicity, cross-platform compatibility.
 
 By understanding the Reactor Pattern, you can explain how Node.js achieves its high performance and scalability, making it ideal for I/O-bound applications like web servers and APIs.
-</details>
+
 
 ---
 
 >## 45. What is a test pyramid in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Test Pyramid in Node.js**
 
@@ -4798,12 +4800,12 @@ The Test Pyramid consists of three layers:
    - End-to-End Tests: Cypress, Puppeteer.
 
 By understanding the Test Pyramid, you can demonstrate your ability to design a well-balanced and effective test suite for Node.js applications.
-</details>
+
 
 ---
 
 >## 46. what is the use of body parser in node js
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Body Parser in Node.js**
 
@@ -4955,12 +4957,12 @@ app.listen(3000, () => {
    - Express 4.16+ includes built-in middleware for parsing JSON and URL-encoded data.
 
 By understanding body-parser, you can demonstrate your ability to handle client-submitted data effectively in Node.js applications.
-</details>
+
 
 ---
 
 >## 47. What is extended: true in urlencoded()?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **`extended: true` in `urlencoded()`**
 
@@ -5118,12 +5120,12 @@ app.listen(3000, () => {
    - Use `extended: false` for simple key-value pairs.
 
 By understanding the `extended` option, you can choose the appropriate configuration for parsing URL-encoded data in your Node.js applications.
-</details>
+
 
 ---
 
 >## 48.	Describe Node.js exit codes.
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Node.js Exit Codes**
 
@@ -5246,12 +5248,12 @@ process.on('SIGINT', () => {
    - Use `process.on('uncaughtException')` to handle unexpected errors.
 
 By understanding Node.js exit codes, you can debug issues more effectively and ensure your applications handle errors gracefully.
-</details>
+
 
 ---
 
 >## 49.	What are the different types of HTTP requests?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Different Types of HTTP Requests**
 
@@ -5437,12 +5439,12 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
    - GET, HEAD, OPTIONS, TRACE.
 
 By understanding these HTTP request methods, you can design and interact with RESTful APIs effectively.
-</details>
+
 
 ---
 
 >## 50.	How would you connect a MongoDB database to Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Connecting a MongoDB Database to Node.js**
 
@@ -5625,12 +5627,12 @@ Mongoose is an ODM library that provides a higher-level abstraction for working 
    - Use connection pooling for performance.
 
 By understanding these approaches, you can demonstrate your ability to connect and interact with MongoDB in a Node.js application.
-</details>
+
 
 ---
 
 >## 51. What is a first-class function, higher order function and error first function in nodejs?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **1. First-Class Functions**
 
@@ -5754,12 +5756,12 @@ fs.readFile('example.txt', 'utf8', (err, data) => {
    - Ensures consistent error handling.
 
 By understanding these concepts, you can demonstrate your knowledge of JavaScript and Node.js fundamentals, especially in the context of asynchronous programming and functional programming.
-</details>
+
 
 ---
 
 >## 52. What is the difference between asynchronous and synchronous functions?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Difference Between Asynchronous and Synchronous Functions**
 
@@ -5921,12 +5923,12 @@ console.log('File read initiated.');
    - Use **callbacks**, **promises**, or **async/await** to manage asynchronous operations.
 
 By understanding these differences, you can choose the appropriate approach for handling tasks in your Node.js applications.
-</details>
+
 
 ---
 
 >## 53.	What is the order of execution in control flow statements?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Order of Execution in Control Flow Statements**
 
@@ -6187,12 +6189,12 @@ Immediate
    - The event loop determines the order of asynchronous tasks.
 
 By understanding the order of execution, you can write predictable and efficient code in Node.js.
-</details>
+
 
 ---
 
 >## 54. How does Node.js overcome the problem of blocking I/O operations?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **How Node.js Overcomes Blocking I/O Operations**
 
@@ -6369,12 +6371,12 @@ Node.js relies on the **libuv** library to handle asynchronous I/O operations. L
    - A library that provides cross-platform support for asynchronous I/O and manages the event loop.
 
 By leveraging these features, Node.js efficiently handles I/O-bound tasks and ensures high performance and scalability.
-</details>
+
 
 ---
 
 >## 55.	What are the security implementations that are present in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Security Implementations in Node.js**
 
@@ -6593,12 +6595,12 @@ Node.js provides several built-in features and best practices to help developers
    - Implement rate limiting, CSP, and secure cookies.
 
 By following these security implementations and best practices, you can build secure and robust Node.js applications.
-</details>
+
 
 ---
 
 >## 56.	What are LTS releases of Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **LTS Releases of Node.js**
 
@@ -6706,12 +6708,12 @@ Node.js follows a predictable release schedule, with new versions being released
    - Use tools like `nvm` to install and switch to the latest LTS version.
 
 By understanding LTS releases, you can ensure that your Node.js applications remain stable, secure, and well-supported in production environments.
-</details>
+
 
 ---
 
 >## 57. What are global objects in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Global Objects in Node.js**
 
@@ -6919,12 +6921,12 @@ console.log(decoded); // Output: Hello, World!
    - Provide essential functionality for building Node.js applications.
 
 By understanding global objects, you can leverage their features to build efficient and robust Node.js applications.
-</details>
+
 
 ---
 
 >## 58.**Why is `assert` Used in Node.js?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 The `assert` module in Node.js is a built-in utility for writing **unit tests** and performing **runtime validations**. It provides a set of assertion functions that help ensure your code behaves as expected by checking conditions and throwing errors if those conditions are not met.
 
@@ -7079,12 +7081,12 @@ assert.strictEqual(multiply(2, 3), 5); // Throws an AssertionError
    - Simple, built-in, and effective for debugging and testing.
 
 By understanding the `assert` module, you can write robust tests and validations to ensure the reliability of your Node.js applications.
-</details>
+
 
 ---
 
 >## 59.	What is the use of the connect module in Node.js?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Use of the `connect` Module in Node.js**
 
@@ -7216,12 +7218,12 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
    - `connect` is simpler and more minimalistic, while Express.js is more feature-rich.
 
 By understanding the `connect` module, you can gain insights into middleware and how it forms the foundation for more advanced frameworks like Express.js.
-</details>
+
 
 ---
 
 >## 60. How does Node.js handle the child threads?
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **How Node.js Handles Child Threads**
 
@@ -7381,12 +7383,12 @@ if (cluster.isMaster) {
    - Ideal for leveraging multi-core systems.
 
 By understanding how Node.js handles child threads, you can effectively manage CPU-bound tasks and improve the performance of your applications.
-</details>
+
 
 ---
 
 >## 61. **What is a thread pool, and which library handles it in Node.js?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **What is a Thread Pool?**
 
@@ -7481,14 +7483,14 @@ console.log('End of script');
    - Offloading I/O-bound and CPU-bound tasks to avoid blocking the main event loop.
 
 By understanding the thread pool and its role in Node.js, you can optimize the performance of your applications and handle resource-intensive tasks effectively.
-</details>
+
 
 ---
 
 
 
 >## 62. **How are worker threads different from clusters?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Worker Threads vs. Clusters in Node.js**
 
@@ -7619,13 +7621,13 @@ if (cluster.isMaster) {
    - Worker threads are better for CPU-bound tasks, while clusters are better for scaling and fault tolerance.
 
 By understanding the differences between worker threads and clusters, you can choose the appropriate mechanism to optimize the performance and reliability of your Node.js applications.
-</details>
+
 
 ---
 
 
 >## 63. **What is a thread pool, and which library handles it in Node.js?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **What is a Thread Pool?**
 
@@ -7720,13 +7722,13 @@ console.log('End of script');
    - Offloading I/O-bound and CPU-bound tasks to avoid blocking the main event loop.
 
 By understanding the thread pool and its role in Node.js, you can optimize the performance of your applications and handle resource-intensive tasks effectively.
-</details>
+
 
 ---
 
 
 >## 64. **How to measure the duration of async operations?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Measuring the Duration of Asynchronous Operations in Node.js**
 
@@ -7898,13 +7900,13 @@ suite.add('Async operation', function(deferred) {
    - Use libraries like `benchmark` for more advanced performance testing.
 
 By understanding these methods, you can effectively measure and optimize the performance of asynchronous operations in your Node.js applications.
-</details>
+
 
 ---
 
 
 >## 65. **How to measure the performance of async operations?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Measuring the Performance of Asynchronous Operations in Node.js**
 
@@ -8076,14 +8078,14 @@ suite.add('Async operation', function(deferred) {
    - Use libraries like `benchmark` for more advanced performance testing.
 
 By understanding these methods, you can effectively measure and optimize the performance of asynchronous operations in your Node.js applications.
-</details>
+
 
 ---
 
 
 
 >## 65. **What is meant by tracing in Node.js?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Tracing in Node.js**
 
@@ -8224,12 +8226,12 @@ Node.js provides several tools and modules for tracing:
    - Performance optimization, debugging, monitoring, and profiling.
 
 By understanding tracing in Node.js, you can effectively analyze and optimize the performance of your applications.
-</details>
+
 
 ---
 
 >## 66. **What is meant by tracing in Node.js?**
-<details><summary><b>Answer:</b></summary>
+<summary><b>Answer:</b></summary>
 
 #### **Use of the `crypto` Module in Node.js**
 
@@ -8412,7 +8414,7 @@ The `crypto` module in Node.js provides **cryptographic functionality** that inc
    - Hashing, HMAC, encryption/decryption, signing/verification, random number generation, and key generation.
 
 By understanding the `crypto` module, you can implement secure and reliable cryptographic operations in your Node.js applications.
-</details>
+
 
 ---
 
