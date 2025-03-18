@@ -1,4 +1,4 @@
-﻿>### 1. **Interceptor Use Case and How It Differs from Middleware:**
+﻿>## 1. **Interceptor Use Case and How It Differs from Middleware:**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -160,7 +160,7 @@ By understanding the use cases and differences between interceptors and middlewa
 
 ---
 
->### 2. **Node.js Event-Driven Architecture (Event Loop):**
+>## 2. **Node.js Event-Driven Architecture (Event Loop):**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -332,7 +332,7 @@ By understanding Node.js's event-driven architecture and the event loop, you can
 
 ---
 
->### 3. **Tracking Sessions in Node.js:**
+>## 3. **Tracking Sessions in Node.js:**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -495,7 +495,7 @@ By understanding these methods, you can implement session tracking in Node.js ap
 
 ---
 
->### 4. **How Event-Driven Architecture Works:**
+>## 4. **How Event-Driven Architecture Works:**
 
 <details><summary><b>Answer Explanation:</b></summary>
 
@@ -634,7 +634,7 @@ By understanding event-driven architecture, you can design systems that are scal
 
 ---
 
->### 5. **Tracing User Data Through Express:**
+>## 5. **Tracing User Data Through Express:**
   
 <details><summary><b>Answer Explanation:</b></summary>
 
@@ -814,14 +814,14 @@ By implementing these techniques, you can effectively trace user data in your Ex
    </details>
 
 ---
->### 6. **TypeDI in TypeORM:**
+>## 6. **TypeDI in TypeORM:**
 <details><summary><b>Answer:</b></summary>
 
 - **TypeDI** is a dependency injection library for TypeScript and JavaScript. In TypeORM, it is used to manage the lifecycle of services and repositories by providing automatic dependency injection.
    </details>
 
 ---
->### 7. **what cluster in nodejs and mongodb?**
+>## 7. **what cluster in nodejs and mongodb?**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -932,7 +932,7 @@ By understanding clustering in both Node.js and MongoDB, you can design scalable
 
 ---
 
->### 8. **What Is TypeORM?**
+>## 8. **What Is TypeORM?**
 TypeORM is an Object-Relational Mapper (ORM) for TypeScript and JavaScript that allows you to interact with databases through object-oriented models. It supports multiple databases like PostgreSQL, MySQL, SQLite, etc.
 
 - **Modules**:
@@ -942,7 +942,7 @@ TypeORM is an Object-Relational Mapper (ORM) for TypeScript and JavaScript that 
 
 ---
 
->### 9. **Clustering in Node.js:**
+>## 9. **Clustering in Node.js:**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -1073,7 +1073,7 @@ By understanding clustering in Node.js, you can build high-performance, scalable
 
 ---
 
->### 10. **Utilizing All CPU Cores in Node.js:**
+>## 10. **Utilizing All CPU Cores in Node.js:**
 
 <details><summary><b>Answer:</b></summary>
 
@@ -1206,7 +1206,7 @@ By understanding these techniques, you can fully utilize all CPU cores in your N
 ---
 
 
->### 11. **For Node.js, why does Google use the V8 engine?**
+>## 11. **For Node.js, why does Google use the V8 engine?**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -1277,7 +1277,7 @@ By using the V8 engine, Node.js achieves high performance, scalability, and cros
 
 
 
->### 12. **Handling Concurrency in Node.js:**
+>## 12. **Handling Concurrency in Node.js:**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -1459,7 +1459,7 @@ By understanding these techniques, you can effectively handle concurrency in Nod
 
 ---
 
->### 13. **How the Event Loop Works:**
+>## 13. **How the Event Loop Works:**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -1570,7 +1570,7 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 
 ---
 
->### 14. **Why Use Express.js Framework?**
+>## 14. **Why Use Express.js Framework?**
 <details><summary><b>Answer:</b></summary>
 
 - Express simplifies routing, middleware integration, and handling HTTP requests. It provides easy access to HTTP request and response objects and supports error handling, making development more efficient and scalable.
@@ -1578,7 +1578,7 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 
 ---
 
->### 15. **Higher-Order Component (HOC):**
+>## 15. **Higher-Order Component (HOC):**
 <details><summary><b>Answer:</b></summary>
 
 - **HOC** is a pattern in React that involves a function taking a component and returning a new component with additional functionality or behavior, often used for code reuse and handling cross-cutting concerns (like authentication).
@@ -1586,7 +1586,7 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 
 ---
 
->### 16. **Closure with Real-Time Example:**
+>## 16. **Closure with Real-Time Example:**
 <summary><b>Answer:</b></summary>
 
 - **Closure** is a function that retains access to its lexical scope, even when executed outside of that scope. For example:
@@ -1606,7 +1606,7 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 
 ---
 
->### 17. **Problems with the Cluster Module:**
+>## 17. **Problems with the Cluster Module:**
 <summary><b>Answer:</b></summary>
 
 - **Challenges**:
@@ -1616,7 +1616,7 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 
 
 ---
->### 18. **Use Case of the Event Emitter:**
+>## 18. **Use Case of the Event Emitter:**
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -1799,7 +1799,7 @@ By understanding these use cases, you can effectively leverage the Event Emitter
 
 ---
 
->### 19. **Lifecycle of the Event Emitter:**
+>## 19. **Lifecycle of the Event Emitter:**
 <details><summary><b>Answer:</b></summary>
 
 - The lifecycle includes the creation of an emitter instance, attaching event listeners with `.on()`, emitting events with `.emit()`, and removing listeners using `.removeListener()` or `.off()`.
@@ -1807,7 +1807,7 @@ By understanding these use cases, you can effectively leverage the Event Emitter
 
 ---
 
->### 20. **Web APIs and Queues in the Event Loop:**
+>## 20. **Web APIs and Queues in the Event Loop:**
 <details><summary><b>Answer:</b></summary>
 
 - Web APIs (like `setTimeout`, `fetch`, etc.) are used for handling I/O operations. These APIs put callbacks into the callback queue when the operation is completed, which are then processed by the event loop during its phases.
@@ -1815,7 +1815,7 @@ By understanding these use cases, you can effectively leverage the Event Emitter
 
 ---
 
->### 21. **What Is an Event Emitter? Example:**
+>## 21. **What Is an Event Emitter? Example:**
 <details><summary><b>Answer:</b></summary>
 
 ```javascript
@@ -1830,7 +1830,7 @@ emitter.emit("event"); // Prints 'Event occurred!'
 
 ---
 
->### 22. **Managing Tasks in a Scheduler:**
+>## 22. **Managing Tasks in a Scheduler:**
 <details><summary><b>Answer:</b></summary>
 
 A scheduler would typically use a queue to manage tasks. Tasks are added to the queue and executed in order, based on a scheduling algorithm, possibly utilizing `setTimeout` or `setInterval` for periodic tasks.
@@ -1838,7 +1838,7 @@ A scheduler would typically use a queue to manage tasks. Tasks are added to the 
 
 ---
 
->### 23. **Garbage Collection in Node.js:**
+>## 23. **Garbage Collection in Node.js:**
 <details><summary><b>Answer:</b></summary>
 
 - Garbage collection in Node.js is done by the V8 JavaScript engine. It automatically reclaims memory from objects no longer in use, ensuring that memory is efficiently managed.
@@ -1846,7 +1846,7 @@ A scheduler would typically use a queue to manage tasks. Tasks are added to the 
 
 ---
 
->### 24. **Memory Leak and Prevention in Node.js:**
+>## 24. **Memory Leak and Prevention in Node.js:**
 <details><summary><b>Answer:</b></summary>
 
 - A **memory leak** happens when memory is allocated but not freed, usually caused by holding references to objects that are no longer needed.
@@ -1855,7 +1855,7 @@ A scheduler would typically use a queue to manage tasks. Tasks are added to the 
 
 ---
 
->### 25. **Web Workers:**
+>## 25. **Web Workers:**
 <details><summary><b>Answer:</b></summary>
 
 - Web Workers are used for running JavaScript code in parallel threads, separate from the main thread, to offload heavy computations and prevent UI blocking.
@@ -1863,7 +1863,7 @@ A scheduler would typically use a queue to manage tasks. Tasks are added to the 
 
 ---
 
->### 26. **Builder for NPM Package:**
+>## 26. **Builder for NPM Package:**
 <details><summary><b>Answer:</b></summary>
 
 - **Webpack** or **Rollup** are commonly used for bundling and building NPM packages, as they allow you to optimize and package your code efficiently for distribution.
@@ -1874,12 +1874,12 @@ Handling task/message queues in Node.js and NestJS typically involves using **me
 
 ---
 
->### 27. how you can handle task/message queues in both **Node.js** and **NestJS**.
+>## 27. how you can handle task/message queues in both **Node.js** and **NestJS**.
 <details><summary><b>Answer:</b></summary>
 
 To use message queues in **Node.js**, you'll typically use libraries like `amqplib` for **RabbitMQ**, `kafkajs` for **Kafka**, or `ioredis` for **Redis Queue**.
 
->#### **Example with RabbitMQ (using `amqplib`)**
+>### **Example with RabbitMQ (using `amqplib`)**
 
 1. **Install dependencies**:
 
@@ -1946,19 +1946,19 @@ To use message queues in **Node.js**, you'll typically use libraries like `amqpl
 
 ---
 
->#### **2. Using Message Queues in NestJS**
+>### **2. Using Message Queues in NestJS**
 
 NestJS offers an excellent abstraction over **message queues** using the **@nestjs/microservices** package. This allows you to build microservices that communicate via message queues easily.
 
 Here’s how you can handle message queues in **NestJS** with **RabbitMQ**:
 
->#### **Step 1: Install Dependencies**
+>### **Step 1: Install Dependencies**
 
 ```bash
 npm install @nestjs/microservices amqplib
 ```
 
->#### **Step 2: Setup RabbitMQ Microservice in NestJS**
+>### **Step 2: Setup RabbitMQ Microservice in NestJS**
 
 1. **AppModule**: Create the connection to RabbitMQ.
 
@@ -2073,11 +2073,11 @@ npm install @nestjs/microservices amqplib
 
 ---
 
->### **3. Handling Other Message Brokers in NestJS**
+>## **3. Handling Other Message Brokers in NestJS**
 
 You can also work with other message brokers like **Kafka** or **Redis** in NestJS:
 
->#### **Using Kafka**:
+>### **Using Kafka**:
 
 You would use the **KafkaTransport** to handle Kafka messages:
 
@@ -2106,7 +2106,7 @@ export class AppModule {
 }
 ```
 
->#### **Using Redis**:
+>### **Using Redis**:
 
 For Redis-based queues, you can use **Bull** or **BullMQ** with NestJS. First, install `@nestjs/bull`:
 
@@ -2116,7 +2116,7 @@ npm install @nestjs/bull bull
 
 ---
 
->### **Conclusion**
+>## **Conclusion**
 
 By using **message queues** in **Node.js** or **NestJS**, you can decouple microservices and implement robust, scalable systems. The key steps are:
 
@@ -2128,7 +2128,7 @@ By using **message queues** in **Node.js** or **NestJS**, you can decouple micro
 
 ---
 
->### 28. What is Node.js and Where can you use it?
+>## 28. What is Node.js and Where can you use it?
 
 <details><summary><b>Answer:</b></summary>
 
@@ -2198,7 +2198,7 @@ By understanding Node.js and its use cases, you can demonstrate your ability to 
 
 ---
 
->### 29. Why is Node.js `Single-threaded`? If Node.js is single-threaded, then how does it handle `concurrency`?
+>## 29. Why is Node.js `Single-threaded`? If Node.js is single-threaded, then how does it handle `concurrency`?
 <details><summary><b>Answer:</b></summary>
 
 #### **Why is Node.js Single-Threaded?**
@@ -2263,7 +2263,7 @@ By explaining this, you demonstrate a deep understanding of Node.js's architectu
 
 ---
 
->### 30.	Explain callback and callback hell in Node.js.
+>## 30.	Explain callback and callback hell in Node.js.
 <details><summary><b>Answer:</b></summary>
 
 #### **Callback in Node.js**
@@ -2422,7 +2422,7 @@ By explaining these concepts clearly, you demonstrate your understanding of asyn
 
 ---
 
->### 31.	What are the module, exports and default export in Node.js?
+>## 31.	What are the module, exports and default export in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 In Node.js, **modules**, **exports**, and **default exports** are fundamental concepts for organizing and sharing code across different files. Here's a detailed explanation of each:
@@ -2559,7 +2559,7 @@ By understanding these concepts, you can demonstrate your ability to write modul
 
 ---
 
->### 32. What does event-driven programming mean, event, event EventEmitter and event loop in Nodejs?
+>## 32. What does event-driven programming mean, event, event EventEmitter and event loop in Nodejs?
 <details><summary><b>Answer:</b></summary>
 
 #### **Event-Driven Programming in Node.js**
@@ -2696,7 +2696,7 @@ By understanding these concepts, you can explain how Node.js achieves its high p
 
 ---
 
->### 33. What is process.nextTick, setimmediat, setinterval, settimeout, nextTick and child process?
+>## 33. What is process.nextTick, setimmediat, setinterval, settimeout, nextTick and child process?
 <details><summary><b>Answer:</b></summary>
 
 In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`setTimeout`**, and **child processes** are important concepts related to asynchronous execution and process management. Here's a detailed explanation of each:
@@ -2888,7 +2888,7 @@ By understanding these concepts, you can demonstrate your knowledge of asynchron
 
 ---
 
->### 34. What are the two types of API functions in Node.js?
+>## 34. What are the two types of API functions in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 In Node.js, API functions can be broadly categorized into two types based on their execution behavior:
@@ -3030,7 +3030,7 @@ By understanding these two types of APIs, you can choose the right approach base
 
 ---
 
->### 35. What is the package.json and package.lock.json file in Nodejs?
+>## 35. What is the package.json and package.lock.json file in Nodejs?
 <details><summary><b>Answer:</b></summary>
 
 In Node.js, **`package.json`** and **`package-lock.json`** are two essential files that manage dependencies, scripts, and metadata for a Node.js project. Here's a detailed explanation of each:
@@ -3188,7 +3188,7 @@ By understanding these files, you can demonstrate your ability to manage depende
 
 ---
 
->### 36.How would you use a URL module in Node.js?
+>## 36.How would you use a URL module in Node.js?
 
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -3381,7 +3381,7 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
 ---
 
 
->### 37. **What is a passport in Node.js?**
+>## 37. **What is a passport in Node.js?**
  
 <details><summary><b>Answer Explanations:</b></summary>
 
@@ -3570,7 +3570,7 @@ By understanding Passport, you can implement secure and flexible authentication 
 
 ---
 
->### 38. what is express.js and how it help in node application
+>## 38. what is express.js and how it help in node application
 <details><summary><b>Answer:</b></summary>
 
 #### **What is Express.js?**
@@ -3738,7 +3738,7 @@ By understanding Express.js, you can demonstrate your ability to build efficient
 
 ---
 
->### 39.	What are Buffer and Streams in Node.js?
+>## 39.	What are Buffer and Streams in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 In Node.js, **Buffers** and **Streams** are fundamental concepts for handling binary data and managing data flow efficiently. They are particularly useful for working with large datasets, file systems, and network communications.
@@ -3907,7 +3907,7 @@ By understanding Buffers and Streams, you can demonstrate your ability to handle
 
 ---
 
->### 40.	How do you create a simple server in Node.js that returns Hello World and express.js and how use secure network for nodejs?
+>## 40.	How do you create a simple server in Node.js that returns Hello World and express.js and how use secure network for nodejs?
 <details><summary><b>Answer:</b></summary>
 
 #### **1. Creating a Simple Server in Node.js (Without Express)**
@@ -4053,7 +4053,7 @@ By understanding these concepts, you can demonstrate your ability to create and 
 
 ---
 
->### 41. Explain the concept of middleware in Node.js.
+>## 41. Explain the concept of middleware in Node.js.
 <details><summary><b>Answer:</b></summary>
 
 #### **Middleware in Node.js**
@@ -4227,7 +4227,7 @@ By understanding middleware, you can demonstrate your ability to modularize and 
 
 ---
 
->### 42.	What is REPL in Node.js?
+>## 42.	What is REPL in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **REPL in Node.js**
@@ -4369,7 +4369,7 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
 
 ---
 
->### 43.	What is piping in Node.js?
+>## 43.	What is piping in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **Piping in Node.js**
@@ -4512,7 +4512,7 @@ By understanding piping, you can demonstrate your ability to handle data flow ef
 
 ---
 
->### 44. What is a reactor pattern in Node.js? How Does Node.js Use the Reactor Pattern?
+>## 44. What is a reactor pattern in Node.js? How Does Node.js Use the Reactor Pattern?
 <details><summary><b>Answer:</b></summary>
 
 #### **Reactor Pattern in Node.js**
@@ -4646,7 +4646,7 @@ By understanding the Reactor Pattern, you can explain how Node.js achieves its h
 
 ---
 
->### 45. What is a test pyramid in Node.js?
+>## 45. What is a test pyramid in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **Test Pyramid in Node.js**
@@ -4802,7 +4802,7 @@ By understanding the Test Pyramid, you can demonstrate your ability to design a 
 
 ---
 
->### 46. what is the use of body parser in node js
+>## 46. what is the use of body parser in node js
 <details><summary><b>Answer:</b></summary>
 
 #### **Body Parser in Node.js**
@@ -4959,7 +4959,7 @@ By understanding body-parser, you can demonstrate your ability to handle client-
 
 ---
 
->### 47. What is extended: true in urlencoded()?
+>## 47. What is extended: true in urlencoded()?
 <details><summary><b>Answer:</b></summary>
 
 #### **`extended: true` in `urlencoded()`**
@@ -5122,7 +5122,7 @@ By understanding the `extended` option, you can choose the appropriate configura
 
 ---
 
->### 48.	Describe Node.js exit codes.
+>## 48.	Describe Node.js exit codes.
 <details><summary><b>Answer:</b></summary>
 
 #### **Node.js Exit Codes**
@@ -5250,7 +5250,7 @@ By understanding Node.js exit codes, you can debug issues more effectively and e
 
 ---
 
->### 49.	What are the different types of HTTP requests?
+>## 49.	What are the different types of HTTP requests?
 <details><summary><b>Answer:</b></summary>
 
 #### **Different Types of HTTP Requests**
@@ -5441,7 +5441,7 @@ By understanding these HTTP request methods, you can design and interact with RE
 
 ---
 
->### 50.	How would you connect a MongoDB database to Node.js?
+>## 50.	How would you connect a MongoDB database to Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **Connecting a MongoDB Database to Node.js**
@@ -5629,7 +5629,7 @@ By understanding these approaches, you can demonstrate your ability to connect a
 
 ---
 
->### 51. What is a first-class function, higher order function and error first function in nodejs?
+>## 51. What is a first-class function, higher order function and error first function in nodejs?
 <details><summary><b>Answer:</b></summary>
 
 #### **1. First-Class Functions**
@@ -5758,7 +5758,7 @@ By understanding these concepts, you can demonstrate your knowledge of JavaScrip
 
 ---
 
->### 52. What is the difference between asynchronous and synchronous functions?
+>## 52. What is the difference between asynchronous and synchronous functions?
 <details><summary><b>Answer:</b></summary>
 
 #### **Difference Between Asynchronous and Synchronous Functions**
@@ -5925,7 +5925,7 @@ By understanding these differences, you can choose the appropriate approach for 
 
 ---
 
->### 53.	What is the order of execution in control flow statements?
+>## 53.	What is the order of execution in control flow statements?
 <details><summary><b>Answer:</b></summary>
 
 #### **Order of Execution in Control Flow Statements**
@@ -6191,7 +6191,7 @@ By understanding the order of execution, you can write predictable and efficient
 
 ---
 
->### 54. How does Node.js overcome the problem of blocking I/O operations?
+>## 54. How does Node.js overcome the problem of blocking I/O operations?
 <details><summary><b>Answer:</b></summary>
 
 #### **How Node.js Overcomes Blocking I/O Operations**
@@ -6373,7 +6373,7 @@ By leveraging these features, Node.js efficiently handles I/O-bound tasks and en
 
 ---
 
->### 55.	What are the security implementations that are present in Node.js?
+>## 55.	What are the security implementations that are present in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **Security Implementations in Node.js**
@@ -6597,7 +6597,7 @@ By following these security implementations and best practices, you can build se
 
 ---
 
->### 56.	What are LTS releases of Node.js?
+>## 56.	What are LTS releases of Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **LTS Releases of Node.js**
@@ -6710,7 +6710,7 @@ By understanding LTS releases, you can ensure that your Node.js applications rem
 
 ---
 
->### 57. What are global objects in Node.js?
+>## 57. What are global objects in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **Global Objects in Node.js**
@@ -6923,7 +6923,7 @@ By understanding global objects, you can leverage their features to build effici
 
 ---
 
->### 58.**Why is `assert` Used in Node.js?**
+>## 58.**Why is `assert` Used in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
 The `assert` module in Node.js is a built-in utility for writing **unit tests** and performing **runtime validations**. It provides a set of assertion functions that help ensure your code behaves as expected by checking conditions and throwing errors if those conditions are not met.
@@ -7083,7 +7083,7 @@ By understanding the `assert` module, you can write robust tests and validations
 
 ---
 
->### 59.	What is the use of the connect module in Node.js?
+>## 59.	What is the use of the connect module in Node.js?
 <details><summary><b>Answer:</b></summary>
 
 #### **Use of the `connect` Module in Node.js**
@@ -7220,7 +7220,7 @@ By understanding the `connect` module, you can gain insights into middleware and
 
 ---
 
->### 60. How does Node.js handle the child threads?
+>## 60. How does Node.js handle the child threads?
 <details><summary><b>Answer:</b></summary>
 
 #### **How Node.js Handles Child Threads**
@@ -7385,7 +7385,7 @@ By understanding how Node.js handles child threads, you can effectively manage C
 
 ---
 
->### 61. **What is a thread pool, and which library handles it in Node.js?**
+>## 61. **What is a thread pool, and which library handles it in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
 #### **What is a Thread Pool?**
@@ -7487,7 +7487,7 @@ By understanding the thread pool and its role in Node.js, you can optimize the p
 
 
 
->### 62. **How are worker threads different from clusters?**
+>## 62. **How are worker threads different from clusters?**
 <details><summary><b>Answer:</b></summary>
 
 #### **Worker Threads vs. Clusters in Node.js**
@@ -7624,7 +7624,7 @@ By understanding the differences between worker threads and clusters, you can ch
 ---
 
 
->### 63. **What is a thread pool, and which library handles it in Node.js?**
+>## 63. **What is a thread pool, and which library handles it in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
 #### **What is a Thread Pool?**
@@ -7725,7 +7725,7 @@ By understanding the thread pool and its role in Node.js, you can optimize the p
 ---
 
 
->### 64. **How to measure the duration of async operations?**
+>## 64. **How to measure the duration of async operations?**
 <details><summary><b>Answer:</b></summary>
 
 #### **Measuring the Duration of Asynchronous Operations in Node.js**
@@ -7903,7 +7903,7 @@ By understanding these methods, you can effectively measure and optimize the per
 ---
 
 
->### 65. **How to measure the performance of async operations?**
+>## 65. **How to measure the performance of async operations?**
 <details><summary><b>Answer:</b></summary>
 
 #### **Measuring the Performance of Asynchronous Operations in Node.js**
@@ -8082,7 +8082,7 @@ By understanding these methods, you can effectively measure and optimize the per
 
 
 
->### 65. **What is meant by tracing in Node.js?**
+>## 65. **What is meant by tracing in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
 #### **Tracing in Node.js**
@@ -8228,7 +8228,7 @@ By understanding tracing in Node.js, you can effectively analyze and optimize th
 
 ---
 
->### 66. **What is meant by tracing in Node.js?**
+>## 66. **What is meant by tracing in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
 #### **Use of the `crypto` Module in Node.js**
