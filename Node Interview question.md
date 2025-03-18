@@ -1,33 +1,20 @@
 ﻿>### 1. **Interceptor Use Case and How It Differs from Middleware:**
-### **Key Takeaways for an Interview:**
-
-1. **Interceptors:**
-   - Used in client-side frameworks like Angular to intercept and modify HTTP requests/responses.
-   - Common use cases: Request/response transformation, error handling.
-
-2. **Middleware:**
-   - Used in server-side frameworks like Express.js to process requests/responses.
-   - Common use cases: Request/response processing, authentication, error handling.
-
-3. **Differences:**
-   - Interceptors are client-side, while middleware is server-side.
-   - Interceptors focus on HTTP requests/responses, while middleware handles the entire request/response lifecycle.
 
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Interceptor Use Case and How It Differs from Middleware**
+#### **Interceptor Use Case and How It Differs from Middleware**
 
 In the context of web development, **interceptors** and **middleware** are both used to process requests and responses, but they serve different purposes and are implemented differently. Here's a detailed explanation of their use cases and differences:
 
 ---
 
-### **1. Interceptors**
+#### **1. Interceptors**
 
-#### **What is an Interceptor?**
+##### **What is an Interceptor?**
 - An **interceptor** is a mechanism that allows you to intercept and modify HTTP requests and responses before they are sent or received.
 - Commonly used in frameworks like **Angular** for client-side HTTP request/response handling.
 
-#### **Use Cases:**
+##### **Use Cases:**
 1. **Request Transformation:**
    - Modify request headers, body, or URL before sending it to the server.
    - Example: Adding an authentication token to every request.
@@ -80,13 +67,13 @@ In the context of web development, **interceptors** and **middleware** are both 
 
 ---
 
-### **2. Middleware**
+#### **2. Middleware**
 
-#### **What is Middleware?**
+##### **What is Middleware?**
 - **Middleware** is a function that processes requests and responses in a server-side application.
 - Commonly used in frameworks like **Express.js** for server-side request/response handling.
 
-#### **Use Cases:**
+##### **Use Cases:**
 1. **Request Processing:**
    - Modify or validate incoming requests.
    - Example: Logging request details.
@@ -142,7 +129,7 @@ In the context of web development, **interceptors** and **middleware** are both 
 
 ---
 
-### **Key Differences Between Interceptors and Middleware**
+#### **Key Differences Between Interceptors and Middleware**
 
 | **Feature**        | **Interceptor**                               | **Middleware**                             |
 | ------------------ | --------------------------------------------- | ------------------------------------------ |
@@ -154,6 +141,19 @@ In the context of web development, **interceptors** and **middleware** are both 
 
 ---
 
+#### **Key Takeaways for an Interview:**
+
+1. **Interceptors:**
+   - Used in client-side frameworks like Angular to intercept and modify HTTP requests/responses.
+   - Common use cases: Request/response transformation, error handling.
+
+2. **Middleware:**
+   - Used in server-side frameworks like Express.js to process requests/responses.
+   - Common use cases: Request/response processing, authentication, error handling.
+
+3. **Differences:**
+   - Interceptors are client-side, while middleware is server-side.
+   - Interceptors focus on HTTP requests/responses, while middleware handles the entire request/response lifecycle.
 
 By understanding the use cases and differences between interceptors and middleware, you can effectively implement them in your applications.
 </details>
@@ -161,36 +161,22 @@ By understanding the use cases and differences between interceptors and middlewa
 ---
 
 >### 2. **Node.js Event-Driven Architecture (Event Loop):**
-#### **Key Takeaways for an Interview:**
-
-1. **Event-Driven Architecture:**
-   - Node.js uses events to handle asynchronous operations efficiently.
-
-2. **Event Loop:**
-   - The event loop continuously checks for and processes events.
-   - Phases: Timers, pending callbacks, poll, check, close callbacks.
-
-3. **Non-Blocking I/O:**
-   - Node.js uses non-blocking I/O to handle operations without blocking the main thread.
-
-4. **Worker Threads:**
-   - Used for CPU-bound tasks to prevent blocking the main thread.
 
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Node.js Event-Driven Architecture (Event Loop)**
+#### **Node.js Event-Driven Architecture (Event Loop)**
 
 Node.js is built on an **event-driven architecture**, which allows it to handle multiple operations concurrently without blocking the main thread. At the core of this architecture is the **event loop**, which enables Node.js to perform non-blocking I/O operations efficiently. Here's a detailed explanation of Node.js's event-driven architecture and the event loop:
 
 ---
 
-### **1. Event-Driven Architecture**
+#### **1. Event-Driven Architecture**
 
-#### **What is Event-Driven Architecture?**
+##### **What is Event-Driven Architecture?**
 - In an event-driven architecture, the flow of the program is determined by **events** such as user actions, I/O operations, or messages.
 - Node.js uses this architecture to handle asynchronous operations efficiently.
 
-#### **Key Components:**
+##### **Key Components:**
 1. **Event Emitters:**
    - Objects that emit events (e.g., `http.Server`, `fs.ReadStream`).
    - Example:
@@ -222,13 +208,13 @@ Node.js is built on an **event-driven architecture**, which allows it to handle 
 
 ---
 
-### **2. Event Loop**
+#### **2. Event Loop**
 
-#### **What is the Event Loop?**
+##### **What is the Event Loop?**
 - The **event loop** is the core of Node.js's asynchronous, non-blocking I/O model.
 - It continuously checks for pending events and executes their associated callbacks.
 
-#### **Phases of the Event Loop:**
+##### **Phases of the Event Loop:**
 1. **Timers:**
    - Executes callbacks scheduled by `setTimeout` and `setInterval`.
 
@@ -247,7 +233,7 @@ Node.js is built on an **event-driven architecture**, which allows it to handle 
 6. **Close Callbacks:**
    - Executes close events (e.g., `socket.on('close')`).
 
-#### **Example: Event Loop in Action**
+##### **Example: Event Loop in Action**
 ```javascript
 console.log('Start');
 
@@ -276,11 +262,11 @@ Immediate
 
 ---
 
-### **3. Non-Blocking I/O**
+#### **3. Non-Blocking I/O**
 
 Node.js uses **non-blocking I/O** to handle operations like file I/O, network requests, and database queries without blocking the main thread.
 
-#### **Example: Non-Blocking File Read**
+##### **Example: Non-Blocking File Read**
 ```javascript
 const fs = require('fs');
 
@@ -302,11 +288,11 @@ File content: (contents of example.txt)
 
 ---
 
-### **4. Worker Threads**
+#### **4. Worker Threads**
 
 For **CPU-bound tasks**, Node.js provides the `worker_threads` module to offload work to separate threads, preventing the main thread from being blocked.
 
-#### **Example: Using Worker Threads**
+##### **Example: Using Worker Threads**
 ```javascript
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
@@ -326,6 +312,20 @@ if (isMainThread) {
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **Event-Driven Architecture:**
+   - Node.js uses events to handle asynchronous operations efficiently.
+
+2. **Event Loop:**
+   - The event loop continuously checks for and processes events.
+   - Phases: Timers, pending callbacks, poll, check, close callbacks.
+
+3. **Non-Blocking I/O:**
+   - Node.js uses non-blocking I/O to handle operations without blocking the main thread.
+
+4. **Worker Threads:**
+   - Used for CPU-bound tasks to prevent blocking the main thread.
 
 By understanding Node.js's event-driven architecture and the event loop, you can build high-performance, scalable applications.
 </details>
@@ -333,32 +333,20 @@ By understanding Node.js's event-driven architecture and the event loop, you can
 ---
 
 >### 3. **Tracking Sessions in Node.js:**
-#### **Key Takeaways for an Interview:**
-
-1. **`express-session`:**
-   - Middleware for managing sessions in Express.js.
-   - Stores session data in memory or a session store (e.g., Redis, MongoDB).
-
-2. **Session Stores:**
-   - Use `connect-redis` or `connect-mongo` for production-ready session storage.
-
-3. **JWT:**
-   - Stateless session management using JSON Web Tokens.
-   - Ideal for distributed systems and APIs.
 
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Tracking Sessions in Node.js**
+#### **Tracking Sessions in Node.js**
 
 Tracking sessions in Node.js is essential for maintaining user state across multiple requests. Sessions allow you to store user-specific data (e.g., authentication status, preferences) on the server and associate it with a unique session ID. Here's how to implement session tracking in Node.js:
 
 ---
 
-### **1. Using `express-session` Middleware**
+#### **1. Using `express-session` Middleware**
 
 The `express-session` middleware is the most common way to handle sessions in Node.js applications using Express.js.
 
-#### **Steps:**
+##### **Steps:**
 1. **Install `express-session`:**
    ```bash
    npm install express-session
@@ -393,7 +381,7 @@ The `express-session` middleware is the most common way to handle sessions in No
    });
    ```
 
-#### **Key Options:**
+##### **Key Options:**
 - **`secret`:** A secret key used to sign the session ID cookie.
 - **`resave`:** Forces the session to be saved back to the session store, even if it wasn't modified.
 - **`saveUninitialized`:** Forces a new session to be saved to the store.
@@ -401,11 +389,11 @@ The `express-session` middleware is the most common way to handle sessions in No
 
 ---
 
-### **2. Using Session Stores**
+#### **2. Using Session Stores**
 
 By default, `express-session` stores session data in memory, which is not suitable for production. You can use session stores like `connect-redis` or `connect-mongo` to store session data in a database.
 
-#### **Example: Using `connect-redis`**
+##### **Example: Using `connect-redis`**
 1. **Install `connect-redis` and `redis`:**
    ```bash
    npm install connect-redis redis
@@ -446,11 +434,11 @@ By default, `express-session` stores session data in memory, which is not suitab
 
 ---
 
-### **3. Using JSON Web Tokens (JWT)**
+#### **3. Using JSON Web Tokens (JWT)**
 
 For stateless session management, you can use **JSON Web Tokens (JWT)**. JWTs are encoded tokens that store user information and are sent with each request.
 
-#### **Steps:**
+##### **Steps:**
 1. **Install `jsonwebtoken`:**
    ```bash
    npm install jsonwebtoken
@@ -489,7 +477,18 @@ For stateless session management, you can use **JSON Web Tokens (JWT)**. JWTs ar
 
 ---
 
+##### **Key Takeaways for an Interview:**
 
+1. **`express-session`:**
+   - Middleware for managing sessions in Express.js.
+   - Stores session data in memory or a session store (e.g., Redis, MongoDB).
+
+2. **Session Stores:**
+   - Use `connect-redis` or `connect-mongo` for production-ready session storage.
+
+3. **JWT:**
+   - Stateless session management using JSON Web Tokens.
+   - Ideal for distributed systems and APIs.
 
 By understanding these methods, you can implement session tracking in Node.js applications effectively.
   </details>
@@ -497,32 +496,16 @@ By understanding these methods, you can implement session tracking in Node.js ap
 ---
 
 >### 4. **How Event-Driven Architecture Works:**
-#### **Key Takeaways for an Interview:**
-
-1. **Event-Driven Architecture:**
-   - A design pattern where the flow of the program is determined by events.
-
-2. **Key Components:**
-   - Event emitters, event listeners, event loop, and event queue.
-
-3. **How It Works:**
-   - Events are generated, queued, processed, and handled by the event loop.
-
-4. **Benefits:**
-   - Scalability, responsiveness, flexibility, and decoupling.
-
-5. **Use Cases:**
-   - Web servers, GUI applications, real-time systems, and message brokers.
 
 <details><summary><b>Answer Explanation:</b></summary>
 
-### **How Event-Driven Architecture Works**
+#### **How Event-Driven Architecture Works**
 
 **Event-Driven Architecture (EDA)** is a design pattern where the flow of the program is determined by **events** such as user actions, sensor outputs, or messages from other programs. This architecture is widely used in systems that require high responsiveness, scalability, and flexibility. Here's how it works:
 
 ---
 
-### **1. Key Components of Event-Driven Architecture**
+#### **1. Key Components of Event-Driven Architecture**
 
 1. **Event Emitters:**
    - Objects or components that generate events.
@@ -541,7 +524,7 @@ By understanding these methods, you can implement session tracking in Node.js ap
 
 ---
 
-### **2. How Event-Driven Architecture Works**
+#### **2. How Event-Driven Architecture Works**
 
 1. **Event Generation:**
    - An event emitter generates an event (e.g., a user clicks a button or a message is received).
@@ -558,11 +541,11 @@ By understanding these methods, you can implement session tracking in Node.js ap
 
 ---
 
-### **3. Example: Event-Driven Architecture in Node.js**
+#### **3. Example: Event-Driven Architecture in Node.js**
 
 Node.js is a prime example of an event-driven architecture. It uses an **event loop** to handle asynchronous operations efficiently.
 
-#### **Example: Event Loop in Node.js**
+##### **Example: Event Loop in Node.js**
 ```javascript
 const fs = require('fs');
 
@@ -582,7 +565,7 @@ End of script
 File content: (contents of example.txt)
 ```
 
-#### **Explanation:**
+##### **Explanation:**
 1. **Event Generation:**
    - The `fs.readFile` operation generates an event when the file is read.
 
@@ -597,7 +580,7 @@ File content: (contents of example.txt)
 
 ---
 
-### **4. Benefits of Event-Driven Architecture**
+#### **4. Benefits of Event-Driven Architecture**
 
 1. **Scalability:**
    - Handles a large number of events efficiently, making it ideal for high-concurrency applications.
@@ -613,7 +596,7 @@ File content: (contents of example.txt)
 
 ---
 
-### **5. Use Cases of Event-Driven Architecture**
+#### **5. Use Cases of Event-Driven Architecture**
 
 1. **Web Servers:**
    - Handle multiple client requests concurrently using non-blocking I/O.
@@ -629,6 +612,22 @@ File content: (contents of example.txt)
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **Event-Driven Architecture:**
+   - A design pattern where the flow of the program is determined by events.
+
+2. **Key Components:**
+   - Event emitters, event listeners, event loop, and event queue.
+
+3. **How It Works:**
+   - Events are generated, queued, processed, and handled by the event loop.
+
+4. **Benefits:**
+   - Scalability, responsiveness, flexibility, and decoupling.
+
+5. **Use Cases:**
+   - Web servers, GUI applications, real-time systems, and message brokers.
 
 By understanding event-driven architecture, you can design systems that are scalable, responsive, and modular.
    </details>
@@ -636,32 +635,19 @@ By understanding event-driven architecture, you can design systems that are scal
 ---
 
 >### 5. **Tracing User Data Through Express:**
-  #### **Key Takeaways for an Interview:**
-
-1. **Middleware:**
-   - Use middleware to attach and log user data.
-
-2. **Request ID:**
-   - Assign a unique request ID to trace user data across services or logs.
-
-3. **Third-Party Libraries:**
-   - Use libraries like `morgan` for logging and `cls-hooked` for context propagation.
-
-4. **Use Cases:**
-   - Debugging, monitoring, and auditing user activity.
   
 <details><summary><b>Answer Explanation:</b></summary>
 
-### **Tracing User Data Through Express**
+#### **Tracing User Data Through Express**
 Tracing user data in an Express.js application involves tracking and logging user-related information (e.g., user ID, session ID, IP address) as it flows through the application. This is useful for debugging, monitoring, and auditing purposes. Here's how you can trace user data in Express:
 
 ---
 
-### **1. Using Middleware to Attach User Data**
+#### **1. Using Middleware to Attach User Data**
 
 Middleware functions can be used to attach user data to the request object, making it available throughout the request lifecycle.
 
-#### **Example: Attaching User Data**
+##### **Example: Attaching User Data**
 ```javascript
 const express = require('express');
 const app = express();
@@ -683,11 +669,11 @@ app.listen(3000, () => {
 
 ---
 
-### **2. Logging User Data**
+#### **2. Logging User Data**
 
 You can log user data at various points in the request lifecycle using middleware.
 
-#### **Example: Logging User Data**
+##### **Example: Logging User Data**
 ```javascript
 const express = require('express');
 const app = express();
@@ -711,11 +697,11 @@ app.listen(3000, () => {
 
 ---
 
-### **3. Using Request ID for Tracing**
+#### **3. Using Request ID for Tracing**
 
 Assigning a unique **request ID** to each request helps trace user data across multiple services or logs.
 
-#### **Example: Using Request ID**
+##### **Example: Using Request ID**
 ```javascript
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
@@ -747,11 +733,11 @@ app.listen(3000, () => {
 
 ---
 
-### **4. Using Third-Party Libraries**
+#### **4. Using Third-Party Libraries**
 
 Third-party libraries like **morgan** (for logging) and **cls-hooked** (for context propagation) can simplify tracing user data.
 
-#### **Example: Using `morgan` for Logging**
+##### **Example: Using `morgan` for Logging**
 1. **Install `morgan`:**
    ```bash
    npm install morgan
@@ -776,7 +762,7 @@ Third-party libraries like **morgan** (for logging) and **cls-hooked** (for cont
    });
    ```
 
-#### **Example: Using `cls-hooked` for Context Propagation**
+##### **Example: Using `cls-hooked` for Context Propagation**
 1. **Install `cls-hooked`:**
    ```bash
    npm install cls-hooked
@@ -810,6 +796,20 @@ Third-party libraries like **morgan** (for logging) and **cls-hooked** (for cont
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **Middleware:**
+   - Use middleware to attach and log user data.
+
+2. **Request ID:**
+   - Assign a unique request ID to trace user data across services or logs.
+
+3. **Third-Party Libraries:**
+   - Use libraries like `morgan` for logging and `cls-hooked` for context propagation.
+
+4. **Use Cases:**
+   - Debugging, monitoring, and auditing user activity.
+  
 By implementing these techniques, you can effectively trace user data in your Express.js applications.
    </details>
 
@@ -823,38 +823,24 @@ By implementing these techniques, you can effectively trace user data in your Ex
 ---
 >### 7. **what cluster in nodejs and mongodb?**
 
-#### **Key Takeaways for an Interview:**
-
-1. **Clustering in Node.js:**
-   - Uses the `cluster` module to create multiple worker processes.
-   - Improves scalability, fault tolerance, and performance.
-
-2. **Clustering in MongoDB:**
-   - **Replica Sets:** Provide high availability and data redundancy.
-   - **Sharding:** Enables horizontal scaling for large datasets and high throughput.
-
-3. **Use Cases:**
-   - Node.js clustering is ideal for handling high concurrency in web applications.
-   - MongoDB clustering is ideal for ensuring data availability and scalability in databases.
-
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Clusters in Node.js and MongoDB**
+#### **Clusters in Node.js and MongoDB**
 
 Clustering is a technique used to improve the performance, scalability, and fault tolerance of applications. Both **Node.js** and **MongoDB** support clustering, but they implement it differently. Here's an overview of clustering in both technologies:
 
 ---
 
-### **1. Clustering in Node.js**
+#### **1. Clustering in Node.js**
 
 In Node.js, clustering allows you to create multiple instances of your application (workers) to handle incoming requests. This is particularly useful for leveraging multi-core systems, as Node.js is single-threaded by default.
 
-#### **How It Works:**
+##### **How It Works:**
 - The **master process** forks multiple **worker processes**.
 - Each worker runs its own instance of the application.
 - The master process distributes incoming requests among the workers.
 
-#### **Example: Using the `cluster` Module**
+##### **Example: Using the `cluster` Module**
 ```javascript
 const cluster = require('cluster');
 const http = require('http');
@@ -882,51 +868,64 @@ if (cluster.isMaster) {
 }
 ```
 
-#### **Key Benefits:**
+##### **Key Benefits:**
 - **Scalability:** Distributes the load across multiple CPU cores.
 - **Fault Tolerance:** If one worker crashes, others continue to handle requests.
 - **Performance:** Improves throughput by parallelizing request handling.
 
 ---
 
-### **2. Clustering in MongoDB**
+#### **2. Clustering in MongoDB**
 
 In MongoDB, clustering is achieved through **replica sets** and **sharding**. These techniques improve data availability, scalability, and fault tolerance.
 
-#### **a. Replica Sets**
+##### **a. Replica Sets**
 - A **replica set** is a group of MongoDB instances that maintain the same data set.
 - One instance is the **primary** (handles write operations), while others are **secondaries** (handle read operations and provide redundancy).
 - If the primary fails, an election process selects a new primary.
 
-#### **Example: Replica Set Configuration**
+##### **Example: Replica Set Configuration**
 ```yaml
 replication:
   replSetName: "rs0"
 ```
 
-#### **Key Benefits:**
+##### **Key Benefits:**
 - **High Availability:** Automatic failover ensures continuous operation.
 - **Data Redundancy:** Multiple copies of data prevent data loss.
 - **Read Scalability:** Distributes read operations across secondaries.
 
-#### **b. Sharding**
+##### **b. Sharding**
 - **Sharding** distributes data across multiple servers (shards) to handle large datasets and high throughput.
 - A **shard key** determines how data is distributed.
 - A **mongos** (router) directs queries to the appropriate shard.
 
-#### **Example: Sharding Configuration**
+##### **Example: Sharding Configuration**
 ```yaml
 sharding:
   clusterRole: "shardsvr"
 ```
 
-#### **Key Benefits:**
+##### **Key Benefits:**
 - **Horizontal Scalability:** Distributes data and load across multiple servers.
 - **Performance:** Improves query performance by parallelizing operations.
 - **Storage Capacity:** Handles datasets larger than a single server's capacity.
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **Clustering in Node.js:**
+   - Uses the `cluster` module to create multiple worker processes.
+   - Improves scalability, fault tolerance, and performance.
+
+2. **Clustering in MongoDB:**
+   - **Replica Sets:** Provide high availability and data redundancy.
+   - **Sharding:** Enables horizontal scaling for large datasets and high throughput.
+
+3. **Use Cases:**
+   - Node.js clustering is ideal for handling high concurrency in web applications.
+   - MongoDB clustering is ideal for ensuring data availability and scalability in databases.
 
 By understanding clustering in both Node.js and MongoDB, you can design scalable, fault-tolerant, and high-performance applications.
 </details>
@@ -944,31 +943,16 @@ TypeORM is an Object-Relational Mapper (ORM) for TypeScript and JavaScript that 
 ---
 
 >### 9. **Clustering in Node.js:**
-#### **Key Takeaways for an Interview:**
-
-1. **Clustering:**
-   - Creates multiple worker processes to handle incoming requests.
-
-2. **`cluster` Module:**
-   - Used to implement clustering in Node.js.
-   - The master process forks workers and distributes requests.
-
-3. **Benefits:**
-   - Improves performance, scalability, and fault tolerance.
-
-4. **`pm2`:**
-   - A process manager that simplifies clustering and process management in production.
-
 
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Clustering in Node.js**
+#### **Clustering in Node.js**
 
 Clustering in Node.js allows you to create multiple instances of your application (workers) to handle incoming requests. This is particularly useful for leveraging multi-core systems, as Node.js is single-threaded by default. Here's how clustering works in Node.js:
 
 ---
 
-### **1. Why Use Clustering?**
+#### **1. Why Use Clustering?**
 
 - **Performance:** Distributes the load across multiple CPU cores.
 - **Scalability:** Handles more concurrent requests by utilizing all available CPU cores.
@@ -976,7 +960,7 @@ Clustering in Node.js allows you to create multiple instances of your applicatio
 
 ---
 
-### **2. How Clustering Works**
+#### **2. How Clustering Works**
 
 - The **master process** forks multiple **worker processes**.
 - Each worker runs its own instance of the application.
@@ -984,11 +968,11 @@ Clustering in Node.js allows you to create multiple instances of your applicatio
 
 ---
 
-### **3. Using the `cluster` Module**
+#### **3. Using the `cluster` Module**
 
 The `cluster` module in Node.js makes it easy to create and manage worker processes.
 
-#### **Example: Basic Clustering**
+##### **Example: Basic Clustering**
 ```javascript
 const cluster = require('cluster');
 const http = require('http');
@@ -1016,7 +1000,7 @@ if (cluster.isMaster) {
 }
 ```
 
-#### **Explanation:**
+##### **Explanation:**
 1. **Master Process:**
    - Checks if it is the master process using `cluster.isMaster`.
    - Forks a worker for each CPU core using `cluster.fork()`.
@@ -1030,11 +1014,11 @@ if (cluster.isMaster) {
 
 ---
 
-### **4. Handling Worker Failures**
+#### **4. Handling Worker Failures**
 
 If a worker crashes, the master process can fork a new worker to replace it.
 
-#### **Example: Handling Worker Failures**
+##### **Example: Handling Worker Failures**
 ```javascript
 cluster.on('exit', (worker, code, signal) => {
   console.log(`Worker ${worker.process.pid} died`);
@@ -1044,11 +1028,11 @@ cluster.on('exit', (worker, code, signal) => {
 
 ---
 
-### **5. Advanced Clustering with `pm2`**
+#### **5. Advanced Clustering with `pm2`**
 
 For production environments, you can use **`pm2`**, a process manager for Node.js, to handle clustering and process management.
 
-#### **Steps:**
+##### **Steps:**
 1. **Install `pm2`:**
    ```bash
    npm install pm2 -g
@@ -1069,6 +1053,20 @@ For production environments, you can use **`pm2`**, a process manager for Node.j
    ```
 
 ---
+##### **Key Takeaways for an Interview:**
+
+1. **Clustering:**
+   - Creates multiple worker processes to handle incoming requests.
+
+2. **`cluster` Module:**
+   - Used to implement clustering in Node.js.
+   - The master process forks workers and distributes requests.
+
+3. **Benefits:**
+   - Improves performance, scalability, and fault tolerance.
+
+4. **`pm2`:**
+   - A process manager that simplifies clustering and process management in production.
 
 By understanding clustering in Node.js, you can build high-performance, scalable applications that fully utilize multi-core systems.
    </details>
@@ -1076,30 +1074,20 @@ By understanding clustering in Node.js, you can build high-performance, scalable
 ---
 
 >### 10. **Utilizing All CPU Cores in Node.js:**
-#### **Key Takeaways for an Interview:**
-
-1. **Clustering:**
-   - Use the `cluster` module to create multiple worker processes, each running on a separate CPU core.
-
-2. **Worker Threads:**
-   - Use the `worker_threads` module to run JavaScript code in parallel within the same process.
-
-3. **`pm2`:**
-   - A process manager that simplifies clustering and process management in production.
 
 <details><summary><b>Answer:</b></summary>
 
-### **Utilizing All CPU Cores in Node.js**
+#### **Utilizing All CPU Cores in Node.js**
 
 Node.js is single-threaded by default, meaning it runs on a single CPU core. However, you can utilize all CPU cores in a multi-core system by using techniques like **clustering** and **worker threads**. Here's how to do it:
 
 ---
 
-### **1. Clustering with the `cluster` Module**
+#### **1. Clustering with the `cluster` Module**
 
 The `cluster` module allows you to create multiple worker processes, each running on a separate CPU core.
 
-#### **Example: Using the `cluster` Module**
+##### **Example: Using the `cluster` Module**
 ```javascript
 const cluster = require('cluster');
 const http = require('http');
@@ -1127,7 +1115,7 @@ if (cluster.isMaster) {
 }
 ```
 
-#### **Explanation:**
+##### **Explanation:**
 1. **Master Process:**
    - Forks a worker for each CPU core using `cluster.fork()`.
 
@@ -1140,11 +1128,11 @@ if (cluster.isMaster) {
 
 ---
 
-### **2. Worker Threads with the `worker_threads` Module**
+#### **2. Worker Threads with the `worker_threads` Module**
 
 The `worker_threads` module allows you to run JavaScript code in parallel within the same Node.js process, utilizing multiple CPU cores.
 
-#### **Example: Using the `worker_threads` Module**
+##### **Example: Using the `worker_threads` Module**
 ```javascript
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
@@ -1164,7 +1152,7 @@ if (isMainThread) {
 }
 ```
 
-#### **Explanation:**
+##### **Explanation:**
 1. **Main Thread:**
    - Creates a new worker thread using `new Worker(__filename)`.
 
@@ -1174,11 +1162,11 @@ if (isMainThread) {
 
 ---
 
-### **3. Using `pm2` for Clustering**
+#### **3. Using `pm2` for Clustering**
 
 **`pm2`** is a process manager for Node.js that simplifies clustering and process management in production environments.
 
-#### **Steps:**
+##### **Steps:**
 1. **Install `pm2`:**
    ```bash
    npm install pm2 -g
@@ -1200,6 +1188,18 @@ if (isMainThread) {
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **Clustering:**
+   - Use the `cluster` module to create multiple worker processes, each running on a separate CPU core.
+
+2. **Worker Threads:**
+   - Use the `worker_threads` module to run JavaScript code in parallel within the same process.
+
+3. **`pm2`:**
+   - A process manager that simplifies clustering and process management in production.
+
+
 By understanding these techniques, you can fully utilize all CPU cores in your Node.js applications, improving performance and scalability.
    </details>
 
@@ -1207,7 +1207,52 @@ By understanding these techniques, you can fully utilize all CPU cores in your N
 
 
 >### 11. **For Node.js, why does Google use the V8 engine?**
-#### **Key Takeaways for an Interview:**
+
+<details><summary><b>Answer Explanations:</b></summary>
+
+#### **Why Google Uses the V8 Engine for Node.js**
+
+The **V8 engine** is a high-performance JavaScript engine developed by Google for its Chrome browser. Node.js uses the V8 engine to execute JavaScript code on the server side. Here are the key reasons why Google's V8 engine is the ideal choice for Node.js:
+
+---
+
+#### **1. High Performance**
+
+- **Just-In-Time (JIT) Compilation:**
+  - V8 compiles JavaScript code directly into machine code (instead of interpreting it), which significantly improves execution speed.
+  - It uses advanced optimization techniques like **inline caching** and **hidden classes** to optimize performance.
+
+- **Efficient Memory Management:**
+  - V8 uses a **garbage collector** to automatically manage memory, reducing memory leaks and improving performance.
+
+---
+
+#### **2. Cross-Platform Compatibility**
+
+- V8 is designed to work across multiple platforms (Windows, macOS, Linux), making it easy to run Node.js applications on different operating systems.
+
+---
+
+#### **3. Active Development and Support**
+
+- V8 is actively maintained and updated by Google, ensuring that it stays up-to-date with the latest JavaScript features (ECMAScript standards) and performance improvements.
+
+---
+
+#### **4. Open Source**
+
+- V8 is open source, allowing developers to contribute to its development and customize it for specific use cases.
+
+---
+
+#### **5. Integration with Node.js**
+
+- Node.js leverages V8's capabilities to provide a fast and efficient runtime for server-side JavaScript.
+- V8's event-driven architecture aligns well with Node.js's non-blocking I/O model, enabling high concurrency and scalability.
+
+---
+
+##### **Key Takeaways for an Interview:**
 
 1. **Performance:**
    - V8's JIT compilation and efficient memory management make it one of the fastest JavaScript engines.
@@ -1224,51 +1269,6 @@ By understanding these techniques, you can fully utilize all CPU cores in your N
 5. **Integration with Node.js:**
    - V8's architecture complements Node.js's event-driven, non-blocking I/O model.
 
-
-<details><summary><b>Answer Explanations:</b></summary>
-
-### **Why Google Uses the V8 Engine for Node.js**
-
-The **V8 engine** is a high-performance JavaScript engine developed by Google for its Chrome browser. Node.js uses the V8 engine to execute JavaScript code on the server side. Here are the key reasons why Google's V8 engine is the ideal choice for Node.js:
-
----
-
-### **1. High Performance**
-
-- **Just-In-Time (JIT) Compilation:**
-  - V8 compiles JavaScript code directly into machine code (instead of interpreting it), which significantly improves execution speed.
-  - It uses advanced optimization techniques like **inline caching** and **hidden classes** to optimize performance.
-
-- **Efficient Memory Management:**
-  - V8 uses a **garbage collector** to automatically manage memory, reducing memory leaks and improving performance.
-
----
-
-### **2. Cross-Platform Compatibility**
-
-- V8 is designed to work across multiple platforms (Windows, macOS, Linux), making it easy to run Node.js applications on different operating systems.
-
----
-
-### **3. Active Development and Support**
-
-- V8 is actively maintained and updated by Google, ensuring that it stays up-to-date with the latest JavaScript features (ECMAScript standards) and performance improvements.
-
----
-
-### **4. Open Source**
-
-- V8 is open source, allowing developers to contribute to its development and customize it for specific use cases.
-
----
-
-### **5. Integration with Node.js**
-
-- Node.js leverages V8's capabilities to provide a fast and efficient runtime for server-side JavaScript.
-- V8's event-driven architecture aligns well with Node.js's non-blocking I/O model, enabling high concurrency and scalability.
-
----
-
 By using the V8 engine, Node.js achieves high performance, scalability, and cross-platform compatibility, making it a powerful runtime for server-side JavaScript.
 </details>
 
@@ -1278,37 +1278,20 @@ By using the V8 engine, Node.js achieves high performance, scalability, and cros
 
 
 >### 12. **Handling Concurrency in Node.js:**
-#### **Key Takeaways for an Interview:**
-
-1. **Event-Driven Architecture:**
-   - Node.js uses an event loop to handle concurrency efficiently.
-
-2. **Clustering:**
-   - Use the `cluster` module to create multiple worker processes.
-
-3. **Worker Threads:**
-   - Use the `worker_threads` module for CPU-bound tasks.
-
-4. **`async/await`:**
-   - Simplifies writing asynchronous code.
-
-5. **Concurrency Control:**
-   - Use libraries like `async` or `p-limit` to manage concurrency.
-
 
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Handling Concurrency in Node.js**
+#### **Handling Concurrency in Node.js**
 
 Node.js is designed to handle **concurrency** efficiently using its **event-driven, non-blocking I/O model**. However, managing concurrency effectively requires understanding how Node.js processes multiple tasks simultaneously. Here's how to handle concurrency in Node.js:
 
 ---
 
-### **1. Event-Driven Architecture**
+#### **1. Event-Driven Architecture**
 
 Node.js uses an **event loop** to handle multiple tasks concurrently without blocking the main thread.
 
-#### **How It Works:**
+##### **How It Works:**
 1. **Non-Blocking I/O:**
    - Node.js offloads I/O operations (e.g., file I/O, network requests) to the system kernel or a thread pool.
    - The main thread continues executing other tasks while waiting for I/O operations to complete.
@@ -1316,7 +1299,7 @@ Node.js uses an **event loop** to handle multiple tasks concurrently without blo
 2. **Event Loop:**
    - The event loop continuously checks for pending events and executes their associated callbacks.
 
-#### **Example: Non-Blocking I/O**
+##### **Example: Non-Blocking I/O**
 ```javascript
 const fs = require('fs');
 
@@ -1338,11 +1321,11 @@ File content: (contents of example.txt)
 
 ---
 
-### **2. Clustering**
+#### **2. Clustering**
 
 Node.js is single-threaded, but you can use the **`cluster` module** to create multiple worker processes, each running on a separate CPU core.
 
-#### **Example: Using the `cluster` Module**
+##### **Example: Using the `cluster` Module**
 ```javascript
 const cluster = require('cluster');
 const http = require('http');
@@ -1370,17 +1353,17 @@ if (cluster.isMaster) {
 }
 ```
 
-#### **Explanation:**
+##### **Explanation:**
 - The master process forks a worker for each CPU core.
 - Each worker handles incoming requests independently.
 
 ---
 
-### **3. Worker Threads**
+#### **3. Worker Threads**
 
 For **CPU-bound tasks**, Node.js provides the **`worker_threads` module** to offload work to separate threads, preventing the main thread from being blocked.
 
-#### **Example: Using the `worker_threads` Module**
+##### **Example: Using the `worker_threads` Module**
 ```javascript
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
@@ -1400,17 +1383,17 @@ if (isMainThread) {
 }
 ```
 
-#### **Explanation:**
+##### **Explanation:**
 - The main thread creates a worker thread to handle CPU-bound tasks.
 - The worker thread communicates with the main thread using `parentPort`.
 
 ---
 
-### **4. Using `async/await` for Asynchronous Code**
+#### **4. Using `async/await` for Asynchronous Code**
 
 The `async/await` syntax simplifies writing asynchronous code, making it easier to handle concurrency.
 
-#### **Example: Using `async/await`**
+##### **Example: Using `async/await`**
 ```javascript
 async function fetchData() {
   const response = await fetch('https://api.example.com/data');
@@ -1425,11 +1408,11 @@ fetchData().then((data) => {
 
 ---
 
-### **5. Using Libraries for Concurrency Control**
+#### **5. Using Libraries for Concurrency Control**
 
 Libraries like **`async`** and **`p-limit`** help manage concurrency by controlling the number of concurrent tasks.
 
-#### **Example: Using `p-limit`**
+##### **Example: Using `p-limit`**
 1. **Install `p-limit`:**
    ```bash
    npm install p-limit
@@ -1453,6 +1436,23 @@ Libraries like **`async`** and **`p-limit`** help manage concurrency by controll
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **Event-Driven Architecture:**
+   - Node.js uses an event loop to handle concurrency efficiently.
+
+2. **Clustering:**
+   - Use the `cluster` module to create multiple worker processes.
+
+3. **Worker Threads:**
+   - Use the `worker_threads` module for CPU-bound tasks.
+
+4. **`async/await`:**
+   - Simplifies writing asynchronous code.
+
+5. **Concurrency Control:**
+   - Use libraries like `async` or `p-limit` to manage concurrency.
+
 
 By understanding these techniques, you can effectively handle concurrency in Node.js applications.
    </details>
@@ -1461,41 +1461,21 @@ By understanding these techniques, you can effectively handle concurrency in Nod
 
 >### 13. **How the Event Loop Works:**
 
-#### **Key Takeaways for an Interview:**
-
-1. **Event Loop:**
-   - A continuous process that checks for and executes pending events and their callbacks.
-   - Enables Node.js to handle asynchronous, non-blocking I/O operations efficiently.
-
-2. **Phases of the Event Loop:**
-   - **Timers:** Executes `setTimeout()` and `setInterval()` callbacks.
-   - **Pending Callbacks:** Executes deferred I/O callbacks.
-   - **Poll:** Retrieves and executes new I/O events.
-   - **Check:** Executes `setImmediate()` callbacks.
-   - **Close Callbacks:** Executes close event callbacks.
-
-3. **Non-Blocking I/O:**
-   - Asynchronous operations are offloaded, and their callbacks are executed by the event loop when the operations are complete.
-
-4. **Single-Threaded but Scalable:**
-   - The event loop allows Node.js to handle thousands of concurrent connections with minimal resource usage.
-
-
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Event Loop in Node.js**
+#### **Event Loop in Node.js**
 
 The **event loop** is a fundamental concept in Node.js that enables its asynchronous, non-blocking behavior. It is the mechanism that allows Node.js to handle thousands of concurrent operations efficiently, despite being single-threaded. Here's a detailed explanation of the event loop:
 
 ---
 
-### **What is the Event Loop?**
+#### **What is the Event Loop?**
 
 The event loop is a continuous process that checks for pending events (e.g., I/O operations, timers, callbacks) and executes their associated callbacks. It ensures that Node.js can perform non-blocking I/O operations, making it highly efficient for I/O-bound applications.
 
 ---
 
-### **How the Event Loop Works**
+#### **How the Event Loop Works**
 
 1. **Single-Threaded but Non-Blocking:**
    - Node.js runs on a single thread, but it offloads I/O operations (e.g., file system, network requests) to the operating system or a thread pool.
@@ -1527,7 +1507,7 @@ The event loop is a continuous process that checks for pending events (e.g., I/O
 
 ---
 
-### **Example of the Event Loop in Action**
+#### **Example of the Event Loop in Action**
 
 ```javascript
 console.log('Start');
@@ -1564,6 +1544,26 @@ File read complete
 4. The `fs.readFile` operation is offloaded, and its callback is executed in the **poll** phase when the file read is complete.
 
 ---
+
+##### **Key Takeaways for an Interview:**
+
+1. **Event Loop:**
+   - A continuous process that checks for and executes pending events and their callbacks.
+   - Enables Node.js to handle asynchronous, non-blocking I/O operations efficiently.
+
+2. **Phases of the Event Loop:**
+   - **Timers:** Executes `setTimeout()` and `setInterval()` callbacks.
+   - **Pending Callbacks:** Executes deferred I/O callbacks.
+   - **Poll:** Retrieves and executes new I/O events.
+   - **Check:** Executes `setImmediate()` callbacks.
+   - **Close Callbacks:** Executes close event callbacks.
+
+3. **Non-Blocking I/O:**
+   - Asynchronous operations are offloaded, and their callbacks are executed by the event loop when the operations are complete.
+
+4. **Single-Threaded but Scalable:**
+   - The event loop allows Node.js to handle thousands of concurrent connections with minimal resource usage.
+
 
 By understanding the event loop, you can explain how Node.js achieves its high performance and scalability, making it ideal for I/O-bound applications like web servers, APIs, and real-time systems.
    </details>
@@ -1618,37 +1618,19 @@ By understanding the event loop, you can explain how Node.js achieves its high p
 ---
 >### 18. **Use Case of the Event Emitter:**
 
-#### **Key Takeaways for an Interview:**
-
-1. **Custom Event Handling:**
-   - Create and emit custom events in your application.
-
-2. **Logging and Monitoring:**
-   - Use Event Emitters to log events or monitor system activities.
-
-3. **Asynchronous Event Handling:**
-   - Handle asynchronous operations like file I/O or network requests.
-
-4. **State Management:**
-   - Manage application state and notify listeners when the state changes.
-
-5. **Event-Driven APIs:**
-   - Build event-driven APIs where actions trigger events.
-
-
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Use Case of the Event Emitter**
+#### **Use Case of the Event Emitter**
 
 The **Event Emitter** is a core feature of Node.js that allows objects to emit and listen for events. It is widely used to implement the **observer pattern**, where an object (the emitter) maintains a list of listeners and notifies them when an event occurs. Here are some common use cases of the Event Emitter:
 
 ---
 
-### **1. Custom Event Handling**
+#### **1. Custom Event Handling**
 
 You can create custom events and emit them in your application.
 
-#### **Example: Custom Event Handling**
+##### **Example: Custom Event Handling**
 ```javascript
 const EventEmitter = require('events');
 
@@ -1671,11 +1653,11 @@ Hello, John!
 
 ---
 
-### **2. Logging and Monitoring**
+#### **2. Logging and Monitoring**
 
 Event Emitters can be used to log events or monitor system activities.
 
-#### **Example: Logging Events**
+##### **Example: Logging Events**
 ```javascript
 const EventEmitter = require('events');
 
@@ -1700,11 +1682,11 @@ logger.emit('log', 'File uploaded');
 
 ---
 
-### **3. Asynchronous Event Handling**
+#### **3. Asynchronous Event Handling**
 
 Event Emitters are useful for handling asynchronous operations, such as file I/O or network requests.
 
-#### **Example: Asynchronous File Read**
+##### **Example: Asynchronous File Read**
 ```javascript
 const fs = require('fs');
 const EventEmitter = require('events');
@@ -1727,11 +1709,11 @@ fs.readFile('example.txt', 'utf8', (err, data) => {
 
 ---
 
-### **4. State Management**
+#### **4. State Management**
 
 Event Emitters can be used to manage application state and notify listeners when the state changes.
 
-#### **Example: State Management**
+##### **Example: State Management**
 ```javascript
 const EventEmitter = require('events');
 
@@ -1766,11 +1748,11 @@ State changed: { user: { name: 'John' }, theme: 'dark' }
 
 ---
 
-### **5. Event-Driven APIs**
+#### **5. Event-Driven APIs**
 
 Event Emitters are used to build event-driven APIs, where actions trigger events that other parts of the application can listen to.
 
-#### **Example: Event-Driven API**
+##### **Example: Event-Driven API**
 ```javascript
 const EventEmitter = require('events');
 const http = require('http');
@@ -1794,6 +1776,23 @@ http.createServer((req, res) => {
 ```
 
 ---
+
+##### **Key Takeaways for an Interview:**
+
+1. **Custom Event Handling:**
+   - Create and emit custom events in your application.
+
+2. **Logging and Monitoring:**
+   - Use Event Emitters to log events or monitor system activities.
+
+3. **Asynchronous Event Handling:**
+   - Handle asynchronous operations like file I/O or network requests.
+
+4. **State Management:**
+   - Manage application state and notify listeners when the state changes.
+
+5. **Event-Driven APIs:**
+   - Build event-driven APIs where actions trigger events.
 
 By understanding these use cases, you can effectively leverage the Event Emitter in your Node.js applications.
    </details>
@@ -2202,7 +2201,7 @@ By understanding Node.js and its use cases, you can demonstrate your ability to 
 >### 29. Why is Node.js `Single-threaded`? If Node.js is single-threaded, then how does it handle `concurrency`?
 <details><summary><b>Answer:</b></summary>
 
-### **Why is Node.js Single-Threaded?**
+#### **Why is Node.js Single-Threaded?**
 
 Node.js is single-threaded by design to simplify the development of scalable and high-performance applications. Here are the key reasons:
 
@@ -2213,7 +2212,7 @@ Node.js is single-threaded by design to simplify the development of scalable and
 
 ---
 
-### **How Does Node.js Handle Concurrency if It's Single-Threaded?**
+#### **How Does Node.js Handle Concurrency if It's Single-Threaded?**
 
 Even though Node.js is single-threaded, it can handle concurrency efficiently using the following mechanisms:
 
@@ -2240,7 +2239,7 @@ Even though Node.js is single-threaded, it can handle concurrency efficiently us
 
 ---
 
-### **Example of Concurrency in Node.js**
+#### **Example of Concurrency in Node.js**
 
 Imagine a web server built with Node.js:
 - When a request comes in, Node.js initiates an I/O operation (e.g., reading from a database).
@@ -2251,7 +2250,7 @@ This approach allows Node.js to handle thousands of concurrent connections with 
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 - Node.js is single-threaded to simplify development and avoid the complexities of multi-threading.
 - It handles concurrency using the **event loop**, **non-blocking I/O**, and **Libuv**.
@@ -2267,15 +2266,15 @@ By explaining this, you demonstrate a deep understanding of Node.js's architectu
 >### 30.	Explain callback and callback hell in Node.js.
 <details><summary><b>Answer:</b></summary>
 
-### **Callback in Node.js**
+#### **Callback in Node.js**
 
 A **callback** is a function that is passed as an argument to another function and is executed after the completion of a specific task. In Node.js, callbacks are commonly used to handle asynchronous operations, such as reading files, making network requests, or querying a database.
 
-#### **Why Use Callbacks?**
+##### **Why Use Callbacks?**
 - Node.js is designed to be non-blocking and asynchronous, meaning it doesn't wait for tasks like I/O operations to complete before moving on to the next task.
 - Callbacks allow you to specify what should happen once an asynchronous operation is finished.
 
-#### **Example of a Callback:**
+##### **Example of a Callback:**
 
 ```javascript
 const fs = require('fs');
@@ -2297,11 +2296,11 @@ In this example:
 
 ---
 
-### **Callback Hell in Node.js**
+#### **Callback Hell in Node.js**
 
 **Callback hell** (also known as the **pyramid of doom**) refers to the situation where multiple nested callbacks make the code difficult to read, maintain, and debug. This often happens when you have multiple asynchronous operations that depend on each other.
 
-#### **Example of Callback Hell:**
+##### **Example of Callback Hell:**
 
 ```javascript
 fs.readFile('file1.txt', 'utf8', (err, data1) => {
@@ -2331,7 +2330,7 @@ In this example:
 
 ---
 
-### **Problems with Callback Hell:**
+#### **Problems with Callback Hell:**
 
 1. **Readability:** The code becomes difficult to read and understand due to excessive nesting.
 2. **Maintainability:** Adding or modifying functionality becomes challenging.
@@ -2340,7 +2339,7 @@ In this example:
 
 ---
 
-### **How to Avoid Callback Hell:**
+#### **How to Avoid Callback Hell:**
 
 1. **Modularization:**
    - Break down the code into smaller, reusable functions.
@@ -2409,7 +2408,7 @@ In this example:
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 - **Callbacks** are functions passed as arguments to handle asynchronous operations in Node.js.
 - **Callback hell** occurs when multiple nested callbacks make the code hard to read and maintain.
@@ -2430,16 +2429,16 @@ In Node.js, **modules**, **exports**, and **default exports** are fundamental co
 
 ---
 
-### **1. Modules in Node.js**
+#### **1. Modules in Node.js**
 
 A **module** in Node.js is a reusable block of code whose existence does not accidentally impact other code. Each file in a Node.js application is treated as a separate module. Modules help in organizing code, improving maintainability, and avoiding global namespace pollution.
 
-#### **Types of Modules:**
+##### **Types of Modules:**
 - **Core Modules:** Built-in modules provided by Node.js (e.g., `fs`, `http`, `path`).
 - **Local Modules:** User-defined modules created in your application.
 - **Third-Party Modules:** External modules installed via npm (e.g., `express`, `lodash`).
 
-#### **Example of a Local Module:**
+##### **Example of a Local Module:**
 
 ```javascript
 // math.js (local module)
@@ -2456,11 +2455,11 @@ module.exports = { add, subtract };
 
 ---
 
-### **2. Exports in Node.js**
+#### **2. Exports in Node.js**
 
 The `exports` object is used to expose functions, objects, or variables from a module so they can be used in other parts of the application. There are two ways to export functionality in Node.js:
 
-#### **a. Named Exports:**
+##### **a. Named Exports:**
 - Export multiple values by attaching them to the `exports` object.
 - Imported using destructuring.
 
@@ -2477,7 +2476,7 @@ console.log(add(5, 3)); // Output: 8
 console.log(subtract(5, 3)); // Output: 2
 ```
 
-#### **b. Default Export:**
+##### **b. Default Export:**
 - Export a single value (function, object, or variable) using `module.exports`.
 - Imported without destructuring.
 
@@ -2495,11 +2494,11 @@ console.log(add(5, 3)); // Output: 8
 
 ---
 
-### **3. Default Export in Node.js**
+#### **3. Default Export in Node.js**
 
 In Node.js, the term **default export** is often used to refer to exporting a single value (function, object, or variable) as the primary export of a module. This is done using `module.exports`.
 
-#### **Example of Default Export:**
+##### **Example of Default Export:**
 
 ```javascript
 // math.js
@@ -2515,7 +2514,7 @@ console.log(add(5, 3)); // Output: 8
 
 ---
 
-### **Key Differences Between Named Exports and Default Export:**
+#### **Key Differences Between Named Exports and Default Export:**
 
 | **Feature**           | **Named Exports**                                            | **Default Export**                      |
 | --------------------- | ------------------------------------------------------------ | --------------------------------------- |
@@ -2526,7 +2525,7 @@ console.log(add(5, 3)); // Output: 8
 
 ---
 
-### **Example Combining Named and Default Exports:**
+#### **Example Combining Named and Default Exports:**
 
 ```javascript
 // math.js
@@ -2546,7 +2545,7 @@ console.log(math.subtract(5, 3)); // Output: 2 (named export)
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 - **Modules** are reusable blocks of code in Node.js, and each file is treated as a separate module.
 - **Exports** are used to expose functionality from a module:
@@ -2563,13 +2562,13 @@ By understanding these concepts, you can demonstrate your ability to write modul
 >### 32. What does event-driven programming mean, event, event EventEmitter and event loop in Nodejs?
 <details><summary><b>Answer:</b></summary>
 
-### **Event-Driven Programming in Node.js**
+#### **Event-Driven Programming in Node.js**
 
 Event-driven programming is a programming paradigm where the flow of the program is determined by events such as user actions, sensor outputs, or messages from other programs. In Node.js, event-driven programming is a core concept that enables asynchronous, non-blocking behavior.
 
 ---
 
-### **Key Concepts in Event-Driven Programming:**
+#### **Key Concepts in Event-Driven Programming:**
 
 1. **Event:**
    - An **event** is a signal that something has happened in the application (e.g., a file has been read, a network request has completed, or a timer has expired).
@@ -2585,7 +2584,7 @@ Event-driven programming is a programming paradigm where the flow of the program
 
 ---
 
-### **1. Event**
+#### **1. Event**
 
 An **event** is an action or occurrence that can be detected by the program. In Node.js, events are used to handle asynchronous operations. Examples of events include:
 - A file being read.
@@ -2594,13 +2593,13 @@ An **event** is an action or occurrence that can be detected by the program. In 
 
 ---
 
-### **2. EventEmitter**
+#### **2. EventEmitter**
 
 The `EventEmitter` class is part of the `events` module in Node.js. It provides methods to:
 - Emit events.
 - Register listeners (callbacks) for events.
 
-#### **Example of EventEmitter:**
+##### **Example of EventEmitter:**
 
 ```javascript
 const EventEmitter = require('events');
@@ -2617,7 +2616,7 @@ myEmitter.on('greet', (name) => {
 myEmitter.emit('greet', 'Alice'); // Output: Hello, Alice!
 ```
 
-#### **Key Methods of EventEmitter:**
+##### **Key Methods of EventEmitter:**
 - `.on(eventName, listener)`: Registers a listener for the specified event.
 - `.emit(eventName, [...args])`: Emits an event, calling all registered listeners.
 - `.once(eventName, listener)`: Registers a one-time listener for the event.
@@ -2625,11 +2624,11 @@ myEmitter.emit('greet', 'Alice'); // Output: Hello, Alice!
 
 ---
 
-### **3. Event Loop**
+#### **3. Event Loop**
 
 The **event loop** is the backbone of Node.js's asynchronous, non-blocking behavior. It allows Node.js to handle thousands of concurrent connections efficiently.
 
-#### **How the Event Loop Works:**
+##### **How the Event Loop Works:**
 1. **Phases of the Event Loop:**
    - The event loop operates in several phases, such as timers, I/O callbacks, idle/prepare, poll, check, and close callbacks.
    - Each phase has a queue of callbacks to execute.
@@ -2642,7 +2641,7 @@ The **event loop** is the backbone of Node.js's asynchronous, non-blocking behav
    - The event loop continuously checks for pending events and executes their associated callbacks.
    - This allows Node.js to handle multiple tasks concurrently without blocking the main thread.
 
-#### **Example of the Event Loop in Action:**
+##### **Example of the Event Loop in Action:**
 
 ```javascript
 console.log('Start');
@@ -2673,7 +2672,7 @@ Explanation:
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Event-Driven Programming:**
    - A paradigm where the flow of the program is determined by events.
@@ -2704,7 +2703,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **1. `process.nextTick`**
+#### **1. `process.nextTick`**
 
 - **What it does:**
   - Schedules a callback function to be executed **immediately after the current operation completes** but before the event loop continues to the next phase.
@@ -2733,7 +2732,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **2. `setImmediate`**
+#### **2. `setImmediate`**
 
 - **What it does:**
   - Schedules a callback to be executed in the **check phase** of the event loop, after I/O events and before `setTimeout` and `setInterval`.
@@ -2762,7 +2761,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **3. `setTimeout`**
+#### **3. `setTimeout`**
 
 - **What it does:**
   - Schedules a callback to be executed after a specified **delay (in milliseconds)**.
@@ -2791,7 +2790,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **4. `setInterval`**
+#### **4. `setInterval`**
 
 - **What it does:**
   - Repeatedly schedules a callback to be executed at a specified **interval (in milliseconds)**.
@@ -2822,7 +2821,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **5. `nextTick` vs `setImmediate`**
+#### **5. `nextTick` vs `setImmediate`**
 
 | **Feature**          | **`process.nextTick`**                          | **`setImmediate`**                                 |
 | -------------------- | ----------------------------------------------- | -------------------------------------------------- |
@@ -2832,7 +2831,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **6. Child Process**
+#### **6. Child Process**
 
 - **What it does:**
   - Node.js provides the `child_process` module to create and manage child processes.
@@ -2866,7 +2865,7 @@ In Node.js, **`process.nextTick`**, **`setImmediate`**, **`setInterval`**, **`se
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **`process.nextTick`:**
    - Executes a callback immediately after the current operation, before the event loop continues.
@@ -2896,7 +2895,7 @@ In Node.js, API functions can be broadly categorized into two types based on the
 
 ---
 
-### **1. Blocking (Synchronous) APIs**
+#### **1. Blocking (Synchronous) APIs**
 
 - **What they do:**
   - Blocking APIs execute **synchronously**, meaning they block the execution of further code until the operation is complete.
@@ -2927,7 +2926,7 @@ In Node.js, API functions can be broadly categorized into two types based on the
 
 ---
 
-### **2. Non-Blocking (Asynchronous) APIs**
+#### **2. Non-Blocking (Asynchronous) APIs**
 
 - **What they do:**
   - Non-blocking APIs execute **asynchronously**, meaning they do not block the execution of further code while the operation is in progress.
@@ -2962,7 +2961,7 @@ In Node.js, API functions can be broadly categorized into two types based on the
 
 ---
 
-### **Key Differences Between Blocking and Non-Blocking APIs**
+#### **Key Differences Between Blocking and Non-Blocking APIs**
 
 | **Feature**        | **Blocking APIs**                            | **Non-Blocking APIs**                        |
 | ------------------ | -------------------------------------------- | -------------------------------------------- |
@@ -2973,7 +2972,7 @@ In Node.js, API functions can be broadly categorized into two types based on the
 
 ---
 
-### **When to Use Each Type**
+#### **When to Use Each Type**
 
 1. **Use Blocking APIs when:**
    - The operation is quick and does not impact performance.
@@ -2987,7 +2986,7 @@ In Node.js, API functions can be broadly categorized into two types based on the
 
 ---
 
-### **Example Combining Both Types**
+#### **Example Combining Both Types**
 
 ```javascript
 const fs = require('fs');
@@ -3014,7 +3013,7 @@ Data loaded: (Contents of data.txt)
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Blocking APIs:**
    - Execute synchronously and block further code execution.
@@ -3038,13 +3037,13 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 
 ---
 
-### **1. `package.json`**
+#### **1. `package.json`**
 
-#### **What is `package.json`?**
+##### **What is `package.json`?**
 - `package.json` is a **manifest file** that contains metadata about your Node.js project, including its dependencies, scripts, version, and other configurations.
 - It is typically located in the root directory of a Node.js project.
 
-#### **Key Fields in `package.json`:**
+##### **Key Fields in `package.json`:**
 1. **`name`:** The name of the project.
 2. **`version`:** The current version of the project (follows semantic versioning: `major.minor.patch`).
 3. **`description`:** A brief description of the project.
@@ -3056,7 +3055,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 9. **`author`:** The name of the project's author.
 10. **`license`:** The license under which the project is distributed (e.g., MIT, Apache).
 
-#### **Example `package.json`:**
+##### **Example `package.json`:**
 ```json
 {
   "name": "my-app",
@@ -3078,7 +3077,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 }
 ```
 
-#### **How is `package.json` created?**
+##### **How is `package.json` created?**
 - Run the following command in your project directory:
   ```bash
   npm init
@@ -3087,13 +3086,13 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 
 ---
 
-### **2. `package-lock.json`**
+#### **2. `package-lock.json`**
 
-#### **What is `package-lock.json`?**
+##### **What is `package-lock.json`?**
 - `package-lock.json` is an **automatically generated file** that records the exact versions of all dependencies installed in your project.
 - It ensures that every installation of your project uses the **same versions of dependencies**, providing consistency across environments.
 
-#### **Key Features of `package-lock.json`:**
+##### **Key Features of `package-lock.json`:**
 1. **Version Locking:**
    - It locks the versions of dependencies and their sub-dependencies to ensure reproducibility.
 2. **Dependency Tree:**
@@ -3101,7 +3100,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 3. **Automatic Generation:**
    - It is automatically generated and updated when you install or update dependencies using `npm install`.
 
-#### **Example `package-lock.json`:**
+##### **Example `package-lock.json`:**
 ```json
 {
   "name": "my-app",
@@ -3125,7 +3124,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 }
 ```
 
-#### **How is `package-lock.json` created?**
+##### **How is `package-lock.json` created?**
 - It is automatically generated when you run:
   ```bash
   npm install
@@ -3133,7 +3132,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 
 ---
 
-### **Key Differences Between `package.json` and `package-lock.json`**
+#### **Key Differences Between `package.json` and `package-lock.json`**
 
 | **Feature**             | **`package.json`**                          | **`package-lock.json`**                    |
 | ----------------------- | ------------------------------------------- | ------------------------------------------ |
@@ -3144,7 +3143,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 
 ---
 
-### **Why Are Both Files Important?**
+#### **Why Are Both Files Important?**
 
 1. **`package.json`:**
    - Defines the project's dependencies and scripts.
@@ -3156,7 +3155,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 
 ---
 
-### **Best Practices**
+#### **Best Practices**
 
 1. **Commit Both Files to Version Control:**
    - Always commit both `package.json` and `package-lock.json` to your version control system (e.g., Git).
@@ -3170,7 +3169,7 @@ In Node.js, **`package.json`** and **`package-lock.json`** are two essential fil
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **`package.json`:**
    - A manifest file that defines project metadata, dependencies, and scripts.
@@ -3190,23 +3189,14 @@ By understanding these files, you can demonstrate your ability to manage depende
 ---
 
 >### 36.How would you use a URL module in Node.js?
-#### **Key Takeaways for an Interview:**
 
-1. **`url.parse()`:** Breaks down a URL string into its components.
-2. **`url.format()`:** Constructs a URL string from an object of components.
-3. **`url.resolve()`:** Resolves a target URL relative to a base URL.
-4. **Use Cases:**
-   - Parsing and manipulating URLs.
-   - Handling routes in a web server.
-   - Constructing URLs dynamically.
-   - 
 <details><summary><b>Answer Explanations:</b></summary>
 
 In Node.js, the **`url` module** provides utilities for parsing, formatting, and resolving URLs. It is a core module, so you don't need to install it separately. Here's how you can use the `url` module:
 
 ---
 
-### **1. Importing the `url` Module**
+#### **1. Importing the `url` Module**
 
 To use the `url` module, you need to import it using `require`:
 
@@ -3216,11 +3206,11 @@ const url = require('url');
 
 ---
 
-### **2. Parsing a URL**
+#### **2. Parsing a URL**
 
 The `url.parse()` method is used to break down a URL string into its components (e.g., protocol, host, path, query parameters).
 
-#### **Syntax:**
+##### **Syntax:**
 ```javascript
 url.parse(urlString, [parseQueryString], [slashesDenoteHost]);
 ```
@@ -3229,7 +3219,7 @@ url.parse(urlString, [parseQueryString], [slashesDenoteHost]);
 - **`parseQueryString` (optional):** If `true`, the query string is parsed into an object. Default is `false`.
 - **`slashesDenoteHost` (optional):** If `true`, `//foo/bar` is treated as `{ host: 'foo', pathname: '/bar' }`. Default is `false`.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const url = require('url');
 
@@ -3259,18 +3249,18 @@ console.log(parsedUrl);
 
 ---
 
-### **3. Formatting a URL**
+#### **3. Formatting a URL**
 
 The `url.format()` method is used to construct a URL string from an object of URL components.
 
-#### **Syntax:**
+##### **Syntax:**
 ```javascript
 url.format(urlObject);
 ```
 
 - **`urlObject`:** An object containing URL components (e.g., `protocol`, `host`, `pathname`, `query`).
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const url = require('url');
 
@@ -3292,11 +3282,11 @@ https://www.example.com/path?name=John&age=30
 
 ---
 
-### **4. Resolving a URL**
+#### **4. Resolving a URL**
 
 The `url.resolve()` method resolves a target URL relative to a base URL.
 
-#### **Syntax:**
+##### **Syntax:**
 ```javascript
 url.resolve(from, to);
 ```
@@ -3304,7 +3294,7 @@ url.resolve(from, to);
 - **`from`:** The base URL.
 - **`to`:** The target URL (can be relative or absolute).
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const url = require('url');
 
@@ -3322,7 +3312,7 @@ https://www.example.com/path/subpath
 
 ---
 
-### **5. URL Object Properties**
+#### **5. URL Object Properties**
 
 When you parse a URL using `url.parse()`, the returned object contains the following properties:
 
@@ -3343,7 +3333,7 @@ When you parse a URL using `url.parse()`, the returned object contains the follo
 
 ---
 
-### **6. Example: Using the `url` Module in a Web Server**
+#### **6. Example: Using the `url` Module in a Web Server**
 
 Here’s an example of how you can use the `url` module in a Node.js web server to handle different routes:
 
@@ -3374,6 +3364,16 @@ server.listen(3000, () => {
 
 ---
 
+##### **Key Takeaways for an Interview:**
+
+1. **`url.parse()`:** Breaks down a URL string into its components.
+2. **`url.format()`:** Constructs a URL string from an object of components.
+3. **`url.resolve()`:** Resolves a target URL relative to a base URL.
+4. **Use Cases:**
+   - Parsing and manipulating URLs.
+   - Handling routes in a web server.
+   - Constructing URLs dynamically.
+   - 
 
 By understanding the `url` module, you can effectively work with URLs in Node.js, making your applications more dynamic and robust.
 </details>
@@ -3382,30 +3382,16 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
 
 
 >### 37. **What is a passport in Node.js?**
-
-#### **Key Takeaways for an Interview:**
-
-1. **Passport:**
-   - A middleware for handling authentication in Node.js applications.
-
-2. **Strategies:**
-   - Supports various authentication strategies (e.g., local, OAuth, JWT).
-
-3. **Integration:**
-   - Easily integrates with Express.js for session management and authentication.
-
-4. **Use Cases:**
-   - Implementing user authentication, third-party login, and token-based authentication.
-   - 
+ 
 <details><summary><b>Answer Explanations:</b></summary>
 
-### **Passport in Node.js**
+#### **Passport in Node.js**
 
 **Passport** is a popular **authentication middleware** for Node.js applications. It provides a simple and flexible way to handle authentication, supporting a wide range of strategies (e.g., local authentication, OAuth, OpenID). Passport is designed to be unobtrusive, allowing developers to implement authentication without tightly coupling it to their application logic.
 
 ---
 
-### **Key Features of Passport**
+#### **Key Features of Passport**
 
 1. **Modular Design:**
    - Passport is highly modular and supports over **500 authentication strategies** (e.g., local, Google, Facebook, JWT).
@@ -3421,7 +3407,7 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
 
 ---
 
-### **How Passport Works**
+#### **How Passport Works**
 
 1. **Strategies:**
    - Passport uses **strategies** to authenticate requests. Each strategy is a separate module that implements a specific authentication mechanism (e.g., username/password, OAuth).
@@ -3434,7 +3420,7 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
 
 ---
 
-### **Common Authentication Strategies**
+#### **Common Authentication Strategies**
 
 1. **Local Strategy:**
    - Authenticates users using a username and password stored in a database.
@@ -3500,7 +3486,7 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
 
 ---
 
-### **Integrating Passport with Express.js**
+#### **Integrating Passport with Express.js**
 
 1. **Install Passport and Required Strategies:**
    ```bash
@@ -3565,6 +3551,20 @@ By understanding the `url` module, you can effectively work with URLs in Node.js
 ---
 
 
+##### **Key Takeaways for an Interview:**
+
+1. **Passport:**
+   - A middleware for handling authentication in Node.js applications.
+
+2. **Strategies:**
+   - Supports various authentication strategies (e.g., local, OAuth, JWT).
+
+3. **Integration:**
+   - Easily integrates with Express.js for session management and authentication.
+
+4. **Use Cases:**
+   - Implementing user authentication, third-party login, and token-based authentication.
+  
 By understanding Passport, you can implement secure and flexible authentication mechanisms in your Node.js applications.
 </details>
 
@@ -3573,13 +3573,13 @@ By understanding Passport, you can implement secure and flexible authentication 
 >### 38. what is express.js and how it help in node application
 <details><summary><b>Answer:</b></summary>
 
-### **What is Express.js?**
+#### **What is Express.js?**
 
 **Express.js** is a fast, unopinionated, and minimalist web framework for **Node.js**. It provides a robust set of features to build web applications and APIs, making it one of the most popular frameworks for Node.js. Express simplifies the process of handling HTTP requests, routing, middleware integration, and more.
 
 ---
 
-### **Key Features of Express.js**
+#### **Key Features of Express.js**
 
 1. **Routing:**
    - Express provides a simple and intuitive API for defining routes (e.g., `GET`, `POST`, `PUT`, `DELETE`).
@@ -3601,7 +3601,7 @@ By understanding Passport, you can implement secure and flexible authentication 
 
 ---
 
-### **How Express.js Helps in Node.js Applications**
+#### **How Express.js Helps in Node.js Applications**
 
 1. **Simplifies Routing:**
    - Express makes it easy to define routes for different HTTP methods and URLs.
@@ -3689,7 +3689,7 @@ By understanding Passport, you can implement secure and flexible authentication 
 
 ---
 
-### **Example: Basic Express Application**
+#### **Example: Basic Express Application**
 
 ```javascript
 const express = require('express');
@@ -3723,7 +3723,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Express.js** is a web framework for Node.js that simplifies building web applications and APIs.
 2. **Key Features:**
@@ -3745,17 +3745,17 @@ In Node.js, **Buffers** and **Streams** are fundamental concepts for handling bi
 
 ---
 
-### **1. Buffers in Node.js**
+#### **1. Buffers in Node.js**
 
-#### **What is a Buffer?**
+##### **What is a Buffer?**
 - A **Buffer** is a temporary storage area in memory used to hold binary data (raw data in the form of bytes).
 - It is useful when dealing with data that is not in JavaScript's native format, such as files, network packets, or binary protocols.
 
-#### **Why Use Buffers?**
+##### **Why Use Buffers?**
 - JavaScript strings are Unicode-based, which makes them unsuitable for handling binary data directly.
 - Buffers allow you to work with binary data efficiently.
 
-#### **Creating a Buffer:**
+##### **Creating a Buffer:**
 - Buffers can be created in several ways:
   ```javascript
   // Create a buffer of size 10 bytes
@@ -3768,7 +3768,7 @@ In Node.js, **Buffers** and **Streams** are fundamental concepts for handling bi
   const buf3 = Buffer.from('Hello, World!', 'utf8');
   ```
 
-#### **Common Buffer Methods:**
+##### **Common Buffer Methods:**
 - **`buf.toString([encoding])`:** Converts the buffer to a string.
   ```javascript
   const buf = Buffer.from('Hello, World!', 'utf8');
@@ -3789,14 +3789,14 @@ In Node.js, **Buffers** and **Streams** are fundamental concepts for handling bi
 
 ---
 
-### **2. Streams in Node.js**
+#### **2. Streams in Node.js**
 
-#### **What is a Stream?**
+##### **What is a Stream?**
 - A **Stream** is an abstract interface for working with streaming data in Node.js.
 - Streams allow you to process data piece by piece (in chunks) instead of loading the entire dataset into memory at once.
 - This makes streams ideal for handling large files, real-time data, or network communications.
 
-#### **Types of Streams:**
+##### **Types of Streams:**
 1. **Readable Streams:**
    - Used for reading data from a source (e.g., reading a file).
    - Example: `fs.createReadStream()`, `http.IncomingMessage`.
@@ -3811,11 +3811,11 @@ In Node.js, **Buffers** and **Streams** are fundamental concepts for handling bi
 4. **Transform Streams:**
    - A type of duplex stream that transforms data as it is read or written (e.g., compression, encryption).
 
-#### **Why Use Streams?**
+##### **Why Use Streams?**
 - **Memory Efficiency:** Streams process data in chunks, so you don't need to load the entire dataset into memory.
 - **Time Efficiency:** You can start processing data as soon as it becomes available, without waiting for the entire dataset to be loaded.
 
-#### **Example: Reading a File Using Streams**
+##### **Example: Reading a File Using Streams**
 ```javascript
 const fs = require('fs');
 
@@ -3839,7 +3839,7 @@ readableStream.on('error', (err) => {
 });
 ```
 
-#### **Example: Writing to a File Using Streams**
+##### **Example: Writing to a File Using Streams**
 ```javascript
 const fs = require('fs');
 
@@ -3856,7 +3856,7 @@ writableStream.end(() => {
 });
 ```
 
-#### **Piping Streams:**
+##### **Piping Streams:**
 - Piping is a mechanism to connect the output of one stream to the input of another.
 - Example:
   ```javascript
@@ -3874,7 +3874,7 @@ writableStream.end(() => {
 
 ---
 
-### **Key Differences Between Buffers and Streams**
+#### **Key Differences Between Buffers and Streams**
 
 | **Feature**      | **Buffer**                                  | **Stream**                                       |
 | ---------------- | ------------------------------------------- | ------------------------------------------------ |
@@ -3885,7 +3885,7 @@ writableStream.end(() => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Buffers:**
    - Used for handling binary data in memory.
@@ -3910,11 +3910,11 @@ By understanding Buffers and Streams, you can demonstrate your ability to handle
 >### 40.	How do you create a simple server in Node.js that returns Hello World and express.js and how use secure network for nodejs?
 <details><summary><b>Answer:</b></summary>
 
-### **1. Creating a Simple Server in Node.js (Without Express)**
+#### **1. Creating a Simple Server in Node.js (Without Express)**
 
 To create a simple server in Node.js that returns "Hello, World!", you can use the built-in `http` module.
 
-#### **Code Example:**
+##### **Code Example:**
 ```javascript
 const http = require('http');
 
@@ -3930,7 +3930,7 @@ server.listen(3000, () => {
 });
 ```
 
-#### **Steps to Run:**
+##### **Steps to Run:**
 1. Save the code in a file (e.g., `server.js`).
 2. Run the file using Node.js:
    ```bash
@@ -3940,11 +3940,11 @@ server.listen(3000, () => {
 
 ---
 
-### **2. Creating a Simple Server Using Express.js**
+#### **2. Creating a Simple Server Using Express.js**
 
 Express.js simplifies the process of creating a server and handling routes.
 
-#### **Code Example:**
+##### **Code Example:**
 ```javascript
 const express = require('express');
 const app = express();
@@ -3960,7 +3960,7 @@ app.listen(3000, () => {
 });
 ```
 
-#### **Steps to Run:**
+##### **Steps to Run:**
 1. Install Express.js:
    ```bash
    npm install express
@@ -3974,11 +3974,11 @@ app.listen(3000, () => {
 
 ---
 
-### **3. Securing a Node.js Server with HTTPS**
+#### **3. Securing a Node.js Server with HTTPS**
 
 To secure your Node.js server, you need to use **HTTPS** instead of HTTP. HTTPS encrypts the data transmitted between the client and server, ensuring security.
 
-#### **Steps to Create a Secure Server:**
+##### **Steps to Create a Secure Server:**
 
 1. **Generate SSL/TLS Certificates:**
    - You can use tools like **OpenSSL** to generate self-signed certificates for development purposes.
@@ -3994,7 +3994,7 @@ To secure your Node.js server, you need to use **HTTPS** instead of HTTP. HTTPS 
 
    Use the `https` module to create a secure server.
 
-   #### **Code Example:**
+   ##### **Code Example:**
    ```javascript
    const https = require('https');
    const fs = require('fs');
@@ -4019,7 +4019,7 @@ To secure your Node.js server, you need to use **HTTPS** instead of HTTP. HTTPS 
    });
    ```
 
-   #### **Steps to Run:**
+   ##### **Steps to Run:**
    1. Save the code in a file (e.g., `secure-server.js`).
    2. Run the file using Node.js:
       ```bash
@@ -4033,7 +4033,7 @@ To secure your Node.js server, you need to use **HTTPS** instead of HTTP. HTTPS 
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Simple HTTP Server:**
    - Use the `http` module to create a basic server.
@@ -4056,13 +4056,13 @@ By understanding these concepts, you can demonstrate your ability to create and 
 >### 41. Explain the concept of middleware in Node.js.
 <details><summary><b>Answer:</b></summary>
 
-### **Middleware in Node.js**
+#### **Middleware in Node.js**
 
 Middleware is a fundamental concept in Node.js, especially when using frameworks like **Express.js**. It refers to functions that have access to the **request object (`req`)**, the **response object (`res`)**, and the **next function** in the application's request-response cycle. Middleware functions can perform tasks such as modifying requests and responses, ending the request-response cycle, or calling the next middleware in the stack.
 
 ---
 
-### **Key Characteristics of Middleware**
+#### **Key Characteristics of Middleware**
 
 1. **Access to `req`, `res`, and `next`:**
    - Middleware functions can read and modify `req` and `res` objects.
@@ -4078,13 +4078,13 @@ Middleware is a fundamental concept in Node.js, especially when using frameworks
 
 ---
 
-### **Types of Middleware**
+#### **Types of Middleware**
 
 1. **Application-Level Middleware:**
    - Bound to the app instance using `app.use()` or `app.METHOD()` (e.g., `app.get()`, `app.post()`).
    - Applies to all routes or specific routes.
 
-   #### **Example:**
+   ##### **Example:**
    ```javascript
    const express = require('express');
    const app = express();
@@ -4110,7 +4110,7 @@ Middleware is a fundamental concept in Node.js, especially when using frameworks
    - Similar to application-level middleware but bound to an instance of `express.Router()`.
    - Used to modularize routes.
 
-   #### **Example:**
+   ##### **Example:**
    ```javascript
    const express = require('express');
    const router = express.Router();
@@ -4137,7 +4137,7 @@ Middleware is a fundamental concept in Node.js, especially when using frameworks
    - Special middleware used to handle errors.
    - Must have four arguments: `(err, req, res, next)`.
 
-   #### **Example:**
+   ##### **Example:**
    ```javascript
    app.use((err, req, res, next) => {
      console.error(err.stack);
@@ -4163,7 +4163,7 @@ Middleware is a fundamental concept in Node.js, especially when using frameworks
 
 ---
 
-### **How Middleware Works**
+#### **How Middleware Works**
 
 1. **Request Flow:**
    - When a request is made, it passes through each middleware function in the order they are defined.
@@ -4177,7 +4177,7 @@ Middleware is a fundamental concept in Node.js, especially when using frameworks
 
 ---
 
-### **Example: Using Middleware in Express**
+#### **Example: Using Middleware in Express**
 
 ```javascript
 const express = require('express');
@@ -4211,7 +4211,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Middleware** is a function that has access to `req`, `res`, and `next` in the request-response cycle.
 2. **Types of Middleware:**
@@ -4230,13 +4230,13 @@ By understanding middleware, you can demonstrate your ability to modularize and 
 >### 42.	What is REPL in Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **REPL in Node.js**
+#### **REPL in Node.js**
 
 **REPL** stands for **Read-Eval-Print Loop**. It is an interactive programming environment that allows you to execute JavaScript code in real-time. Node.js comes with a built-in REPL that you can use to test code snippets, debug, or experiment with JavaScript features without needing to write a full script.
 
 ---
 
-### **Key Features of REPL**
+#### **Key Features of REPL**
 
 1. **Read:**
    - Reads user input (JavaScript code).
@@ -4252,7 +4252,7 @@ By understanding middleware, you can demonstrate your ability to modularize and 
 
 ---
 
-### **How to Start the REPL**
+#### **How to Start the REPL**
 
 To start the Node.js REPL, simply open your terminal or command prompt and type `node`:
 
@@ -4264,7 +4264,7 @@ You should see a prompt (`>`), indicating that the REPL is ready to accept input
 
 ---
 
-### **Using the REPL**
+#### **Using the REPL**
 
 1. **Executing JavaScript Code:**
    - You can type any valid JavaScript code, and the REPL will execute it immediately.
@@ -4325,7 +4325,7 @@ You should see a prompt (`>`), indicating that the REPL is ready to accept input
 
 ---
 
-### **Example: Using REPL for Debugging**
+#### **Example: Using REPL for Debugging**
 
 Suppose you want to test a function before adding it to your script:
 
@@ -4342,7 +4342,7 @@ If the function works as expected, you can copy it into your script.
 
 ---
 
-### **Exiting the REPL**
+#### **Exiting the REPL**
 
 To exit the REPL, you can:
 - Use the `.exit` command.
@@ -4351,7 +4351,7 @@ To exit the REPL, you can:
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **REPL** stands for **Read-Eval-Print Loop**.
 2. It is an interactive environment for executing JavaScript code in real-time.
@@ -4372,13 +4372,13 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
 >### 43.	What is piping in Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **Piping in Node.js**
+#### **Piping in Node.js**
 
 **Piping** is a mechanism in Node.js that allows you to connect the output of one **stream** to the input of another stream. It is a powerful feature for handling data flow efficiently, especially when working with large datasets or performing I/O operations like reading from or writing to files, network communications, or transforming data.
 
 ---
 
-### **Key Concepts of Piping**
+#### **Key Concepts of Piping**
 
 1. **Streams:**
    - Streams are objects that let you read data from a source or write data to a destination in a continuous fashion.
@@ -4394,7 +4394,7 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
 
 ---
 
-### **How Piping Works**
+#### **How Piping Works**
 
 1. **Syntax:**
    ```javascript
@@ -4449,7 +4449,7 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
 
 ---
 
-### **Advantages of Piping**
+#### **Advantages of Piping**
 
 1. **Memory Efficiency:**
    - Piping processes data in chunks, so you don't need to load the entire dataset into memory.
@@ -4465,7 +4465,7 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
 
 ---
 
-### **Common Use Cases for Piping**
+#### **Common Use Cases for Piping**
 
 1. **File Operations:**
    - Copying, compressing, or decompressing files.
@@ -4494,7 +4494,7 @@ By understanding the REPL, you can demonstrate your ability to quickly test and 
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Piping** connects a **Readable Stream** to a **Writable Stream**, enabling efficient data flow.
 2. **Syntax:** `readableStream.pipe(writableStream)`.
@@ -4515,13 +4515,13 @@ By understanding piping, you can demonstrate your ability to handle data flow ef
 >### 44. What is a reactor pattern in Node.js? How Does Node.js Use the Reactor Pattern?
 <details><summary><b>Answer:</b></summary>
 
-### **Reactor Pattern in Node.js**
+#### **Reactor Pattern in Node.js**
 
 The **Reactor Pattern** is a design pattern used to handle multiple I/O operations efficiently in an event-driven system. It is the foundation of Node.js's non-blocking, asynchronous behavior, enabling it to handle thousands of concurrent connections with a single thread.
 
 ---
 
-### **Key Concepts of the Reactor Pattern**
+#### **Key Concepts of the Reactor Pattern**
 
 1. **Event Demultiplexer:**
    - A mechanism that waits for I/O events (e.g., file I/O, network requests) and notifies the application when an event occurs.
@@ -4538,7 +4538,7 @@ The **Reactor Pattern** is a design pattern used to handle multiple I/O operatio
 
 ---
 
-### **How the Reactor Pattern Works**
+#### **How the Reactor Pattern Works**
 
 1. **I/O Operation Initiation:**
    - When an asynchronous I/O operation (e.g., reading a file, making a network request) is initiated, it is offloaded to the system kernel or a thread pool.
@@ -4556,7 +4556,7 @@ The **Reactor Pattern** is a design pattern used to handle multiple I/O operatio
 
 ---
 
-### **How Node.js Uses the Reactor Pattern**
+#### **How Node.js Uses the Reactor Pattern**
 
 1. **Single-Threaded Event Loop:**
    - Node.js runs on a single thread, but it uses the event loop to handle multiple I/O operations concurrently.
@@ -4574,7 +4574,7 @@ The **Reactor Pattern** is a design pattern used to handle multiple I/O operatio
 
 ---
 
-### **Example: Reactor Pattern in Action**
+#### **Example: Reactor Pattern in Action**
 
 Consider a simple HTTP server in Node.js:
 
@@ -4593,7 +4593,7 @@ server.listen(3000, () => {
 });
 ```
 
-#### **How the Reactor Pattern Applies:**
+##### **How the Reactor Pattern Applies:**
 1. **I/O Operation Initiation:**
    - When a client makes a request, the server offloads the request handling to the system kernel.
 
@@ -4608,7 +4608,7 @@ server.listen(3000, () => {
 
 ---
 
-### **Advantages of the Reactor Pattern in Node.js**
+#### **Advantages of the Reactor Pattern in Node.js**
 
 1. **Scalability:**
    - Handles thousands of concurrent connections with a single thread.
@@ -4624,7 +4624,7 @@ server.listen(3000, () => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Reactor Pattern:**
    - A design pattern for handling multiple I/O operations efficiently in an event-driven system.
@@ -4649,13 +4649,13 @@ By understanding the Reactor Pattern, you can explain how Node.js achieves its h
 >### 45. What is a test pyramid in Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **Test Pyramid in Node.js**
+#### **Test Pyramid in Node.js**
 
 The **Test Pyramid** is a conceptual model that helps developers understand the different types of tests they should write and the proportion of each type in a well-balanced test suite. It was introduced by Mike Cohn in his book *"Succeeding with Agile"* and is widely used in software development, including Node.js applications.
 
 ---
 
-### **The Test Pyramid Structure**
+#### **The Test Pyramid Structure**
 
 The Test Pyramid consists of three layers:
 
@@ -4682,7 +4682,7 @@ The Test Pyramid consists of three layers:
 
 ---
 
-### **Why the Test Pyramid Matters**
+#### **Why the Test Pyramid Matters**
 
 1. **Balanced Test Suite:**
    - The pyramid emphasizes having a large number of fast, reliable unit tests, a smaller number of integration tests, and an even smaller number of end-to-end tests.
@@ -4699,9 +4699,9 @@ The Test Pyramid consists of three layers:
 
 ---
 
-### **Applying the Test Pyramid in Node.js**
+#### **Applying the Test Pyramid in Node.js**
 
-#### **1. Unit Tests**
+##### **1. Unit Tests**
 - Test individual functions or modules in isolation.
 - Use mocking to isolate dependencies (e.g., databases, APIs).
 - Example:
@@ -4724,7 +4724,7 @@ The Test Pyramid consists of three layers:
   });
   ```
 
-#### **2. Integration Tests**
+##### **2. Integration Tests**
 - Test interactions between components (e.g., database, APIs).
 - Example:
   ```javascript
@@ -4750,7 +4750,7 @@ The Test Pyramid consists of three layers:
   });
   ```
 
-#### **3. End-to-End Tests**
+##### **3. End-to-End Tests**
 - Test the entire application from start to finish.
 - Example (using Cypress):
   ```javascript
@@ -4765,7 +4765,7 @@ The Test Pyramid consists of three layers:
 
 ---
 
-### **Common Mistakes to Avoid**
+#### **Common Mistakes to Avoid**
 
 1. **Inverted Pyramid:**
    - Having too many end-to-end tests and too few unit tests.
@@ -4779,7 +4779,7 @@ The Test Pyramid consists of three layers:
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Test Pyramid:**
    - A model for structuring a balanced test suite with unit tests at the base, integration tests in the middle, and end-to-end tests at the top.
@@ -4805,13 +4805,13 @@ By understanding the Test Pyramid, you can demonstrate your ability to design a 
 >### 46. what is the use of body parser in node js
 <details><summary><b>Answer:</b></summary>
 
-### **Body Parser in Node.js**
+#### **Body Parser in Node.js**
 
 The **body-parser** middleware is used in Node.js applications to parse incoming request bodies. It extracts data from the request body (e.g., JSON, URL-encoded form data) and makes it available on the `req.body` object, simplifying the process of handling client-submitted data.
 
 ---
 
-### **Why Use Body Parser?**
+#### **Why Use Body Parser?**
 
 1. **Handling Request Data:**
    - When a client sends data to a server (e.g., via a POST request), the data is included in the request body.
@@ -4829,7 +4829,7 @@ The **body-parser** middleware is used in Node.js applications to parse incoming
 
 ---
 
-### **How to Use Body Parser**
+#### **How to Use Body Parser**
 
 1. **Installation:**
    - body-parser is no longer included in Express.js by default (as of Express 4.16+), but you can install it separately:
@@ -4840,7 +4840,7 @@ The **body-parser** middleware is used in Node.js applications to parse incoming
 2. **Basic Usage:**
    - Import and use body-parser in your Express application.
 
-   #### **Example: Parsing JSON and URL-Encoded Data**
+   ##### **Example: Parsing JSON and URL-Encoded Data**
    ```javascript
    const express = require('express');
    const bodyParser = require('body-parser');
@@ -4871,7 +4871,7 @@ The **body-parser** middleware is used in Node.js applications to parse incoming
 3. **Handling Raw Text and Multipart Data:**
    - body-parser can also parse raw text and multipart form data, though multipart data is typically handled by libraries like `multer`.
 
-   #### **Example: Parsing Raw Text**
+   ##### **Example: Parsing Raw Text**
    ```javascript
    app.use(bodyParser.text());
 
@@ -4883,11 +4883,11 @@ The **body-parser** middleware is used in Node.js applications to parse incoming
 
 ---
 
-### **Body Parser in Modern Express**
+#### **Body Parser in Modern Express**
 
 As of Express 4.16+, you no longer need to install body-parser separately. Express includes built-in middleware for parsing JSON and URL-encoded data:
 
-#### **Example: Using Built-In Express Middleware**
+##### **Example: Using Built-In Express Middleware**
 ```javascript
 const express = require('express');
 const app = express();
@@ -4910,7 +4910,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Key Features of Body Parser**
+#### **Key Features of Body Parser**
 
 1. **JSON Parsing:**
    - Parses JSON request bodies and makes the data available on `req.body`.
@@ -4926,7 +4926,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Common Use Cases**
+#### **Common Use Cases**
 
 1. **Handling Form Submissions:**
    - Parse data submitted via HTML forms.
@@ -4939,7 +4939,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Body Parser:**
    - Middleware for parsing incoming request bodies in Node.js.
@@ -4962,13 +4962,13 @@ By understanding body-parser, you can demonstrate your ability to handle client-
 >### 47. What is extended: true in urlencoded()?
 <details><summary><b>Answer:</b></summary>
 
-### **`extended: true` in `urlencoded()`**
+#### **`extended: true` in `urlencoded()`**
 
 In Express.js, the `urlencoded()` middleware is used to parse incoming request bodies with **URL-encoded payloads** (typically sent by HTML forms). The `extended` option determines how the URL-encoded data is parsed.
 
 ---
 
-### **What Does `extended: true` Do?**
+#### **What Does `extended: true` Do?**
 
 1. **When `extended: true`:**
    - The URL-encoded data is parsed using the **`qs` library**.
@@ -5005,7 +5005,7 @@ In Express.js, the `urlencoded()` middleware is used to parse incoming request b
 
 ---
 
-### **Why Use `extended: true`?**
+#### **Why Use `extended: true`?**
 
 1. **Support for Nested Objects and Arrays:**
    - If your application needs to handle complex data structures (e.g., arrays, nested objects) in URL-encoded form data, you should use `extended: true`.
@@ -5018,7 +5018,7 @@ In Express.js, the `urlencoded()` middleware is used to parse incoming request b
 
 ---
 
-### **Example: Using `urlencoded()` with `extended: true`**
+#### **Example: Using `urlencoded()` with `extended: true`**
 
 ```javascript
 const express = require('express');
@@ -5037,7 +5037,7 @@ app.listen(3000, () => {
 });
 ```
 
-#### **Sample Request:**
+##### **Sample Request:**
 - **Form Data:**
   ```
   name=John&age=30&hobbies[0]=reading&hobbies[1]=coding
@@ -5053,7 +5053,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Example: Using `urlencoded()` with `extended: false`**
+#### **Example: Using `urlencoded()` with `extended: false`**
 
 ```javascript
 const express = require('express');
@@ -5072,7 +5072,7 @@ app.listen(3000, () => {
 });
 ```
 
-#### **Sample Request:**
+##### **Sample Request:**
 - **Form Data:**
   ```
   name=John&age=30&hobbies[0]=reading&hobbies[1]=coding
@@ -5089,7 +5089,7 @@ app.listen(3000, () => {
 
 ---
 
-### **When to Use `extended: true` vs `extended: false`**
+#### **When to Use `extended: true` vs `extended: false`**
 
 1. **Use `extended: true` when:**
    - You need to handle nested objects or arrays in URL-encoded data.
@@ -5101,7 +5101,7 @@ app.listen(3000, () => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **`extended: true`:**
    - Uses the `qs` library to parse URL-encoded data.
@@ -5125,13 +5125,13 @@ By understanding the `extended` option, you can choose the appropriate configura
 >### 48.	Describe Node.js exit codes.
 <details><summary><b>Answer:</b></summary>
 
-### **Node.js Exit Codes**
+#### **Node.js Exit Codes**
 
 When a Node.js process exits, it returns an **exit code** to the operating system. This exit code is a numeric value that indicates why the process terminated. Understanding these exit codes can help you debug issues and handle errors effectively in your Node.js applications.
 
 ---
 
-### **Common Node.js Exit Codes**
+#### **Common Node.js Exit Codes**
 
 Here are some of the most common exit codes and their meanings:
 
@@ -5153,11 +5153,11 @@ Here are some of the most common exit codes and their meanings:
 
 ---
 
-### **Custom Exit Codes**
+#### **Custom Exit Codes**
 
 You can define your own exit codes using `process.exit(code)`. Custom exit codes should be integers between `1` and `128` (avoid `0` for errors, as it indicates success).
 
-#### **Example: Using Custom Exit Codes**
+##### **Example: Using Custom Exit Codes**
 ```javascript
 if (someErrorCondition) {
   console.error('An error occurred!');
@@ -5167,7 +5167,7 @@ if (someErrorCondition) {
 
 ---
 
-### **Handling Exit Codes**
+#### **Handling Exit Codes**
 
 1. **Checking Exit Codes in Scripts:**
    - In shell scripts, you can check the exit code of a Node.js process using `$?`.
@@ -5198,7 +5198,7 @@ if (someErrorCondition) {
 
 ---
 
-### **Example: Using Exit Codes**
+#### **Example: Using Exit Codes**
 
 ```javascript
 const express = require('express');
@@ -5227,7 +5227,7 @@ process.on('SIGINT', () => {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Exit Codes:**
    - Numeric values returned by a Node.js process to indicate why it terminated.
@@ -5253,13 +5253,13 @@ By understanding Node.js exit codes, you can debug issues more effectively and e
 >### 49.	What are the different types of HTTP requests?
 <details><summary><b>Answer:</b></summary>
 
-### **Different Types of HTTP Requests**
+#### **Different Types of HTTP Requests**
 
 HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called HTTP verbs) that indicate the desired action to be performed on a resource. These methods are used to interact with web servers and APIs. Here are the most common types of HTTP requests:
 
 ---
 
-### **1. GET**
+#### **1. GET**
 
 - **Purpose:** Retrieve data from the server.
 - **Idempotent:** Yes (repeating the request has no additional effect).
@@ -5273,7 +5273,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **2. POST**
+#### **2. POST**
 
 - **Purpose:** Submit data to the server to create a new resource.
 - **Idempotent:** No (repeating the request may create multiple resources).
@@ -5293,7 +5293,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **3. PUT**
+#### **3. PUT**
 
 - **Purpose:** Update an existing resource or create a new resource if it doesn't exist.
 - **Idempotent:** Yes (repeating the request has no additional effect).
@@ -5313,7 +5313,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **4. PATCH**
+#### **4. PATCH**
 
 - **Purpose:** Partially update an existing resource.
 - **Idempotent:** No (depends on the implementation).
@@ -5332,7 +5332,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **5. DELETE**
+#### **5. DELETE**
 
 - **Purpose:** Delete a resource.
 - **Idempotent:** Yes (repeating the request has no additional effect).
@@ -5346,7 +5346,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **6. HEAD**
+#### **6. HEAD**
 
 - **Purpose:** Retrieve the headers of a resource without the body.
 - **Idempotent:** Yes.
@@ -5360,7 +5360,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **7. OPTIONS**
+#### **7. OPTIONS**
 
 - **Purpose:** Retrieve the supported HTTP methods for a resource.
 - **Idempotent:** Yes.
@@ -5374,7 +5374,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **8. TRACE**
+#### **8. TRACE**
 
 - **Purpose:** Perform a message loop-back test along the path to the target resource.
 - **Idempotent:** Yes.
@@ -5388,7 +5388,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **9. CONNECT**
+#### **9. CONNECT**
 
 - **Purpose:** Establish a tunnel to the server identified by the target resource.
 - **Idempotent:** No.
@@ -5402,7 +5402,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **Summary of HTTP Request Methods**
+#### **Summary of HTTP Request Methods**
 
 | **Method**  | **Purpose**                      | **Idempotent** | **Safe** |
 | ----------- | -------------------------------- | -------------- | -------- |
@@ -5418,7 +5418,7 @@ HTTP (Hypertext Transfer Protocol) defines a set of request methods (also called
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **HTTP Request Methods:**
    - Define the action to be performed on a resource.
@@ -5444,17 +5444,17 @@ By understanding these HTTP request methods, you can design and interact with RE
 >### 50.	How would you connect a MongoDB database to Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **Connecting a MongoDB Database to Node.js**
+#### **Connecting a MongoDB Database to Node.js**
 
 To connect a MongoDB database to a Node.js application, you can use the official MongoDB Node.js driver or an Object Data Modeling (ODM) library like **Mongoose**. Below are the steps to connect MongoDB to Node.js using both approaches.
 
 ---
 
-### **1. Using the MongoDB Native Driver**
+#### **1. Using the MongoDB Native Driver**
 
 The MongoDB native driver provides a low-level API for interacting with MongoDB.
 
-#### **Steps:**
+##### **Steps:**
 
 1. **Install the MongoDB Driver:**
    ```bash
@@ -5502,11 +5502,11 @@ The MongoDB native driver provides a low-level API for interacting with MongoDB.
 
 ---
 
-### **2. Using Mongoose (ODM Library)**
+#### **2. Using Mongoose (ODM Library)**
 
 Mongoose is an ODM library that provides a higher-level abstraction for working with MongoDB. It simplifies tasks like schema validation, query building, and middleware.
 
-#### **Steps:**
+##### **Steps:**
 
 1. **Install Mongoose:**
    ```bash
@@ -5553,7 +5553,7 @@ Mongoose is an ODM library that provides a higher-level abstraction for working 
 
 ---
 
-### **Key Differences Between MongoDB Native Driver and Mongoose**
+#### **Key Differences Between MongoDB Native Driver and Mongoose**
 
 | **Feature**              | **MongoDB Native Driver**                      | **Mongoose**                                |
 | ------------------------ | ---------------------------------------------- | ------------------------------------------- |
@@ -5565,7 +5565,7 @@ Mongoose is an ODM library that provides a higher-level abstraction for working 
 
 ---
 
-### **Best Practices**
+#### **Best Practices**
 
 1. **Environment Variables:**
    - Store sensitive information like database URIs in environment variables.
@@ -5585,7 +5585,7 @@ Mongoose is an ODM library that provides a higher-level abstraction for working 
 
 ---
 
-### **Example: Using Environment Variables**
+#### **Example: Using Environment Variables**
 
 1. **Install `dotenv`:**
    ```bash
@@ -5609,7 +5609,7 @@ Mongoose is an ODM library that provides a higher-level abstraction for working 
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **MongoDB Native Driver:**
    - Low-level API for direct interaction with MongoDB.
@@ -5632,7 +5632,7 @@ By understanding these approaches, you can demonstrate your ability to connect a
 >### 51. What is a first-class function, higher order function and error first function in nodejs?
 <details><summary><b>Answer:</b></summary>
 
-### **1. First-Class Functions**
+#### **1. First-Class Functions**
 
 In JavaScript (and Node.js), **first-class functions** are functions that are treated like any other variable. This means you can:
 
@@ -5641,7 +5641,7 @@ In JavaScript (and Node.js), **first-class functions** are functions that are tr
 - Return functions from other functions.
 - Store functions in data structures (e.g., arrays, objects).
 
-#### **Example:**
+##### **Example:**
 ```javascript
 // Assigning a function to a variable
 const greet = function(name) {
@@ -5670,7 +5670,7 @@ console.log(sayHi('Bob')); // Output: Hi, Bob!
 
 ---
 
-### **2. Higher-Order Functions**
+#### **2. Higher-Order Functions**
 
 A **higher-order function** is a function that:
 
@@ -5679,7 +5679,7 @@ A **higher-order function** is a function that:
 
 Higher-order functions are a key feature of functional programming and are widely used in JavaScript and Node.js.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 // Higher-order function that takes a function as an argument
 function higherOrderFunction(fn) {
@@ -5708,7 +5708,7 @@ console.log(double(5)); // Output: 10
 
 ---
 
-### **3. Error-First Callbacks**
+#### **3. Error-First Callbacks**
 
 In Node.js, **error-first callbacks** (also called **Node-style callbacks**) are a convention for handling asynchronous operations. The pattern is as follows:
 
@@ -5717,7 +5717,7 @@ In Node.js, **error-first callbacks** (also called **Node-style callbacks**) are
    - The first parameter is an **error object** (or `null` if no error occurred).
    - The second parameter is the **result** of the operation (if successful).
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const fs = require('fs');
 
@@ -5731,14 +5731,14 @@ fs.readFile('example.txt', 'utf8', (err, data) => {
 });
 ```
 
-#### **Key Characteristics:**
+##### **Key Characteristics:**
 - **Error Handling:** The first parameter is always reserved for errors.
 - **Consistency:** This pattern ensures consistent error handling across asynchronous functions.
 - **Common in Node.js:** Many Node.js core modules (e.g., `fs`, `http`) use error-first callbacks.
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **First-Class Functions:**
    - Functions are treated like variables.
@@ -5761,25 +5761,25 @@ By understanding these concepts, you can demonstrate your knowledge of JavaScrip
 >### 52. What is the difference between asynchronous and synchronous functions?
 <details><summary><b>Answer:</b></summary>
 
-### **Difference Between Asynchronous and Synchronous Functions**
+#### **Difference Between Asynchronous and Synchronous Functions**
 
 In programming, **synchronous** and **asynchronous** functions differ in how they handle task execution and blocking behavior. Here's a detailed comparison:
 
 ---
 
-### **1. Synchronous Functions**
+#### **1. Synchronous Functions**
 
-#### **Definition:**
+##### **Definition:**
 - Synchronous functions execute tasks **sequentially**, one at a time.
 - Each task must complete before the next task starts.
 - The program waits (blocks) until the current task is finished.
 
-#### **Characteristics:**
+##### **Characteristics:**
 - **Blocking:** The execution of the program is paused until the function completes.
 - **Predictable:** Tasks are executed in the order they are written.
 - **Simple:** Easier to understand and debug.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log('Task 1');
 console.log('Task 2');
@@ -5795,19 +5795,19 @@ Task 3
 
 ---
 
-### **2. Asynchronous Functions**
+#### **2. Asynchronous Functions**
 
-#### **Definition:**
+##### **Definition:**
 - Asynchronous functions execute tasks **concurrently** or **in the background**.
 - The program does not wait for the task to complete and continues executing the next tasks.
 - Once the asynchronous task is complete, a callback, promise, or async/await is used to handle the result.
 
-#### **Characteristics:**
+##### **Characteristics:**
 - **Non-Blocking:** The program continues executing other tasks while waiting for the asynchronous task to complete.
 - **Efficient:** Ideal for I/O-bound tasks (e.g., file I/O, network requests).
 - **Complex:** Requires handling callbacks, promises, or async/await for synchronization.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log('Task 1');
 
@@ -5827,7 +5827,7 @@ Task 2
 
 ---
 
-### **Key Differences**
+#### **Key Differences**
 
 | **Feature**     | **Synchronous Functions**                    | **Asynchronous Functions**                  |
 | --------------- | -------------------------------------------- | ------------------------------------------- |
@@ -5839,9 +5839,9 @@ Task 2
 
 ---
 
-### **Examples in Node.js**
+#### **Examples in Node.js**
 
-#### **Synchronous Example:**
+##### **Synchronous Example:**
 ```javascript
 const fs = require('fs');
 
@@ -5852,7 +5852,7 @@ console.log('File read completed.');
 ```
 - The program waits for the file to be read before moving to the next line.
 
-#### **Asynchronous Example:**
+##### **Asynchronous Example:**
 ```javascript
 const fs = require('fs');
 
@@ -5867,7 +5867,7 @@ console.log('File read initiated.');
 
 ---
 
-### **Handling Asynchronous Functions**
+#### **Handling Asynchronous Functions**
 
 1. **Callbacks:**
    - Pass a function as an argument to handle the result of the asynchronous operation.
@@ -5905,7 +5905,7 @@ console.log('File read initiated.');
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Synchronous Functions:**
    - Execute tasks sequentially.
@@ -5928,17 +5928,17 @@ By understanding these differences, you can choose the appropriate approach for 
 >### 53.	What is the order of execution in control flow statements?
 <details><summary><b>Answer:</b></summary>
 
-### **Order of Execution in Control Flow Statements**
+#### **Order of Execution in Control Flow Statements**
 
 Control flow statements in JavaScript (and Node.js) determine the order in which statements are executed. Understanding the order of execution is crucial for writing predictable and efficient code. Here's a breakdown of how control flow statements work:
 
 ---
 
-### **1. Sequential Execution**
+#### **1. Sequential Execution**
 
 By default, JavaScript executes statements **sequentially**, from top to bottom.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log('Step 1');
 console.log('Step 2');
@@ -5953,11 +5953,11 @@ Step 3
 
 ---
 
-### **2. Conditional Execution**
+#### **2. Conditional Execution**
 
 Conditional statements (`if`, `else if`, `else`, `switch`) allow you to execute code blocks based on conditions.
 
-#### **`if` Statement:**
+##### **`if` Statement:**
 ```javascript
 const age = 18;
 
@@ -5972,7 +5972,7 @@ if (age >= 18) {
 You are an adult.
 ```
 
-#### **`switch` Statement:**
+##### **`switch` Statement:**
 ```javascript
 const day = 'Monday';
 
@@ -5994,11 +5994,11 @@ Start of the workweek
 
 ---
 
-### **3. Looping Execution**
+#### **3. Looping Execution**
 
 Loops (`for`, `while`, `do...while`, `for...of`, `for...in`) allow you to execute a block of code repeatedly.
 
-#### **`for` Loop:**
+##### **`for` Loop:**
 ```javascript
 for (let i = 0; i < 3; i++) {
   console.log(`Iteration ${i}`);
@@ -6011,7 +6011,7 @@ Iteration 1
 Iteration 2
 ```
 
-#### **`while` Loop:**
+##### **`while` Loop:**
 ```javascript
 let i = 0;
 while (i < 3) {
@@ -6028,11 +6028,11 @@ Iteration 2
 
 ---
 
-### **4. Function Execution**
+#### **4. Function Execution**
 
 Functions are executed when they are called. The order of execution depends on when the function is invoked.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 function greet() {
   console.log('Hello!');
@@ -6051,11 +6051,11 @@ After function call
 
 ---
 
-### **5. Asynchronous Execution**
+#### **5. Asynchronous Execution**
 
 Asynchronous functions (e.g., `setTimeout`, `Promise`, `async/await`) allow tasks to be executed concurrently or after a delay.
 
-#### **`setTimeout`:**
+##### **`setTimeout`:**
 ```javascript
 console.log('Task 1');
 
@@ -6072,7 +6072,7 @@ Task 3
 Task 2
 ```
 
-#### **`Promise`:**
+##### **`Promise`:**
 ```javascript
 console.log('Task 1');
 
@@ -6095,7 +6095,7 @@ Task 2
 Task 3
 ```
 
-#### **`async/await`:**
+##### **`async/await`:**
 ```javascript
 async function runTasks() {
   console.log('Task 1');
@@ -6123,7 +6123,7 @@ Task 3
 
 ---
 
-### **6. Event Loop and Execution Order**
+#### **6. Event Loop and Execution Order**
 
 In Node.js, the **event loop** handles asynchronous operations. The order of execution for asynchronous tasks depends on the event loop phases:
 
@@ -6134,7 +6134,7 @@ In Node.js, the **event loop** handles asynchronous operations. The order of exe
 5. **Check:** Executes `setImmediate` callbacks.
 6. **Close Callbacks:** Executes close events (e.g., `socket.on('close')`).
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log('Start');
 
@@ -6168,7 +6168,7 @@ Immediate
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Sequential Execution:**
    - Statements are executed from top to bottom.
@@ -6194,17 +6194,17 @@ By understanding the order of execution, you can write predictable and efficient
 >### 54. How does Node.js overcome the problem of blocking I/O operations?
 <details><summary><b>Answer:</b></summary>
 
-### **How Node.js Overcomes Blocking I/O Operations**
+#### **How Node.js Overcomes Blocking I/O Operations**
 
 Node.js is designed to handle **I/O-bound tasks** (e.g., file I/O, network requests) efficiently by using a **non-blocking, event-driven architecture**. Here's how Node.js overcomes the problem of blocking I/O operations:
 
 ---
 
-### **1. Non-Blocking I/O**
+#### **1. Non-Blocking I/O**
 
 Node.js uses **non-blocking I/O operations**, which allow the program to continue executing other tasks while waiting for I/O operations to complete. This is achieved through **asynchronous APIs** and the **event loop**.
 
-#### **Example: Non-Blocking File Read**
+##### **Example: Non-Blocking File Read**
 ```javascript
 const fs = require('fs');
 
@@ -6228,11 +6228,11 @@ File content: (contents of example.txt)
 
 ---
 
-### **2. Event Loop**
+#### **2. Event Loop**
 
 The **event loop** is the core mechanism that enables Node.js to handle asynchronous operations efficiently. It continuously checks for pending events and executes their associated callbacks.
 
-#### **Phases of the Event Loop:**
+##### **Phases of the Event Loop:**
 1. **Timers:** Executes `setTimeout` and `setInterval` callbacks.
 2. **Pending Callbacks:** Executes I/O callbacks deferred from the previous cycle.
 3. **Idle/Prepare:** Internal use only.
@@ -6240,7 +6240,7 @@ The **event loop** is the core mechanism that enables Node.js to handle asynchro
 5. **Check:** Executes `setImmediate` callbacks.
 6. **Close Callbacks:** Executes close events (e.g., `socket.on('close')`).
 
-#### **Example: Event Loop in Action**
+##### **Example: Event Loop in Action**
 ```javascript
 console.log('Start');
 
@@ -6274,11 +6274,11 @@ Immediate
 
 ---
 
-### **3. Asynchronous APIs**
+#### **3. Asynchronous APIs**
 
 Node.js provides **asynchronous versions of I/O operations** (e.g., `fs.readFile`, `http.request`). These APIs use callbacks, promises, or async/await to handle the result of the operation without blocking the main thread.
 
-#### **Example: Asynchronous HTTP Request**
+##### **Example: Asynchronous HTTP Request**
 ```javascript
 const https = require('https');
 
@@ -6305,11 +6305,11 @@ Response: (JSON data)
 
 ---
 
-### **4. Worker Threads**
+#### **4. Worker Threads**
 
 For **CPU-bound tasks** (e.g., complex calculations), Node.js provides the `worker_threads` module to offload work to separate threads. This prevents the main thread from being blocked.
 
-#### **Example: Using Worker Threads**
+##### **Example: Using Worker Threads**
 ```javascript
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
@@ -6340,18 +6340,18 @@ Result: 499999999067109000
 
 ---
 
-### **5. Libuv Library**
+#### **5. Libuv Library**
 
 Node.js relies on the **libuv** library to handle asynchronous I/O operations. Libuv provides an abstraction over system-level I/O operations and manages the event loop.
 
-#### **Key Features of Libuv:**
+##### **Key Features of Libuv:**
 - Cross-platform support for asynchronous I/O.
 - Handles file system operations, networking, and timers.
 - Manages the event loop and thread pool.
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Non-Blocking I/O:**
    - Node.js uses asynchronous APIs to avoid blocking the main thread.
@@ -6376,15 +6376,15 @@ By leveraging these features, Node.js efficiently handles I/O-bound tasks and en
 >### 55.	What are the security implementations that are present in Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **Security Implementations in Node.js**
+#### **Security Implementations in Node.js**
 
 Node.js provides several built-in features and best practices to help developers build secure applications. However, security is a shared responsibility, and developers must actively implement additional measures to protect their applications. Here are some key security implementations and practices in Node.js:
 
 ---
 
-### **1. Built-In Security Features**
+#### **1. Built-In Security Features**
 
-#### **a. **`http` and `https` Modules**
+##### **a. **`http` and `https` Modules**
 - Node.js provides the `http` and `https` modules for creating HTTP and HTTPS servers.
 - Use the `https` module to encrypt data in transit using SSL/TLS.
 - Example:
@@ -6403,7 +6403,7 @@ Node.js provides several built-in features and best practices to help developers
   }).listen(443);
   ```
 
-#### **b. **`crypto` Module**
+##### **b. **`crypto` Module**
 - The `crypto` module provides cryptographic functionality, including hashing, encryption, and decryption.
 - Example:
   ```javascript
@@ -6413,7 +6413,7 @@ Node.js provides several built-in features and best practices to help developers
   console.log('Hashed password:', hash);
   ```
 
-#### **c. **`tls` Module**
+##### **c. **`tls` Module**
 - The `tls` module provides an implementation of the TLS/SSL protocol for secure communication.
 - Example:
   ```javascript
@@ -6437,13 +6437,13 @@ Node.js provides several built-in features and best practices to help developers
 
 ---
 
-### **2. Best Practices for Secure Node.js Applications**
+#### **2. Best Practices for Secure Node.js Applications**
 
-#### **a. **Use HTTPS**
+##### **a. **Use HTTPS**
 - Always use HTTPS instead of HTTP to encrypt data in transit.
 - Obtain SSL/TLS certificates from a trusted Certificate Authority (CA).
 
-#### **b. **Validate and Sanitize Input**
+##### **b. **Validate and Sanitize Input**
 - Validate and sanitize all user inputs to prevent injection attacks (e.g., SQL injection, XSS).
 - Use libraries like `validator` or `express-validator` for input validation.
 - Example:
@@ -6458,7 +6458,7 @@ Node.js provides several built-in features and best practices to help developers
   }
   ```
 
-#### **c. **Use Secure Authentication**
+##### **c. **Use Secure Authentication**
 - Implement secure authentication mechanisms, such as OAuth, JWT, or session-based authentication.
 - Use strong password hashing algorithms (e.g., bcrypt, Argon2).
 - Example:
@@ -6474,7 +6474,7 @@ Node.js provides several built-in features and best practices to help developers
   });
   ```
 
-#### **d. **Set Security Headers**
+##### **d. **Set Security Headers**
 - Use middleware like `helmet` to set HTTP security headers.
 - Example:
   ```javascript
@@ -6485,7 +6485,7 @@ Node.js provides several built-in features and best practices to help developers
   app.use(helmet());
   ```
 
-#### **e. **Prevent Cross-Site Request Forgery (CSRF)**
+##### **e. **Prevent Cross-Site Request Forgery (CSRF)**
 - Use CSRF tokens to protect against CSRF attacks.
 - Example:
   ```javascript
@@ -6504,7 +6504,7 @@ Node.js provides several built-in features and best practices to help developers
   });
   ```
 
-#### **f. **Limit Request Payload Size**
+##### **f. **Limit Request Payload Size**
 - Use middleware like `body-parser` to limit the size of request payloads and prevent denial-of-service (DoS) attacks.
 - Example:
   ```javascript
@@ -6515,7 +6515,7 @@ Node.js provides several built-in features and best practices to help developers
   app.use(bodyParser.json({ limit: '10kb' }));
   ```
 
-#### **g. **Use Environment Variables**
+##### **g. **Use Environment Variables**
 - Store sensitive information (e.g., API keys, database credentials) in environment variables.
 - Use libraries like `dotenv` to load environment variables from a `.env` file.
 - Example:
@@ -6524,7 +6524,7 @@ Node.js provides several built-in features and best practices to help developers
   const dbPassword = process.env.DB_PASSWORD;
   ```
 
-#### **h. **Regularly Update Dependencies**
+##### **h. **Regularly Update Dependencies**
 - Use tools like `npm audit` or `snyk` to identify and fix vulnerabilities in dependencies.
 - Example:
   ```bash
@@ -6534,9 +6534,9 @@ Node.js provides several built-in features and best practices to help developers
 
 ---
 
-### **3. Additional Security Measures**
+#### **3. Additional Security Measures**
 
-#### **a. **Rate Limiting**
+##### **a. **Rate Limiting**
 - Use middleware like `express-rate-limit` to limit the number of requests from a single IP address.
 - Example:
   ```javascript
@@ -6550,7 +6550,7 @@ Node.js provides several built-in features and best practices to help developers
   app.use(limiter);
   ```
 
-#### **b. **Content Security Policy (CSP)**
+##### **b. **Content Security Policy (CSP)**
 - Use CSP headers to prevent cross-site scripting (XSS) attacks.
 - Example:
   ```javascript
@@ -6566,7 +6566,7 @@ Node.js provides several built-in features and best practices to help developers
   );
   ```
 
-#### **c. **Use Secure Cookies**
+##### **c. **Use Secure Cookies**
 - Set the `Secure`, `HttpOnly`, and `SameSite` attributes for cookies.
 - Example:
   ```javascript
@@ -6579,7 +6579,7 @@ Node.js provides several built-in features and best practices to help developers
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Built-In Security Features:**
    - `http` and `https` modules for secure communication.
@@ -6600,13 +6600,13 @@ By following these security implementations and best practices, you can build se
 >### 56.	What are LTS releases of Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **LTS Releases of Node.js**
+#### **LTS Releases of Node.js**
 
 **LTS (Long-Term Support)** releases of Node.js are versions that are actively maintained and supported for an extended period. They are designed for stability and reliability, making them ideal for production environments. Here's a detailed explanation of LTS releases:
 
 ---
 
-### **1. What is an LTS Release?**
+#### **1. What is an LTS Release?**
 
 - **Definition:** An LTS release is a version of Node.js that receives **long-term support**, including bug fixes, security updates, and performance improvements.
 - **Purpose:** LTS releases provide stability and predictability for applications in production.
@@ -6614,7 +6614,7 @@ By following these security implementations and best practices, you can build se
 
 ---
 
-### **2. Node.js Release Schedule**
+#### **2. Node.js Release Schedule**
 
 Node.js follows a predictable release schedule, with new versions being released every **6 months**. The release cycle includes the following phases:
 
@@ -6636,7 +6636,7 @@ Node.js follows a predictable release schedule, with new versions being released
 
 ---
 
-### **3. Benefits of Using LTS Releases**
+#### **3. Benefits of Using LTS Releases**
 
 1. **Stability:**
    - LTS releases are thoroughly tested and optimized for production use.
@@ -6652,14 +6652,14 @@ Node.js follows a predictable release schedule, with new versions being released
 
 ---
 
-### **4. How to Identify LTS Releases**
+#### **4. How to Identify LTS Releases**
 
 - LTS releases are marked with an **even version number** (e.g., Node.js 14.x, 16.x, 18.x).
 - The latest LTS version is recommended for production environments.
 
 ---
 
-### **5. Example: Node.js Release Timeline**
+#### **5. Example: Node.js Release Timeline**
 
 | **Version** | **Release Date** | **Current Phase** | **Active LTS Start** | **Maintenance LTS Start** | **End of Life** |
 | ----------- | ---------------- | ----------------- | -------------------- | ------------------------- | --------------- |
@@ -6669,7 +6669,7 @@ Node.js follows a predictable release schedule, with new versions being released
 
 ---
 
-### **6. How to Upgrade to an LTS Release**
+#### **6. How to Upgrade to an LTS Release**
 
 1. **Check the Current Version:**
    ```bash
@@ -6690,7 +6690,7 @@ Node.js follows a predictable release schedule, with new versions being released
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **LTS Releases:**
    - Long-term supported versions of Node.js, ideal for production.
@@ -6713,18 +6713,18 @@ By understanding LTS releases, you can ensure that your Node.js applications rem
 >### 57. What are global objects in Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **Global Objects in Node.js**
+#### **Global Objects in Node.js**
 
 Global objects in Node.js are objects that are available in all modules without needing to import them explicitly. They provide essential functionality and information about the environment in which your Node.js application is running. Here's a detailed explanation of the most commonly used global objects in Node.js:
 
 ---
 
-### **1. `global`**
+#### **1. `global`**
 
 - The `global` object is the top-level object in Node.js, similar to the `window` object in browsers.
 - Properties and methods added to `global` are accessible throughout the application.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 global.myVariable = 'Hello, World!';
 console.log(myVariable); // Output: Hello, World!
@@ -6732,11 +6732,11 @@ console.log(myVariable); // Output: Hello, World!
 
 ---
 
-### **2. `__filename`**
+#### **2. `__filename`**
 
 - Contains the absolute path of the current module file.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log(__filename);
 // Output: /path/to/your/module.js
@@ -6744,11 +6744,11 @@ console.log(__filename);
 
 ---
 
-### **3. `__dirname`**
+#### **3. `__dirname`**
 
 - Contains the absolute path of the directory containing the current module.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log(__dirname);
 // Output: /path/to/your
@@ -6756,12 +6756,12 @@ console.log(__dirname);
 
 ---
 
-### **4. `module`**
+#### **4. `module`**
 
 - Represents the current module.
 - Contains information about the module, such as `exports`, `filename`, and `id`.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log(module);
 // Output: Module object with details about the current module
@@ -6769,12 +6769,12 @@ console.log(module);
 
 ---
 
-### **5. `exports`**
+#### **5. `exports`**
 
 - Used to define what a module exports.
 - Shortcut for `module.exports`.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 exports.myFunction = () => {
   console.log('Hello from myFunction!');
@@ -6783,11 +6783,11 @@ exports.myFunction = () => {
 
 ---
 
-### **6. `require`**
+#### **6. `require`**
 
 - A function used to import modules.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const fs = require('fs');
 fs.readFile('example.txt', 'utf8', (err, data) => {
@@ -6798,7 +6798,7 @@ fs.readFile('example.txt', 'utf8', (err, data) => {
 
 ---
 
-### **7. `process`**
+#### **7. `process`**
 
 - Provides information and control over the current Node.js process.
 - Commonly used properties and methods:
@@ -6807,7 +6807,7 @@ fs.readFile('example.txt', 'utf8', (err, data) => {
   - `process.cwd()`: Current working directory.
   - `process.exit()`: Terminates the process.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log(process.argv); // Output: Command-line arguments
 console.log(process.env.NODE_ENV); // Output: Environment variable NODE_ENV
@@ -6815,12 +6815,12 @@ console.log(process.env.NODE_ENV); // Output: Environment variable NODE_ENV
 
 ---
 
-### **8. `Buffer`**
+#### **8. `Buffer`**
 
 - Used to handle binary data directly.
 - Provides methods for creating and manipulating buffers.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const buf = Buffer.from('Hello, World!', 'utf8');
 console.log(buf.toString('hex')); // Output: Hexadecimal representation
@@ -6828,11 +6828,11 @@ console.log(buf.toString('hex')); // Output: Hexadecimal representation
 
 ---
 
-### **9. `setTimeout`, `setInterval`, `clearTimeout`, `clearInterval`**
+#### **9. `setTimeout`, `setInterval`, `clearTimeout`, `clearInterval`**
 
 - Functions for scheduling and clearing timers.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const timeoutId = setTimeout(() => {
   console.log('Timeout executed');
@@ -6843,12 +6843,12 @@ clearTimeout(timeoutId); // Cancels the timeout
 
 ---
 
-### **10. `console`**
+#### **10. `console`**
 
 - Provides methods for logging information to the console.
 - Common methods: `console.log`, `console.error`, `console.warn`, `console.info`.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.log('This is a log message');
 console.error('This is an error message');
@@ -6856,12 +6856,12 @@ console.error('This is an error message');
 
 ---
 
-### **11. `setImmediate`, `clearImmediate`**
+#### **11. `setImmediate`, `clearImmediate`**
 
 - Functions for scheduling and clearing immediate callbacks.
 - Executes a callback after the current event loop cycle.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const immediateId = setImmediate(() => {
   console.log('Immediate executed');
@@ -6872,11 +6872,11 @@ clearImmediate(immediateId); // Cancels the immediate
 
 ---
 
-### **12. `queueMicrotask`**
+#### **12. `queueMicrotask`**
 
 - Schedules a microtask to be executed after the current operation completes but before the next event loop tick.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 queueMicrotask(() => {
   console.log('Microtask executed');
@@ -6885,11 +6885,11 @@ queueMicrotask(() => {
 
 ---
 
-### **13. `TextEncoder` and `TextDecoder`**
+#### **13. `TextEncoder` and `TextDecoder`**
 
 - Used for encoding and decoding text using UTF-8.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -6903,7 +6903,7 @@ console.log(decoded); // Output: Hello, World!
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Global Objects:**
    - Available in all modules without requiring explicit imports.
@@ -6930,7 +6930,7 @@ The `assert` module in Node.js is a built-in utility for writing **unit tests** 
 
 ---
 
-### **Key Use Cases of `assert`**
+#### **Key Use Cases of `assert`**
 
 1. **Unit Testing:**
    - `assert` is commonly used in unit tests to verify that functions and modules produce the expected output.
@@ -6978,7 +6978,7 @@ The `assert` module in Node.js is a built-in utility for writing **unit tests** 
 
 ---
 
-### **Common Assertion Methods**
+#### **Common Assertion Methods**
 
 1. **`assert.strictEqual(actual, expected[, message])`:**
    - Tests strict equality (`===`) between `actual` and `expected`.
@@ -7031,7 +7031,7 @@ The `assert` module in Node.js is a built-in utility for writing **unit tests** 
 
 ---
 
-### **Example: Using `assert` in a Unit Test**
+#### **Example: Using `assert` in a Unit Test**
 
 ```javascript
 const assert = require('assert');
@@ -7050,7 +7050,7 @@ assert.strictEqual(multiply(2, 3), 5); // Throws an AssertionError
 
 ---
 
-### **Advantages of Using `assert`**
+#### **Advantages of Using `assert`**
 
 1. **Simplicity:**
    - Provides a simple and intuitive API for writing tests and validations.
@@ -7066,7 +7066,7 @@ assert.strictEqual(multiply(2, 3), 5); // Throws an AssertionError
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Purpose of `assert`:**
    - Used for unit testing and runtime validation.
@@ -7086,13 +7086,13 @@ By understanding the `assert` module, you can write robust tests and validations
 >### 59.	What is the use of the connect module in Node.js?
 <details><summary><b>Answer:</b></summary>
 
-### **Use of the `connect` Module in Node.js**
+#### **Use of the `connect` Module in Node.js**
 
 The `connect` module is a **middleware framework** for Node.js that simplifies the creation of HTTP servers and the management of middleware. It is often considered the predecessor to **Express.js** and provides a lightweight way to handle HTTP requests and responses using middleware functions.
 
 ---
 
-### **Key Features of `connect`**
+#### **Key Features of `connect`**
 
 1. **Middleware Support:**
    - `connect` allows you to use middleware functions to handle HTTP requests and responses.
@@ -7106,7 +7106,7 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
 
 ---
 
-### **How to Use `connect`**
+#### **How to Use `connect`**
 
 1. **Installation:**
    - Install the `connect` module using npm:
@@ -7117,7 +7117,7 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
 2. **Basic Usage:**
    - Create a server and use middleware functions to handle requests.
 
-   #### **Example:**
+   ##### **Example:**
    ```javascript
    const connect = require('connect');
    const http = require('http');
@@ -7145,7 +7145,7 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
 3. **Using Built-In Middleware:**
    - `connect` provides built-in middleware for common tasks like serving static files and parsing request bodies.
 
-   #### **Example: Serving Static Files**
+   ##### **Example: Serving Static Files**
    ```javascript
    const connect = require('connect');
    const serveStatic = require('serve-static');
@@ -7164,7 +7164,7 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
 4. **Error Handling:**
    - Use middleware to handle errors.
 
-   #### **Example: Error Handling**
+   ##### **Example: Error Handling**
    ```javascript
    const connect = require('connect');
    const http = require('http');
@@ -7189,7 +7189,7 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
 
 ---
 
-### **Comparison with Express.js**
+#### **Comparison with Express.js**
 
 | **Feature**            | **`connect`**                                 | **Express.js**                 |
 | ---------------------- | --------------------------------------------- | ------------------------------ |
@@ -7201,7 +7201,7 @@ The `connect` module is a **middleware framework** for Node.js that simplifies t
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Purpose of `connect`:**
    - A middleware framework for creating HTTP servers and managing middleware.
@@ -7223,17 +7223,17 @@ By understanding the `connect` module, you can gain insights into middleware and
 >### 60. How does Node.js handle the child threads?
 <details><summary><b>Answer:</b></summary>
 
-### **How Node.js Handles Child Threads**
+#### **How Node.js Handles Child Threads**
 
 Node.js is inherently **single-threaded**, meaning it uses a single thread to execute JavaScript code. However, it provides mechanisms to handle **CPU-bound tasks** and **parallel processing** using **child threads** and **worker threads**. Here's how Node.js handles child threads:
 
 ---
 
-### **1. Child Processes**
+#### **1. Child Processes**
 
 Node.js provides the `child_process` module to create and manage child processes. These child processes run independently of the main Node.js process and can execute system commands or other scripts.
 
-#### **Key Methods:**
+##### **Key Methods:**
 1. **`child_process.spawn()`:**
    - Launches a new process with a given command.
    - Example:
@@ -7291,15 +7291,15 @@ Node.js provides the `child_process` module to create and manage child processes
 
 ---
 
-### **2. Worker Threads**
+#### **2. Worker Threads**
 
 Node.js introduced the `worker_threads` module in version 10.5.0 to enable **multi-threading** within a single Node.js process. Worker threads allow you to run JavaScript code in parallel, making them ideal for CPU-bound tasks.
 
-#### **Key Features:**
+##### **Key Features:**
 - **Shared Memory:** Worker threads can share memory using `SharedArrayBuffer`.
 - **Communication:** Worker threads communicate with the main thread using `postMessage` and `on('message')`.
 
-#### **Example: Using Worker Threads**
+##### **Example: Using Worker Threads**
 ```javascript
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
@@ -7321,11 +7321,11 @@ if (isMainThread) {
 
 ---
 
-### **3. Cluster Module**
+#### **3. Cluster Module**
 
 The `cluster` module allows you to create a cluster of Node.js processes to handle incoming requests. This is useful for leveraging multi-core systems.
 
-#### **Example: Using the Cluster Module**
+##### **Example: Using the Cluster Module**
 ```javascript
 const cluster = require('cluster');
 const http = require('http');
@@ -7355,7 +7355,7 @@ if (cluster.isMaster) {
 
 ---
 
-### **Key Differences Between Child Processes and Worker Threads**
+#### **Key Differences Between Child Processes and Worker Threads**
 
 | **Feature**       | **Child Processes**                          | **Worker Threads**                       |
 | ----------------- | -------------------------------------------- | ---------------------------------------- |
@@ -7366,7 +7366,7 @@ if (cluster.isMaster) {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Child Processes:**
    - Use the `child_process` module to create and manage separate processes.
@@ -7388,19 +7388,19 @@ By understanding how Node.js handles child threads, you can effectively manage C
 >### 61. **What is a thread pool, and which library handles it in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
-### **What is a Thread Pool?**
+#### **What is a Thread Pool?**
 
 A **thread pool** is a collection of pre-initialized threads that are ready to perform tasks. Instead of creating and destroying threads for each task, a thread pool reuses a fixed number of threads to handle multiple tasks concurrently. This approach improves performance and resource management, especially in scenarios with a high volume of short-lived tasks.
 
 ---
 
-### **Thread Pool in Node.js**
+#### **Thread Pool in Node.js**
 
 Node.js is inherently **single-threaded** for executing JavaScript code, but it uses a **thread pool** internally to handle certain **I/O-bound** and **CPU-bound** tasks. The thread pool is managed by the **libuv** library, which is a core component of Node.js responsible for handling asynchronous I/O operations.
 
 ---
 
-### **How Libuv Uses the Thread Pool**
+#### **How Libuv Uses the Thread Pool**
 
 1. **I/O Operations:**
    - Libuv offloads certain I/O operations (e.g., file system operations, DNS lookups) to the thread pool to avoid blocking the main event loop.
@@ -7419,9 +7419,9 @@ Node.js is inherently **single-threaded** for executing JavaScript code, but it 
 
 ---
 
-### **Example: Thread Pool in Action**
+#### **Example: Thread Pool in Action**
 
-#### **File System Operation (I/O-Bound)**
+##### **File System Operation (I/O-Bound)**
 ```javascript
 const fs = require('fs');
 
@@ -7436,7 +7436,7 @@ console.log('End of script');
 ```
 - The `fs.readFile` operation is offloaded to the thread pool, allowing the main thread to continue executing other tasks.
 
-#### **Cryptographic Operation (CPU-Bound)**
+##### **Cryptographic Operation (CPU-Bound)**
 ```javascript
 const crypto = require('crypto');
 
@@ -7453,7 +7453,7 @@ console.log('End of script');
 
 ---
 
-### **Advantages of Using a Thread Pool**
+#### **Advantages of Using a Thread Pool**
 
 1. **Improved Performance:**
    - Reusing threads reduces the overhead of creating and destroying threads for each task.
@@ -7466,7 +7466,7 @@ console.log('End of script');
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Thread Pool:**
    - A collection of pre-initialized threads used to handle tasks concurrently.
@@ -7490,28 +7490,28 @@ By understanding the thread pool and its role in Node.js, you can optimize the p
 >### 62. **How are worker threads different from clusters?**
 <details><summary><b>Answer:</b></summary>
 
-### **Worker Threads vs. Clusters in Node.js**
+#### **Worker Threads vs. Clusters in Node.js**
 
 Both **worker threads** and **clusters** are mechanisms in Node.js to achieve parallelism and improve performance. However, they serve different purposes and have distinct characteristics. Here's a detailed comparison:
 
 ---
 
-### **1. Worker Threads**
+#### **1. Worker Threads**
 
-#### **What are Worker Threads?**
+##### **What are Worker Threads?**
 - Worker threads allow you to run JavaScript code in **parallel** within the **same Node.js process**.
 - Introduced in Node.js 10.5.0, the `worker_threads` module enables multi-threading.
 
-#### **Key Features:**
+##### **Key Features:**
 - **Shared Memory:** Worker threads can share memory using `SharedArrayBuffer`.
 - **Communication:** Worker threads communicate with the main thread using `postMessage` and `on('message')`.
 - **Isolation:** Each worker thread has its own JavaScript execution environment (e.g., V8 instance, event loop).
 
-#### **Use Cases:**
+##### **Use Cases:**
 - **CPU-bound tasks:** Offload intensive computations to worker threads.
 - **Parallel processing:** Execute multiple tasks concurrently within the same process.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
@@ -7533,22 +7533,22 @@ if (isMainThread) {
 
 ---
 
-### **2. Clusters**
+#### **2. Clusters**
 
-#### **What are Clusters?**
+##### **What are Clusters?**
 - Clusters allow you to create a **group of Node.js processes** (workers) that share the same server port.
 - The `cluster` module enables you to leverage multiple CPU cores by forking the main process.
 
-#### **Key Features:**
+##### **Key Features:**
 - **Process Isolation:** Each worker is a separate process with its own memory space.
 - **Load Balancing:** The master process distributes incoming connections among workers.
 - **Fault Tolerance:** If one worker crashes, others continue to handle requests.
 
-#### **Use Cases:**
+##### **Use Cases:**
 - **Scalability:** Distribute incoming requests across multiple CPU cores.
 - **Fault tolerance:** Ensure high availability by isolating failures.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const cluster = require('cluster');
 const http = require('http');
@@ -7578,7 +7578,7 @@ if (cluster.isMaster) {
 
 ---
 
-### **Key Differences Between Worker Threads and Clusters**
+#### **Key Differences Between Worker Threads and Clusters**
 
 | **Feature**         | **Worker Threads**                           | **Clusters**                                  |
 | ------------------- | -------------------------------------------- | --------------------------------------------- |
@@ -7590,7 +7590,7 @@ if (cluster.isMaster) {
 
 ---
 
-### **When to Use Worker Threads vs. Clusters**
+#### **When to Use Worker Threads vs. Clusters**
 
 1. **Use Worker Threads when:**
    - You need to perform **CPU-bound tasks** (e.g., complex calculations, data processing).
@@ -7602,7 +7602,7 @@ if (cluster.isMaster) {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Worker Threads:**
    - Enable multi-threading within the same Node.js process.
@@ -7627,19 +7627,19 @@ By understanding the differences between worker threads and clusters, you can ch
 >### 63. **What is a thread pool, and which library handles it in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
-### **What is a Thread Pool?**
+#### **What is a Thread Pool?**
 
 A **thread pool** is a collection of pre-initialized threads that are ready to perform tasks. Instead of creating and destroying threads for each task, a thread pool reuses a fixed number of threads to handle multiple tasks concurrently. This approach improves performance and resource management, especially in scenarios with a high volume of short-lived tasks.
 
 ---
 
-### **Thread Pool in Node.js**
+#### **Thread Pool in Node.js**
 
 Node.js is inherently **single-threaded** for executing JavaScript code, but it uses a **thread pool** internally to handle certain **I/O-bound** and **CPU-bound** tasks. The thread pool is managed by the **libuv** library, which is a core component of Node.js responsible for handling asynchronous I/O operations.
 
 ---
 
-### **How Libuv Uses the Thread Pool**
+#### **How Libuv Uses the Thread Pool**
 
 1. **I/O Operations:**
    - Libuv offloads certain I/O operations (e.g., file system operations, DNS lookups) to the thread pool to avoid blocking the main event loop.
@@ -7658,9 +7658,9 @@ Node.js is inherently **single-threaded** for executing JavaScript code, but it 
 
 ---
 
-### **Example: Thread Pool in Action**
+#### **Example: Thread Pool in Action**
 
-#### **File System Operation (I/O-Bound)**
+##### **File System Operation (I/O-Bound)**
 ```javascript
 const fs = require('fs');
 
@@ -7675,7 +7675,7 @@ console.log('End of script');
 ```
 - The `fs.readFile` operation is offloaded to the thread pool, allowing the main thread to continue executing other tasks.
 
-#### **Cryptographic Operation (CPU-Bound)**
+##### **Cryptographic Operation (CPU-Bound)**
 ```javascript
 const crypto = require('crypto');
 
@@ -7692,7 +7692,7 @@ console.log('End of script');
 
 ---
 
-### **Advantages of Using a Thread Pool**
+#### **Advantages of Using a Thread Pool**
 
 1. **Improved Performance:**
    - Reusing threads reduces the overhead of creating and destroying threads for each task.
@@ -7705,7 +7705,7 @@ console.log('End of script');
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Thread Pool:**
    - A collection of pre-initialized threads used to handle tasks concurrently.
@@ -7728,17 +7728,17 @@ By understanding the thread pool and its role in Node.js, you can optimize the p
 >### 64. **How to measure the duration of async operations?**
 <details><summary><b>Answer:</b></summary>
 
-### **Measuring the Duration of Asynchronous Operations in Node.js**
+#### **Measuring the Duration of Asynchronous Operations in Node.js**
 
 Measuring the duration of asynchronous operations is essential for performance tuning and debugging. In Node.js, you can use the following methods to measure the duration of async operations:
 
 ---
 
-### **1. Using `Date` Object**
+#### **1. Using `Date` Object**
 
 The simplest way to measure the duration of an async operation is by using the `Date` object to record the start and end times.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const start = Date.now();
 
@@ -7755,11 +7755,11 @@ Operation took 1000 milliseconds
 
 ---
 
-### **2. Using `console.time` and `console.timeEnd`**
+#### **2. Using `console.time` and `console.timeEnd`**
 
 Node.js provides built-in `console.time` and `console.timeEnd` methods to measure the duration of operations.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.time('asyncOperation');
 
@@ -7774,11 +7774,11 @@ asyncOperation: 1000.123ms
 
 ---
 
-### **3. Using `performance.now` (High-Resolution Timing)**
+#### **3. Using `performance.now` (High-Resolution Timing)**
 
 For more precise measurements, you can use the `performance.now` method from the `perf_hooks` module, which provides high-resolution timestamps.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const { performance } = require('perf_hooks');
 
@@ -7797,11 +7797,11 @@ Operation took 1000.123456789 milliseconds
 
 ---
 
-### **4. Using `async_hooks` for Advanced Tracking**
+#### **4. Using `async_hooks` for Advanced Tracking**
 
 The `async_hooks` module allows you to track the lifecycle of asynchronous operations. This is useful for measuring the duration of multiple async operations.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const async_hooks = require('async_hooks');
 const { performance } = require('perf_hooks');
@@ -7835,11 +7835,11 @@ Async operation took 1000.123456789 milliseconds
 
 ---
 
-### **5. Using Promises with `async/await`**
+#### **5. Using Promises with `async/await`**
 
 If you're working with promises, you can measure the duration using `async/await`.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const { performance } = require('perf_hooks');
 
@@ -7860,11 +7860,11 @@ Operation took 1000.123456789 milliseconds
 
 ---
 
-### **6. Using Third-Party Libraries**
+#### **6. Using Third-Party Libraries**
 
 There are several third-party libraries that simplify performance measurement, such as `benchmark`, `nanotimer`, and `hrtime`.
 
-#### **Example with `benchmark`:**
+##### **Example with `benchmark`:**
 ```javascript
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
@@ -7880,7 +7880,7 @@ suite.add('Async operation', function(deferred) {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Simple Timing:**
    - Use `Date` object or `console.time`/`console.timeEnd` for basic measurements.
@@ -7906,17 +7906,17 @@ By understanding these methods, you can effectively measure and optimize the per
 >### 65. **How to measure the performance of async operations?**
 <details><summary><b>Answer:</b></summary>
 
-### **Measuring the Performance of Asynchronous Operations in Node.js**
+#### **Measuring the Performance of Asynchronous Operations in Node.js**
 
 Measuring the performance of asynchronous operations is crucial for optimizing and debugging your Node.js applications. Here are several methods to measure the performance of async operations:
 
 ---
 
-### **1. Using `Date` Object**
+#### **1. Using `Date` Object**
 
 The simplest way to measure the duration of an async operation is by using the `Date` object to record the start and end times.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const start = Date.now();
 
@@ -7933,11 +7933,11 @@ Operation took 1000 milliseconds
 
 ---
 
-### **2. Using `console.time` and `console.timeEnd`**
+#### **2. Using `console.time` and `console.timeEnd`**
 
 Node.js provides built-in `console.time` and `console.timeEnd` methods to measure the duration of operations.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 console.time('asyncOperation');
 
@@ -7952,11 +7952,11 @@ asyncOperation: 1000.123ms
 
 ---
 
-### **3. Using `performance.now` (High-Resolution Timing)**
+#### **3. Using `performance.now` (High-Resolution Timing)**
 
 For more precise measurements, you can use the `performance.now` method from the `perf_hooks` module, which provides high-resolution timestamps.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const { performance } = require('perf_hooks');
 
@@ -7975,11 +7975,11 @@ Operation took 1000.123456789 milliseconds
 
 ---
 
-### **4. Using `async_hooks` for Advanced Tracking**
+#### **4. Using `async_hooks` for Advanced Tracking**
 
 The `async_hooks` module allows you to track the lifecycle of asynchronous operations. This is useful for measuring the duration of multiple async operations.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const async_hooks = require('async_hooks');
 const { performance } = require('perf_hooks');
@@ -8013,11 +8013,11 @@ Async operation took 1000.123456789 milliseconds
 
 ---
 
-### **5. Using Promises with `async/await`**
+#### **5. Using Promises with `async/await`**
 
 If you're working with promises, you can measure the duration using `async/await`.
 
-#### **Example:**
+##### **Example:**
 ```javascript
 const { performance } = require('perf_hooks');
 
@@ -8038,11 +8038,11 @@ Operation took 1000.123456789 milliseconds
 
 ---
 
-### **6. Using Third-Party Libraries**
+#### **6. Using Third-Party Libraries**
 
 There are several third-party libraries that simplify performance measurement, such as `benchmark`, `nanotimer`, and `hrtime`.
 
-#### **Example with `benchmark`:**
+##### **Example with `benchmark`:**
 ```javascript
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
@@ -8058,7 +8058,7 @@ suite.add('Async operation', function(deferred) {
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Simple Timing:**
    - Use `Date` object or `console.time`/`console.timeEnd` for basic measurements.
@@ -8085,13 +8085,13 @@ By understanding these methods, you can effectively measure and optimize the per
 >### 65. **What is meant by tracing in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
-### **Tracing in Node.js**
+#### **Tracing in Node.js**
 
 Tracing in Node.js refers to the process of **collecting detailed information** about the execution of a program, including function calls, asynchronous operations, and system events. This information is used to analyze the performance, identify bottlenecks, and debug issues in a Node.js application.
 
 ---
 
-### **Key Concepts of Tracing**
+#### **Key Concepts of Tracing**
 
 1. **Event Tracing:**
    - Captures events such as function calls, I/O operations, and garbage collection.
@@ -8109,7 +8109,7 @@ Tracing in Node.js refers to the process of **collecting detailed information** 
 
 ---
 
-### **How Tracing Works in Node.js**
+#### **How Tracing Works in Node.js**
 
 Node.js provides several tools and modules for tracing:
 
@@ -8196,7 +8196,7 @@ Node.js provides several tools and modules for tracing:
 
 ---
 
-### **Use Cases for Tracing**
+#### **Use Cases for Tracing**
 
 1. **Performance Optimization:**
    - Identify slow functions and optimize them.
@@ -8212,7 +8212,7 @@ Node.js provides several tools and modules for tracing:
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **Tracing:**
    - Collects detailed information about the execution of a Node.js application.
@@ -8231,13 +8231,13 @@ By understanding tracing in Node.js, you can effectively analyze and optimize th
 >### 66. **What is meant by tracing in Node.js?**
 <details><summary><b>Answer:</b></summary>
 
-### **Use of the `crypto` Module in Node.js**
+#### **Use of the `crypto` Module in Node.js**
 
 The `crypto` module in Node.js provides **cryptographic functionality** that includes a set of wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign, and verify functions. It is used for securing data, ensuring data integrity, and implementing various cryptographic operations.
 
 ---
 
-### **Key Features of the `crypto` Module**
+#### **Key Features of the `crypto` Module**
 
 1. **Hashing:**
    - Generate fixed-size hash values from input data (e.g., MD5, SHA-256).
@@ -8327,7 +8327,7 @@ The `crypto` module in Node.js provides **cryptographic functionality** that inc
 
 ---
 
-### **Common Use Cases**
+#### **Common Use Cases**
 
 1. **Password Hashing:**
    - Securely hash passwords before storing them in a database.
@@ -8400,7 +8400,7 @@ The `crypto` module in Node.js provides **cryptographic functionality** that inc
 
 ---
 
-### **Key Takeaways for an Interview:**
+#### **Key Takeaways for an Interview:**
 
 1. **`crypto` Module:**
    - Provides cryptographic functionality for hashing, encryption, signing, and more.
