@@ -20,34 +20,6 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 | Feel free to use them in a project! 😃 I would _really_ appreciate a reference to this repo, I create the questions and explanations (yes I'm sad lol) and the community helps me so much to maintain and improve it! 💪🏼 Thank you and have fun! |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-<details><summary><strong> See 20 Available Translations 🇸🇦🇪🇬🇧🇦🇩🇪🇪🇸🇫🇷🇮🇩🇯🇵🇰🇷🇳🇱🇧🇷🇷🇺🇹🇭🇹🇷🇺🇦🇻🇳🇨🇳🇹🇼🇽🇰</strong></summary>
-<p>
-
-- [🇸🇦 العربية](./ar-AR/README_AR.md)
-- [🇪🇬 اللغة العامية](./ar-EG/README_ar-EG.md)
-- [🇧🇦 Bosanski](./bs-BS/README-bs_BS.md)
-- [🇩🇪 Deutsch](./de-DE/README.md)
-- [🇪🇸 Español](./es-ES/README-ES.md)
-- [🇫🇷 Français](./fr-FR/README_fr-FR.md)
-- [🇮🇩 Indonesia](./id-ID/README.md)
-- [🇮🇹 Italiano](./it-IT/README.md)
-- [🇯🇵 日本語](./ja-JA/README-ja_JA.md)
-- [🇰🇷 한국어](./ko-KR/README-ko_KR.md)
-- [🇳🇱 Nederlands](./nl-NL/README.md)
-- [🇵🇱 Polski](./pl-PL/README.md)
-- [🇧🇷 Português Brasil](./pt-BR/README_pt_BR.md)
-- [🇷o Română](./ro-RO/README.ro.md)
-- [🇷🇺 Русский](./ru-RU/README.md)
-- [🇽🇰 Shqip](./sq-KS/README_sq_KS.md)
-- [🇹🇭 ไทย](./th-TH/README-th_TH.md)
-- [🇹🇷 Türkçe](./tr-TR/README-tr_TR.md)
-- [🇺🇦 Українська мова](./uk-UA/README.md)
-- [🇻🇳 Tiếng Việt](./vi-VI/README-vi.md)
-- [🇨🇳 简体中文](./zh-CN/README-zh_CN.md)
-- [🇹🇼 繁體中文](./zh-TW/README_zh-TW.md)
-
-</p>
-</details>
 
 ---
 
@@ -5149,3 +5121,125 @@ The condition within the `if` statement checks whether the value of `!typeof ran
 
 </p>
 </details>
+
+
+
+###### 156. Explain the below two for loop  output
+```javascript
+for(var i=1; i<=10; i++){
+		setTimeout(()=>{
+				console.log(i);
+		}i*1000)
+	
+	}
+	```
+    ```javascript
+	for(let i=1; i<=10; i++){
+		setTimeout(()=>{
+				console.log(i);
+		}i*1000)
+	
+	}
+  ```
+
+    There are two loops in your JavaScript code:  
+
+1. A `for` loop using `var i`
+2. A `for` loop using `let i`
+
+Both loops use `setTimeout` to log the value of `i` after a delay. However, the behavior is different due to how `var` and `let` handle scope in JavaScript.
+
+---
+
+### Issue in the Code:
+Your `setTimeout` function calls are missing a comma before the delay argument. The correct syntax should be:
+
+```js
+for (var i = 1; i <= 10; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, i * 1000);  // <== Missing comma fixed
+}
+
+for (let i = 1; i <= 10; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, i * 1000);  // <== Missing comma fixed
+}
+```
+
+---
+
+### Explanation of Output
+
+#### **First Loop (`var i`)**
+```js
+for (var i = 1; i <= 10; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, i * 1000);
+}
+```
+- `var` is function-scoped, meaning all `setTimeout` callbacks refer to the same `i` (not a new one per iteration).
+- By the time `setTimeout` executes, the loop has already completed, and `i` has become `11`.
+- So, after 1 second, 2 seconds, ..., 10 seconds, all timeouts execute, but they all print `11`.
+
+**Output:**
+```
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+```
+
+---
+
+#### **Second Loop (`let i`)**
+```js
+for (let i = 1; i <= 10; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, i * 1000);
+}
+```
+- `let` is block-scoped, so each iteration creates a new `i`.
+- Each `setTimeout` closure captures its own separate value of `i`.
+- When the timeouts execute, they print `1`, `2`, ..., `10` at the expected intervals.
+
+**Output:**
+```
+1  (after 1 sec)
+2  (after 2 sec)
+3  (after 3 sec)
+4  (after 4 sec)
+5  (after 5 sec)
+6  (after 6 sec)
+7  (after 7 sec)
+8  (after 8 sec)
+9  (after 9 sec)
+10 (after 10 sec)
+```
+
+---
+
+### **How to Fix the `var` Issue**
+If you must use `var`, you can create a separate scope using an **IIFE (Immediately Invoked Function Expression)**:
+
+```js
+for (var i = 1; i <= 10; i++) {
+    (function (j) {
+        setTimeout(() => {
+            console.log(j);
+        }, j * 1000);
+    })(i); // Passing `i` to create a separate scope
+}
+```
+This works because the function gets a separate copy of `i` (passed as `j`) in each iteration.
+
+Would you like further clarification? 😊
