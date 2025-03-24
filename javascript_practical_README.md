@@ -1,27 +1,708 @@
 <div align="center">
   <img height="60" src="https://img.icons8.com/color/344/javascript.png">
-  <h1>JavaScript Questions</h1>
+  <h1>Before starting the JavaScript OutPut Questions Please go through the some basic functions</h1>
 </div>
 
 > [!NOTE]  
-> This repo was created in 2019 and the questions provided here are therefore based on the JavaScript syntax and behavior at that time. Since JavaScript is a constantly evolving language, there are newer language features that are not covered by the questions here.
+> # JavaScript String, Object And Array Function and their use
+
+# JavaScript String Functions with Examples
+
+JavaScript provides many useful string functions (also called string methods) that allow you to manipulate and work with text. Here's a comprehensive list of the most commonly used string functions with examples:
+
+## Basic String Functions
+
+### 1. `length` - Returns the length of a string
+```javascript
+let str = "Hello";
+console.log(str.length); // Output: 5
+```
+
+### 2. `charAt(index)` - Returns the character at the specified index
+```javascript
+let str = "JavaScript";
+console.log(str.charAt(4)); // Output: "S"
+```
+
+### 3. `charCodeAt(index)` - Returns the Unicode of the character at the specified index
+```javascript
+let str = "Hello";
+console.log(str.charCodeAt(1)); // Output: 101 (Unicode for 'e')
+```
+
+### 4. `concat(str1, str2, ...)` - Joins two or more strings
+```javascript
+let str1 = "Hello";
+let str2 = "World";
+console.log(str1.concat(" ", str2)); // Output: "Hello World"
+```
+
+### 5. `includes(searchString)` - Checks if a string contains another string
+```javascript
+let str = "Hello world";
+console.log(str.includes("world")); // Output: true
+```
+
+## Case Conversion Functions
+
+### 6. `toUpperCase()` - Converts to uppercase
+```javascript
+let str = "hello";
+console.log(str.toUpperCase()); // Output: "HELLO"
+```
+
+### 7. `toLowerCase()` - Converts to lowercase
+```javascript
+let str = "HELLO";
+console.log(str.toLowerCase()); // Output: "hello"
+```
+
+## Search Functions
+
+### 8. `indexOf(searchValue)` - Returns the index of first occurrence
+```javascript
+let str = "Hello world";
+console.log(str.indexOf("o")); // Output: 4
+```
+
+### 9. `lastIndexOf(searchValue)` - Returns the index of last occurrence
+```javascript
+let str = "Hello world";
+console.log(str.lastIndexOf("o")); // Output: 7
+```
+
+### 10. `startsWith(searchString)` - Checks if a string starts with another string
+```javascript
+let str = "Hello world";
+console.log(str.startsWith("Hello")); // Output: true
+```
+
+### 11. `endsWith(searchString)` - Checks if a string ends with another string
+```javascript
+let str = "Hello world";
+console.log(str.endsWith("world")); // Output: true
+```
+
+## Extraction Functions
+
+### 12. `slice(start, end)` - Extracts a section of a string
+```javascript
+let str = "Hello world";
+console.log(str.slice(0, 5)); // Output: "Hello"
+```
+
+### 13. `substring(start, end)` - Similar to slice but doesn't accept negative indexes
+```javascript
+let str = "Hello world";
+console.log(str.substring(6, 11)); // Output: "world"
+```
+
+### 14. `substr(start, length)` - Extracts a number of characters from a start index
+```javascript
+let str = "Hello world";
+console.log(str.substr(6, 5)); // Output: "world"
+```
+
+## Modification Functions
+
+### 15. `replace(searchValue, replaceValue)` - Replaces specified values
+```javascript
+let str = "Hello world";
+console.log(str.replace("world", "everyone")); // Output: "Hello everyone"
+```
+
+### 16. `trim()` - Removes whitespace from both ends
+```javascript
+let str = "   Hello world   ";
+console.log(str.trim()); // Output: "Hello world"
+```
+
+### 17. `trimStart()` / `trimLeft()` - Removes whitespace from start
+```javascript
+let str = "   Hello world";
+console.log(str.trimStart()); // Output: "Hello world"
+```
+
+### 18. `trimEnd()` / `trimRight()` - Removes whitespace from end
+```javascript
+let str = "Hello world   ";
+console.log(str.trimEnd()); // Output: "Hello world"
+```
+
+### 19. `repeat(count)` - Repeats string a specified number of times
+```javascript
+let str = "Hello";
+console.log(str.repeat(3)); // Output: "HelloHelloHello"
+```
+
+## Conversion and Comparison
+
+### 20. `split(separator)` - Splits a string into an array of substrings
+```javascript
+let str = "apple,banana,orange";
+console.log(str.split(",")); // Output: ["apple", "banana", "orange"]
+```
+
+### 21. `toString()` - Returns a string representation
+```javascript
+let str = new String("Hello");
+console.log(str.toString()); // Output: "Hello"
+```
+
+### 22. `valueOf()` - Returns the primitive value of a string object
+```javascript
+let str = new String("Hello");
+console.log(str.valueOf()); // Output: "Hello"
+```
+
+### 23. `localeCompare(compareString)` - Compares two strings in current locale
+```javascript
+let str1 = "apple";
+let str2 = "banana";
+console.log(str1.localeCompare(str2)); // Output: -1 (str1 comes before str2)
+```
+
+## Modern ES6+ Functions
+
+### 24. `padStart(targetLength, padString)` - Pads the start of a string
+```javascript
+let str = "5";
+console.log(str.padStart(4, "0")); // Output: "0005"
+```
+
+### 25. `padEnd(targetLength, padString)` - Pads the end of a string
+```javascript
+let str = "5";
+console.log(str.padEnd(4, "0")); // Output: "5000"
+```
+
+### 26. `match(regexp)` - Searches a string for a match against a regular expression
+```javascript
+let str = "The rain in SPAIN stays mainly in the plain";
+console.log(str.match(/ain/g)); // Output: ["ain", "ain", "ain"]
+```
+
+### 27. `search(regexp)` - Searches a string for a value and returns the position
+```javascript
+let str = "Hello world";
+console.log(str.search("world")); // Output: 6
+```
+
+### 28. `matchAll(regexp)` - Returns an iterator of all matches
+```javascript
+let str = "test1test2";
+let regexp = /t(e)(st(\d?))/g;
+let array = [...str.matchAll(regexp)];
+console.log(array[0]); // Output: ["test1", "e", "st1", "1"]
+```
+
+## Template Literals (ES6)
+
+### 29. String interpolation with template literals
+```javascript
+let name = "John";
+console.log(`Hello, ${name}!`); // Output: "Hello, John!"
+```
+
+### 30. Multiline strings with template literals
+```javascript
+let str = `This is
+a multiline
+string`;
+console.log(str);
+```
+
+These string functions are essential for text manipulation in JavaScript. They help with tasks like validation, formatting, searching, and transforming strings in web applications.
 
 ---
 
-<p align="center">
-From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:</p>
+# JavaScript Object Functions with Examples
 
-<p align="center">Feel free to reach out to me! 😊</p>
+Objects are fundamental to JavaScript, and the language provides many useful functions (methods) to work with them. Here's a comprehensive guide to object functions in JavaScript:
 
-<p align="center">
-  <a href="https://www.instagram.com/theavocoder">Instagram</a> || <a href="https://www.twitter.com/lydiahallie">Twitter</a> || <a href="https://www.linkedin.com/in/lydia-hallie">LinkedIn</a> || <a href="https://www.lydiahallie.io/">Blog</a>
-</p>
+## Basic Object Methods
 
-| Feel free to use them in a project! 😃 I would _really_ appreciate a reference to this repo, I create the questions and explanations (yes I'm sad lol) and the community helps me so much to maintain and improve it! 💪🏼 Thank you and have fun! |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+### 1. `Object.keys(obj)` - Returns an array of object's own property names
+```javascript
+const person = {name: "John", age: 30};
+console.log(Object.keys(person)); // Output: ["name", "age"]
+```
+**Use**: Get all enumerable property names of an object.
 
+### 2. `Object.values(obj)` - Returns an array of object's own property values
+```javascript
+const person = {name: "John", age: 30};
+console.log(Object.values(person)); // Output: ["John", 30]
+```
+**Use**: Get all values from an object's properties.
+
+### 3. `propertyIsEnumerable(prop)` - Checks if property is enumerable
+```javascript
+const obj = {name: "John"};
+console.log(obj.propertyIsEnumerable("name")); // Output: true
+```
+
+**Use**: Convert an object to an array of key-value pairs.
+
+### 4. `Object.assign(target, ...sources)` - Copies properties from source to target
+```javascript
+const target = {a: 1};
+const source = {b: 2};
+Object.assign(target, source);
+console.log(target); // Output: {a: 1, b: 2}
+```
+**Use**: Merge objects or create shallow copies.
+
+### 5. `Object.create(proto)` - Creates a new object with specified prototype
+```javascript
+const personProto = {greet() { return "Hello!" }};
+const john = Object.create(personProto);
+console.log(john.greet()); // Output: "Hello!"
+```
+**Use**: Prototypal inheritance without constructor functions.
+
+## Property Descriptor Methods
+
+### 6. `Object.getOwnPropertyDescriptor(obj, prop)` - Returns property descriptor
+```javascript
+const obj = {name: "John"};
+console.log(Object.getOwnPropertyDescriptor(obj, "name"));
+// Output: {value: "John", writable: true, enumerable: true, configurable: true}
+```
+**Use**: Inspect property attributes.
+
+### 7. `Object.defineProperty(obj, prop, descriptor)` - Defines new/modifies existing property
+```javascript
+const obj = {};
+Object.defineProperty(obj, "name", {
+  value: "John",
+  writable: false
+});
+obj.name = "Mike"; // Won't change (strict mode would throw error)
+console.log(obj.name); // Output: "John"
+```
+**Use**: Create properties with specific attributes.
+
+### 8. `Object.defineProperties(obj, props)` - Defines multiple properties
+```javascript
+const obj = {};
+Object.defineProperties(obj, {
+  name: {value: "John", writable: true},
+  age: {value: 30, writable: false}
+});
+```
+
+## Prototype and Inheritance Methods
+
+### 9. `Object.getPrototypeOf(obj)` - Returns object's prototype
+```javascript
+const arr = [];
+console.log(Object.getPrototypeOf(arr) === Array.prototype); // Output: true
+```
+
+### 10. `Object.setPrototypeOf(obj, prototype)` - Sets object's prototype
+```javascript
+const animal = {speak() { return "Sound" }};
+const dog = {};
+Object.setPrototypeOf(dog, animal);
+console.log(dog.speak()); // Output: "Sound"
+```
+**Note**: This can impact performance, use carefully.
+
+## Object Comparison and Freezing
+
+### 11. `Object.is(value1, value2)` - Strict equality comparison
+```javascript
+console.log(Object.is(NaN, NaN)); // Output: true (unlike ===)
+console.log(Object.is(+0, -0)); // Output: false (unlike ===)
+```
+**Use**: For special equality cases.
+
+### 12. `Object.freeze(obj)` - Prevents modifications to an object
+```javascript
+const obj = {name: "John"};
+Object.freeze(obj);
+obj.name = "Mike"; // Fails silently in non-strict mode
+console.log(obj.name); // Output: "John"
+```
+
+### 13. `Object.seal(obj)` - Prevents adding/removing properties
+```javascript
+const obj = {name: "John"};
+Object.seal(obj);
+obj.age = 30; // Fails
+obj.name = "Mike"; // Works
+```
+
+### 14. `Object.preventExtensions(obj)` - Prevents adding new properties
+```javascript
+const obj = {name: "John"};
+Object.preventExtensions(obj);
+obj.age = 30; // Fails
+obj.name = "Mike"; // Works
+```
+
+## Object Inspection
+
+### 15. `Object.hasOwnProperty(prop)` - Checks if property exists directly on object
+```javascript
+const obj = {name: "John"};
+console.log(obj.hasOwnProperty("name")); // Output: true
+console.log(obj.hasOwnProperty("toString")); // Output: false (inherited)
+```
+
+### 16. `Object.isPrototypeOf(obj)` - Checks if object exists in another's prototype chain
+```javascript
+function Person() {}
+const john = new Person();
+console.log(Person.prototype.isPrototypeOf(john)); // Output: true
+```
+
+### 17.  `Object.entries(obj)` - Returns an array of [key, value] pairs
+```javascript
+const person = {name: "John", age: 30};
+console.log(Object.entries(person)); // Output: [["name", "John"], ["age", 30]]
+```
+
+## ES6+ Object Methods
+
+### 18. `Object.fromEntries(iterable)` - Creates object from key-value pairs
+```javascript
+const entries = [["name", "John"], ["age", 30]];
+console.log(Object.fromEntries(entries)); // Output: {name: "John", age: 30}
+```
+
+### 19. `Object.hasOwn(obj, prop)` - Safer alternative to hasOwnProperty
+```javascript
+const obj = {name: "John"};
+console.log(Object.hasOwn(obj, "name")); // Output: true
+```
+
+## Object Transformation
+
+### 20. Spread operator (...) - Copy and merge objects
+```javascript
+const obj1 = {a: 1};
+const obj2 = {b: 2};
+const merged = {...obj1, ...obj2};
+console.log(merged); // Output: {a: 1, b: 2}
+```
+
+### 21. Object destructuring - Extract properties into variables
+```javascript
+const person = {name: "John", age: 30};
+const {name, age} = person;
+console.log(name, age); // Output: "John" 30
+```
+
+## Practical Use Cases
+
+1. **Cloning objects**:
+```javascript
+const original = {a: 1, b: {c: 2}};
+const shallowClone = {...original}; // Shallow clone
+const deepClone = JSON.parse(JSON.stringify(original)); // Deep clone (with limitations)
+```
+
+2. **Merging objects**:
+```javascript
+const defaults = {theme: "light", fontSize: 12};
+const userSettings = {theme: "dark"};
+const finalSettings = {...defaults, ...userSettings};
+```
+
+3. **Property existence check**:
+```javascript
+const config = {apiUrl: "https://api.example.com"};
+if (Object.hasOwn(config, "apiUrl")) {
+  // Safely use config.apiUrl
+}
+```
+
+4. **Iterating over object properties**:
+```javascript
+const user = {name: "Alice", age: 25, role: "admin"};
+Object.entries(user).forEach(([key, value]) => {
+  console.log(`${key}: ${value}`);
+});
+```
+
+These object methods provide powerful ways to work with objects in JavaScript, enabling property manipulation, inheritance control, object composition, and more.
 
 ---
+
+# JavaScript Array Functions with Examples
+
+Arrays are fundamental data structures in JavaScript, and the language provides a rich set of functions (methods) to manipulate them. Here's a comprehensive guide to array functions in JavaScript:
+
+## Basic Array Methods
+
+### 1. `push()` - Adds elements to the end of an array
+```javascript
+const fruits = ['apple', 'banana'];
+fruits.push('orange');
+console.log(fruits); // ['apple', 'banana', 'orange']
+```
+**Use**: Add items to the end of an array.
+
+### 2. `pop()` - Removes the last element
+```javascript
+const fruits = ['apple', 'banana', 'orange'];
+fruits.pop();
+console.log(fruits); // ['apple', 'banana']
+```
+**Use**: Remove and return the last item.
+
+### 3. `shift()` - Removes the first element
+```javascript
+const fruits = ['apple', 'banana', 'orange'];
+fruits.shift();
+console.log(fruits); // ['banana', 'orange']
+```
+**Use**: Remove and return the first item.
+
+### 4. `unshift()` - Adds elements to the beginning
+```javascript
+const fruits = ['banana', 'orange'];
+fruits.unshift('apple');
+console.log(fruits); // ['apple', 'banana', 'orange']
+```
+**Use**: Add items to the beginning of an array.
+
+### 5. `concat()` - Merges arrays
+```javascript
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+console.log(arr1.concat(arr2)); // [1, 2, 3, 4]
+```
+**Use**: Combine multiple arrays.
+
+## Search Methods
+
+### 6. `indexOf()` - Finds first index of an element
+```javascript
+const numbers = [10, 20, 30, 20];
+console.log(numbers.indexOf(20)); // 1
+```
+**Use**: Find position of an item.
+
+### 7. `lastIndexOf()` - Finds last index of an element
+```javascript
+const numbers = [10, 20, 30, 20];
+console.log(numbers.lastIndexOf(20)); // 3
+```
+
+### 8. `includes()` - Checks if array contains an element
+```javascript
+const numbers = [1, 2, 3];
+console.log(numbers.includes(2)); // true
+```
+**Use**: Check for item existence.
+
+### 9. `find()` - Returns first matching element
+```javascript
+const users = [
+  {id: 1, name: 'John'},
+  {id: 2, name: 'Jane'}
+];
+console.log(users.find(user => user.id === 2)); // {id: 2, name: 'Jane'}
+```
+**Use**: Find object in array.
+
+### 10. `findIndex()` - Returns index of first matching element
+```javascript
+const numbers = [5, 12, 8, 130, 44];
+console.log(numbers.findIndex(num => num > 10)); // 1
+```
+
+## Iteration Methods
+
+### 11. `forEach()` - Executes a function for each element
+```javascript
+const numbers = [1, 2, 3];
+numbers.forEach(num => console.log(num * 2));
+// Output: 2, 4, 6
+```
+**Use**: Execute function for each item.
+
+### 12. `map()` - Creates new array with results of function
+```javascript
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+```
+**Use**: Transform array elements.
+
+### 13. `filter()` - Creates new array with matching elements
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]
+```
+**Use**: Select subset of items.
+
+### 14. `reduce()` - Reduces array to single value
+```javascript
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+console.log(sum); // 10
+```
+**Use**: Aggregate array values.
+
+### 15. `reduceRight()` - Reduces from right to left
+```javascript
+const numbers = [1, 2, 3, 4];
+const result = numbers.reduceRight((acc, curr) => acc - curr);
+console.log(result); // -2 (4-3-2-1)
+```
+
+## Array Transformation
+
+### 16. `slice()` - Returns shallow copy of portion
+```javascript
+const fruits = ['apple', 'banana', 'orange', 'grape'];
+console.log(fruits.slice(1, 3)); // ['banana', 'orange']
+```
+**Use**: Extract portion of array.
+
+### 17. `splice()` - Adds/removes elements
+```javascript
+const fruits = ['apple', 'banana', 'orange'];
+fruits.splice(1, 1, 'grape', 'kiwi');
+console.log(fruits); // ['apple', 'grape', 'kiwi', 'orange']
+```
+**Use**: Modify array contents.
+
+### 18. `reverse()` - Reverses array in place
+```javascript
+const numbers = [1, 2, 3];
+numbers.reverse();
+console.log(numbers); // [3, 2, 1]
+```
+
+### 19. `sort()` - Sorts array elements
+```javascript
+const numbers = [3, 1, 4, 2];
+numbers.sort((a, b) => a - b);
+console.log(numbers); // [1, 2, 3, 4]
+```
+**Use**: Order array elements.
+
+## Array Testing
+
+### 20. `some()` - Checks if any element passes test
+```javascript
+const numbers = [1, 2, 3, 4];
+console.log(numbers.some(num => num > 3)); // true
+```
+**Use**: Check if any item meets condition.
+
+### 21. `every()` - Checks if all elements pass test
+```javascript
+const numbers = [1, 2, 3, 4];
+console.log(numbers.every(num => num < 5)); // true
+```
+**Use**: Verify all items meet condition.
+
+## Array Conversion
+
+### 22. `join()` - Joins elements into string
+```javascript
+const fruits = ['apple', 'banana', 'orange'];
+console.log(fruits.join(', ')); // "apple, banana, orange"
+```
+**Use**: Create string from array.
+
+### 23. `toString()` - Converts array to string
+```javascript
+const numbers = [1, 2, 3];
+console.log(numbers.toString()); // "1,2,3"
+```
+
+### 24. `flat()` - Flattens nested arrays
+```javascript
+const arr = [1, [2, [3, [4]]]];
+console.log(arr.flat(2)); // [1, 2, 3, [4]]
+```
+**Use**: Handle nested arrays.
+
+### 25. `flatMap()` - Maps then flattens
+```javascript
+const arr = [1, 2, 3];
+console.log(arr.flatMap(x => [x, x * 2])); // [1, 2, 2, 4, 3, 6]
+```
+
+## ES6+ Array Methods
+
+### 26. `Array.from()` - Creates array from array-like object
+```javascript
+console.log(Array.from('hello')); // ['h', 'e', 'l', 'l', 'o']
+```
+**Use**: Convert iterables to arrays.
+
+### 27. `Array.of()` - Creates array from arguments
+```javascript
+console.log(Array.of(1, 2, 3)); // [1, 2, 3]
+```
+
+### 28. `fill()` - Fills elements with static value
+```javascript
+const arr = new Array(3).fill(0);
+console.log(arr); // [0, 0, 0]
+```
+
+### 29. `copyWithin()` - Copies array elements within array
+```javascript
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.copyWithin(0, 3)); // [4, 5, 3, 4, 5]
+```
+
+## Practical Use Cases
+
+1. **Removing duplicates**:
+```javascript
+const numbers = [1, 2, 2, 3, 4, 4];
+const unique = [...new Set(numbers)];
+// or
+const unique = numbers.filter((num, index) => numbers.indexOf(num) === index);
+```
+
+2. **Finding max/min**:
+```javascript
+const numbers = [5, 2, 9, 1];
+const max = Math.max(...numbers);
+const min = Math.min(...numbers);
+```
+
+3. **Chunking array**:
+```javascript
+function chunkArray(arr, size) {
+  return Array.from({length: Math.ceil(arr.length/size)}, (_, i) => 
+    arr.slice(i * size, i * size + size));
+}
+```
+
+4. **Grouping objects by property**:
+```javascript
+const people = [
+  {name: 'Alice', age: 21},
+  {name: 'Bob', age: 21},
+  {name: 'Charlie', age: 25}
+];
+
+const grouped = people.reduce((acc, person) => {
+  const key = person.age;
+  if (!acc[key]) acc[key] = [];
+  acc[key].push(person);
+  return acc;
+}, {});
+```
+
+These array methods provide powerful ways to manipulate, transform, and query arrays in JavaScript, making them essential for data processing in modern web applications.
+
+---
+
+>
 
 ###### 1. What's the output?
 
@@ -449,9 +1130,19 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: A
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+**A: true**
+
+### Explanation:
+
+In JavaScript, all objects have a prototype. The prototype is another object from which the current object inherits properties and methods. This is part of JavaScript's prototype-based inheritance model.
+
+Even if you create an object using a constructor function, like `new Object()`, it still has a prototype, which is `Object.prototype`. Similarly, if you create an object using an object literal (e.g., `{}`), it also has a prototype, which is `Object.prototype`.
+
+You can check an object's prototype using `Object.getPrototypeOf(obj)` or by accessing `obj.__proto__`, although the latter is considered legacy.
+
+So, **every object** in JavaScript (except for `null`, which has no prototype) has a prototype.
 
 </p>
 </details>
@@ -505,18 +1196,65 @@ console.log(number);
 <p>
 
 #### Answer: C
+Let's break down the code and understand the output step by step:
 
-The **postfix** unary operator `++`:
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
 
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
+### 1. **First `console.log(number++)`**
+   - The **post-increment operator** `number++` increments `number` by 1 **after** it has been evaluated.
+   - So, `number++` will **return the current value of `number`** (which is 0) and then increment `number` to 1.
+   
+   **Output of `console.log(number++)`:**
+   - First, the current value of `number` (which is `0`) is logged.
+   - Then, `number` is incremented to 1.
 
-The **prefix** unary operator `++`:
+   So, the output here is:
+   ```
+   0
+   ```
 
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
+### 2. **Second `console.log(++number)`**
+   - The **pre-increment operator** `++number` increments `number` by 1 **before** it is evaluated.
+   - Now, `number` is 1 (after the previous increment), so `++number` increments `number` to 2, and then the new value (2) is returned.
 
-This returns `0 2 2`.
+   **Output of `console.log(++number)`:**
+   - The value of `number` (which is now 2) is logged.
+   
+   So, the output here is:
+   ```
+   2
+   ```
+
+### 3. **Third `console.log(number)`**
+   - After the previous operations, `number` is now 2.
+   - This `console.log(number)` simply prints the current value of `number`, which is `2`.
+
+   **Output of `console.log(number)`:**
+   - Since `number` is now 2, this logs `2`.
+
+   So, the output here is:
+   ```
+   2
+   ```
+
+### Final Output:
+Combining all the results from the `console.log` statements:
+
+```
+0
+2
+2
+```
+
+### Summary:
+- **`number++`** returns the current value (0), then increments `number` to 1.
+- **`++number`** increments `number` (which was 1) to 2, and then returns the new value (2).
+- The final value of `number` is 2, which is printed last.
 
 </p>
 </details>
@@ -547,7 +1285,45 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Answer: B
 
-If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+Let's break down how **template literals with tagged templates** work in JavaScript, which is what you're dealing with here.
+
+
+#### Key Concept: **Tagged Template Literals**
+- A **tagged template literal** allows you to pass the parts of the template literal to a function.
+- When you use a tagged template literal like `getPersonInfo\`\${person} is \${age} years old\``, the first argument (`one`) receives the **array of string literals** (i.e., parts of the string that are not interpolated).
+- The remaining arguments (`two`, `three`, etc.) receive the **interpolated values** (i.e., the values inside `${}`).
+
+#### How it works in your example:
+
+1. The **string literals** in the template are:
+   - The first string: `""` (before `${person}`)
+   - The second string: `" is "` (between `${person}` and `${age}`)
+   - The third string: `" years old"` (after `${age}`)
+
+2. The **values** inside the `${}` are:
+   - `person`: `"Lydia"`
+   - `age`: `21`
+
+#### What's Passed to `getPersonInfo`:
+- `one`: The array of string literals: `["", " is ", " years old"]`
+- `two`: The value of `person`, which is `"Lydia"`
+- `three`: The value of `age`, which is `21`
+
+#### Console Output:
+- **`one`**: `["", " is ", " years old"]`
+- **`two`**: `"Lydia"`
+- **`three`**: `21`
+
+#### Correct Answer:
+
+The correct answer is:
+
+**B: ["", " is ", " years old"] "Lydia" 21**
+
+#### Final Explanation:
+
+- The first argument (`one`) is the **array of string literals**.
+- The second (`two`) and third (`three`) arguments are the **interpolated values** (i.e., the value of `person` and `age`).
 
 </p>
 </details>
@@ -1886,16 +2662,58 @@ console.log(Object.keys(person));
 - A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
 - B: `{ name: "Lydia", age: 21 }`, `["name"]`
 - C: `{ name: "Lydia"}`, `["name", "age"]`
-- D: `{ name: "Lydia"}`, `["age"]`
+- D: `{ name: "Lydia"}`, `["name"]`
 
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: D
 
-With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
+In the code you provided, the `Object.defineProperty` method is used to define a new property `age` on the `person` object. The property `age` is added to the object with a value of `21`.
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+Here’s a breakdown of the code:
+
+1. **Creating the `person` object:**
+   ```js
+   const person = { name: 'Lydia' };
+   ```
+   The `person` object is initially created with a `name` property that has the value `'Lydia'`.
+
+2. **Adding the `age` property using `Object.defineProperty`:**
+   ```js
+   Object.defineProperty(person, 'age', { value: 21 });
+   ```
+   The `Object.defineProperty` method is used to add a new property `age` to the `person` object with the value `21`. Note that by default, properties defined with `Object.defineProperty` are not enumerable, meaning they won’t show up when iterating over the object using methods like `Object.keys()`.
+
+3. **Logging the `person` object:**
+   ```js
+   console.log(person);
+   ```
+   This will log the entire `person` object. Even though the `age` property is added, it will be present in the object, but it will not show up in the output when enumerating keys (because it's non-enumerable by default).
+
+4. **Logging the keys of the `person` object:**
+   ```js
+   console.log(Object.keys(person));
+   ```
+   `Object.keys(person)` will return an array of the **enumerable** properties of the object. Since the `age` property is not enumerable, it won't show up in the keys array.
+
+#### Output:
+```js
+{ name: 'Lydia' }        // Logs the entire person object, which includes 'name' and 'age' but 'age' is non-enumerable.
+[ 'name' ]               // Logs the keys of the object, excluding 'age' because it's non-enumerable.
+```
+
+If you want `age` to be enumerable, you can add the `enumerable: true` option when defining the property:
+
+```js
+Object.defineProperty(person, 'age', { value: 21, enumerable: true });
+```
+#### Output:
+```js
+{ name: 'Lydia', age: 21 }        // Logs the entire person object, which includes 'name' and 'age' but 'age' is non-enumerable.
+[ 'name' ]               // Logs the keys of the object, excluding 'age' because it's non-enumerable.
+```
+
 
 </p>
 </details>
@@ -1994,14 +2812,64 @@ multiply(value);
 <p>
 
 #### Answer: C
+Let’s walk through the code step by step to understand what’s happening:
 
-In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
+#### Code Explanation:
 
-The default argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
+1. **Initial `value` object:**
+   ```js
+   const value = { number: 10 };
+   ```
+   Here, you define an object `value` with a property `number` set to `10`.
 
-The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`.
+2. **The `multiply` function:**
+   ```js
+   const multiply = (x = { ...value }) => {
+     console.log((x.number *= 2));
+   };
+   ```
+   The `multiply` function takes an optional argument `x`. If no argument is passed, it uses a **shallow copy** of the `value` object (`{ ...value }`). Inside the function, it multiplies the `number` property of `x` by 2 and logs the result.
 
-The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`.
+   - The **spread operator** (`{ ...value }`) creates a shallow copy of the `value` object. This means the `number` property of `x` will initially be `10`, and any modifications to `x.number` inside the function will not affect the original `value` object unless explicitly passed.
+
+3. **First `multiply()` call:**
+   ```js
+   multiply();
+   ```
+   Since no argument is passed, the default value `{ ...value }` is used, which is a copy of the `value` object. So, inside the function, `x.number` starts as `10`, and after multiplying by 2, `x.number` becomes `20`. It logs `20`.
+
+4. **Second `multiply()` call:**
+   ```js
+   multiply();
+   ```
+   Again, no argument is passed, so `{ ...value }` is used as the default. This creates a new shallow copy of `value` with `number` as `10`. Inside the function, `x.number` is multiplied by 2 again, resulting in `20`. It logs `20` again.
+
+5. **Third `multiply(value)` call:**
+   ```js
+   multiply(value);
+   ```
+   This time, you explicitly pass the original `value` object. Now, `x` will reference the same object as `value`. Inside the function, `x.number` (which is the same as `value.number`) is multiplied by 2, changing it from `10` to `20`. The new value of `x.number` (which is also `value.number`) is logged as `20`.
+
+6. **Fourth `multiply(value)` call:**
+   ```js
+   multiply(value);
+   ```
+   Since `x` is now referencing the same `value` object, and the previous call mutated `value.number` to `20`, the `number` property of `value` will now be `20`. Inside the function, it gets multiplied again, so `x.number` (which is `value.number`) becomes `40`. It logs `40`.
+
+#### Output:
+
+The output will be:
+
+```
+20  // First multiply(), using a new copy of the value object
+20  // Second multiply(), again using a new copy
+20  // Third multiply(), modifying the original 'value' object
+40  // Fourth multiply(), continuing to modify the original 'value' object
+```
+
+#### Key Points:
+- When you call `multiply()` without arguments, a new copy of `value` is made each time, and it logs `20` twice (since each call works on a separate copy).
+- When you pass the `value` object explicitly, the function modifies the original `value` object. This results in the `number` property being updated across calls, showing `20` the first time and `40` the second time.
 
 </p>
 </details>
