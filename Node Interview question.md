@@ -1851,8 +1851,181 @@ A scheduler would typically use a queue to manage tasks. Tasks are added to the 
 >## 24. **Memory Leak and Prevention in Node.js:**
 <summary><b>Answer:</b></summary>
 
-- A **memory leak** happens when memory is allocated but not freed, usually caused by holding references to objects that are no longer needed.
-- **Prevention**: Use proper memory management techniques, like nullifying unused references and using tools like `heapdump` to analyze memory usage.
+# Memory Leaks in Node.js: Understanding and Prevention
+
+Memory leaks are a common issue in Node.js applications where memory that is no longer needed isn't properly released, causing the application's memory usage to grow over time. This can lead to performance degradation and eventually application crashes.
+
+## Common Causes of Memory Leaks in Node.js
+
+#### 1. Global Variables
+```javascript
+// Accidental global variable
+function leak() {
+  leakedVar = 'This leaks to global scope'; // Missing 'var', 'let', or 'const'
+}
+
+// Intentional global variable
+global.someData = [];
+```
+
+#### 2. Closures Holding References
+```javascript
+function createClosure() {
+  const largeArray = new Array(1000000).fill('*');
+  return function() {
+    console.log('I hold a reference to largeArray');
+  };
+}
+// The closure keeps largeArray in memory
+const closure = createClosure();
+```
+
+#### 3. Forgotten Timers or Intervals
+```javascript
+const intervalId = setInterval(() => {
+  // Do something
+}, 1000);
+
+// If never cleared, this interval and its references persist
+```
+
+#### 4. Event Listeners Not Removed
+```javascript
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+function listener() { /* ... */ }
+
+emitter.on('event', listener);
+
+// If never removed, the listener and its references persist
+```
+
+#### 5. Caches That Never Clear
+```javascript
+const cache = {};
+
+function setCache(key, value) {
+  cache[key] = value;
+}
+
+// Cache grows indefinitely without cleanup
+```
+
+## Detection Tools
+
+1. **Node.js Inspector**: Built-in Chrome DevTools integration
+   ```bash
+   node --inspect your-app.js
+   ```
+
+2. **Heap Snapshots**: Compare memory states
+   ```javascript
+   const { writeHeapSnapshot } = require('v8');
+   writeHeapSnapshot();
+   ```
+
+3. **Process Memory Monitoring**:
+   ```javascript
+   setInterval(() => {
+     const used = process.memoryUsage();
+     console.log(used);
+   }, 1000);
+   ```
+
+4. **Third-party Tools**:
+   - Clinic.js
+   - Node Inspector
+   - Memwatch-next
+   - N|Solid
+
+## Prevention Strategies
+
+#### 1. Proper Variable Scoping
+```javascript
+// Use block-scoped variables
+function safeFunction() {
+  const localVar = 'This is properly scoped';
+  let anotherVar = 'Also safe';
+}
+```
+
+#### 2. Manage Event Listeners
+```javascript
+emitter.on('event', handler);
+
+// When no longer needed
+emitter.off('event', handler);
+```
+
+#### 3. Clear Timers and Intervals
+```javascript
+const timer = setTimeout(() => {}, 1000);
+
+// Clean up when done
+clearTimeout(timer);
+```
+
+#### 4. Implement Cache Limits
+```javascript
+class LimitedCache {
+  constructor(maxSize) {
+    this.cache = new Map();
+    this.maxSize = maxSize;
+  }
+
+  set(key, value) {
+    if (this.cache.size >= this.maxSize) {
+      const firstKey = this.cache.keys().next().value;
+      this.cache.delete(firstKey);
+    }
+    this.cache.set(key, value);
+  }
+}
+```
+
+#### 5. Use Weak References When Appropriate
+```javascript
+const { WeakMap, WeakSet } = require('weak-ref');
+
+const wm = new WeakMap();
+const key = {};
+wm.set(key, 'value');
+// When key is garbage collected, the entry is automatically removed
+```
+
+#### 6. Stream Processing for Large Data
+```javascript
+const fs = require('fs');
+const readStream = fs.createReadStream('large-file.txt');
+
+readStream.on('data', (chunk) => {
+  // Process chunks without loading entire file
+});
+```
+
+#### 7. Database Connection Management
+```javascript
+// Always release database connections
+async function queryDatabase() {
+  const connection = await getConnection();
+  try {
+    // Use connection
+  } finally {
+    connection.release(); // Ensure connection is released
+  }
+}
+```
+
+## Best Practices
+
+1. **Regularly Profile Memory Usage**: Especially in production-like environments
+2. **Implement Monitoring**: Alert on abnormal memory growth
+3. **Test with Realistic Data**: Memory issues often appear with production-scale data
+4. **Use Production-Ready Libraries**: For caching, database connection pooling, etc.
+5. **Keep Dependencies Updated**: Many memory leaks are fixed in library updates
+
+By understanding these patterns and implementing preventive measures, you can significantly reduce memory leaks in your Node.js applications.
    
 
 ---
@@ -8627,3 +8800,440 @@ client.get("user:1", (err, data) => console.log(JSON.parse(data)));
 Understanding **design patterns** in Node.js helps build **scalable**, **maintainable**, and **efficient** applications. In **system design**, key strategies like **microservices, event-driven architecture, caching, and scaling** help create robust applications.  
 
 Would you like a deeper dive into any of these topics? 🚀
+
+
+## 68. **What is an Unhandled Promise Rejection?** 
+
+An **unhandled promise rejection** happens when a **Promise is rejected, but no `.catch()` handler is attached** to handle the error. This can lead to unpredictable behavior, crashes, or memory leaks.
+
+#### **Example of an Unhandled Promise Rejection**  
+```javascript
+function asyncFunction() {
+  return new Promise((resolve, reject) => {
+    reject(new Error("Something went wrong!")); // Rejected but not handled
+  });
+}
+
+asyncFunction(); // No `.catch()` to handle this rejection
+```
+In earlier versions of Node.js, this would **fail silently**. But in **Node.js 15+**, unhandled promise rejections **terminate the process by default**.
+
+---
+
+## **How to Handle Unhandled Promise Rejections?**  
+
+#### **1. Use `.catch()` on Promises**
+Always attach a `.catch()` handler to handle errors properly.  
+```javascript
+asyncFunction().catch((err) => console.error("Caught Error:", err.message));
+```
+
+---
+
+#### **2. Use `try...catch` with `async/await`**
+When using `async/await`, wrap your code inside a `try...catch` block.  
+```javascript
+async function run() {
+  try {
+    await asyncFunction();
+  } catch (err) {
+    console.error("Caught Error:", err.message);
+  }
+}
+
+run();
+```
+
+---
+
+#### **3. Use a Global `process` Event Listener**
+If an unhandled rejection occurs, handle it at the process level.  
+```javascript
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection:", reason);
+  // Log to monitoring services (Datadog, Sentry, etc.)
+});
+```
+This ensures that any unhandled rejections are logged instead of causing silent failures.
+
+---
+
+#### **4. Use `process.on("rejectionHandled")`**
+This event fires when a previously unhandled promise rejection gets handled later.  
+```javascript
+process.on("rejectionHandled", (promise) => {
+  console.log("Previously unhandled rejection is now handled:", promise);
+});
+```
+
+---
+
+## **Best Practices to Avoid Unhandled Rejections**
+✅ **Always use `.catch()` with Promises**  
+✅ **Wrap `await` calls inside `try...catch`**  
+✅ **Use a global `process.on("unhandledRejection")` handler**  
+✅ **Enable logging and monitoring** (Datadog, New Relic, Sentry)  
+
+Would you like a real-world example of handling unhandled rejections in a production app? 🚀
+
+---
+
+># 69. Node.js Cluster Module vs Worker Threads: When to Use Each
+
+#### Cluster Module
+
+The **Cluster module** allows you to create multiple instances of your Node.js application (worker processes) that share the same server port. It's designed to improve performance on multi-core systems by leveraging CPU cores through process forking.
+
+#### Key Characteristics:
+- Creates multiple **processes** (not threads)
+- Each process has its own memory space (V8 instance)
+- Ideal for scaling network applications (HTTP servers)
+- Uses IPC (Inter-Process Communication) for messaging
+- Workers share server ports (master process manages this)
+
+#### When to Use Cluster:
+```javascript
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+  // Fork workers
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+} else {
+  // Workers can share any TCP connection
+  http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('Hello from worker ' + process.pid);
+  }).listen(8000);
+}
+```
+
+**Use Cluster when:**
+1. You need to scale network applications (HTTP/WebSocket servers)
+2. You want to maximize CPU utilization for I/O-bound workloads
+3. You need process isolation for stability (if one worker crashes, others survive)
+4. Running stateful applications where memory isolation is beneficial
+
+#### Worker Threads
+
+The **Worker Threads module** enables true multithreading in Node.js by allowing you to run JavaScript in parallel within the same process.
+
+#### Key Characteristics:
+- Creates multiple **threads** within the same process
+- Threads share the same memory space (can transfer ArrayBuffers)
+- Ideal for CPU-intensive tasks
+- More lightweight than processes (lower memory overhead)
+- Introduced in Node.js 10.5 (stable since Node 12)
+
+#### When to Use Worker Threads:
+```javascript
+const { Worker, isMainThread, parentPort } = require('worker_threads');
+
+if (isMainThread) {
+  // Main thread
+  const worker = new Worker(__filename);
+  worker.on('message', (msg) => console.log(msg));
+} else {
+  // Worker thread
+  parentPort.postMessage('Hello from worker!');
+}
+```
+
+**Use Worker Threads when:**
+1. You have CPU-intensive tasks (image processing, complex calculations)
+2. You need to share memory between tasks (via SharedArrayBuffer)
+3. You want lower overhead than processes for parallel computation
+4. You need to keep the application as a single process (easier deployment)
+5. Working with native add-ons that block the event loop
+
+#### Key Differences
+
+| Feature             | Cluster Module          | Worker Threads         |
+| ------------------- | ----------------------- | ---------------------- |
+| **Isolation Level** | Process-level           | Thread-level           |
+| **Memory**          | Separate V8 instances   | Shared memory possible |
+| **Overhead**        | Higher (full processes) | Lower (threads)        |
+| **Best For**        | I/O-bound workloads     | CPU-bound workloads    |
+| **Communication**   | IPC (slower)            | MessagePort (faster)   |
+| **Crash Impact**    | One worker dies         | Whole process may die  |
+
+#### Hybrid Approach
+
+For applications with mixed workloads, you can combine both:
+```javascript
+// Master process forks workers (cluster)
+// Each worker can then create worker threads for CPU tasks
+```
+
+#### Practical Recommendations
+
+1. **For web servers/APIs**: Use Cluster to scale across CPU cores
+2. **For data processing**: Use Worker Threads for parallel computation
+3. **For mixed workloads**: Consider Cluster with Worker Threads in each worker
+4. **Avoid over-engineering**: Start with one approach and measure performance
+
+Both modules help overcome Node.js's single-threaded nature, but they solve different problems. Choose based on whether your bottleneck is I/O (Cluster) or CPU (Worker Threads).
+
+---
+
+---
+
+>## 70. What is child process and how its work?
+
+#### Child Processes in Node.js: Understanding How They Work
+
+A child process in Node.js is a separate instance of a program that runs independently from your main Node.js application, allowing you to execute system commands or other programs while your main application continues running.
+
+#### How Child Processes Work
+
+#### Basic Architecture
+1. **Parent Process**: Your main Node.js application
+2. **Child Process**: The new process created by the parent
+3. **Communication Channel**: Established between parent and child (stdio, IPC, or both)
+
+#### Key Components:
+- **stdin (Standard Input)**: Pipe for sending data to the child
+- **stdout (Standard Output)**: Pipe for receiving data from the child
+- **stderr (Standard Error)**: Pipe for receiving error messages
+- **IPC (Inter-Process Communication)**: Special channel for Node.js processes
+
+#### Why Use Child Processes?
+
+1. **Execute system commands** (like `ls`, `grep`, etc.)
+2. **Run other programs** (Python scripts, shell scripts, etc.)
+3. **Parallel processing** (utilize multiple CPU cores)
+4. **Isolate risky operations** (if child crashes, parent survives)
+5. **Handle CPU-intensive tasks** without blocking event loop
+
+#### How Node.js Creates Child Processes
+
+#### 1. Process Creation
+When you create a child process, Node.js uses the operating system's process creation mechanism:
+- On Unix-like systems: `fork()` system call
+- On Windows: `CreateProcess()` API
+
+#### 2. Memory Allocation
+The child process gets:
+- Its own memory space (completely separate from parent)
+- Its own instance of V8 (Node.js JavaScript engine)
+- Its own event loop
+
+#### 3. Communication Mechanism
+Node.js establishes communication pipes between parent and child:
+```javascript
+const { spawn } = require('child_process');
+const child = spawn('ls', ['-lh']);
+
+// Parent listening to child's output
+child.stdout.on('data', (data) => {
+  console.log(`Child output: ${data}`);
+});
+
+// Parent sending input to child
+child.stdin.write('some input\n');
+```
+
+#### Types of Child Process Creation Methods
+
+#### 1. Asynchronous Methods (Non-blocking)
+- `spawn()`: Most basic, streams I/O
+- `fork()`: Specialized for Node.js, enables IPC
+- `exec()`: Shell execution, buffers output
+- `execFile()`: Like exec but without shell
+
+#### 2. Synchronous Methods (Blocking)
+- `spawnSync()`
+- `execSync()`
+- `execFileSync()`
+
+#### Lifecycle of a Child Process
+
+1. **Creation**: Parent calls one of the child process methods
+2. **Execution**: Child process runs independently
+3. **Communication**: Optional data exchange via streams/IPC
+4. **Termination**: Child exits (success or error)
+5. **Cleanup**: Parent receives exit notification
+
+#### Practical Example: Image Processing
+
+```javascript
+const { fork } = require('child_process');
+const imageProcessor = fork('./image-processor.js');
+
+// Send image to child process
+imageProcessor.send({ 
+  imagePath: 'photo.jpg', 
+  operations: ['resize', 'filter'] 
+});
+
+// Receive result
+imageProcessor.on('message', (processedImage) => {
+  console.log('Received processed image');
+});
+
+// Handle errors
+imageProcessor.on('error', (err) => {
+  console.error('Child process error:', err);
+});
+
+// Handle exit
+imageProcessor.on('exit', (code) => {
+  console.log(`Child exited with code ${code}`);
+});
+```
+
+#### Performance Considerations
+
+1. **Process Creation Overhead**: Creating processes is expensive
+2. **Memory Usage**: Each child has its own memory space
+3. **Communication Cost**: IPC/serialization adds latency
+4. **Alternative**: For CPU-bound tasks in Node.js code, consider Worker Threads instead
+
+#### Security Best Practices
+
+1. **Validate all inputs** to prevent command injection
+2. **Prefer spawn/execFile** over exec when possible
+3. **Limit privileges** of child processes
+4. **Set timeouts** to prevent hanging processes
+5. **Clean up properly** to avoid zombie processes
+
+Child processes are powerful but should be used judiciously as they consume significant system resources. For many use cases within Node.js, Worker Threads may be a more efficient alternative.
+
+---
+
+># 71. Node.js Child Process Methods: `fork()`, `spawn()`, and `exec()`
+
+Node.js provides several ways to create child processes, each with different characteristics and use cases. Here's a detailed comparison:
+
+## 1. `child_process.spawn()`
+
+The most general-purpose method for creating child processes.
+
+### Characteristics:
+- Streams input/output (good for large data)
+- No shell by default (more secure)
+- Returns a `ChildProcess` instance with stdout/stderr streams
+
+### Example:
+```javascript
+const { spawn } = require('child_process');
+
+// Spawn a Python process
+const pythonProcess = spawn('python', ['script.py']);
+
+pythonProcess.stdout.on('data', (data) => {
+  console.log(`Python output: ${data}`);
+});
+
+pythonProcess.stderr.on('data', (data) => {
+  console.error(`Python error: ${data}`);
+});
+
+pythonProcess.on('close', (code) => {
+  console.log(`Python process exited with code ${code}`);
+});
+```
+
+**When to use:**
+- When dealing with large amounts of data (streaming)
+- When you need continuous interaction with the process
+- When you want to avoid shell interpretation (security)
+- For long-running processes
+
+## 2. `child_process.fork()`
+
+A specialized version of `spawn()` specifically for Node.js processes.
+
+### Characteristics:
+- Creates a new Node.js process
+- Establishes an IPC (Inter-Process Communication) channel
+- Shares no memory with parent (unlike worker threads)
+- More overhead than worker threads but better isolation
+
+### Example:
+```javascript
+const { fork } = require('child_process');
+
+// Fork a Node.js module
+const child = fork('child_script.js');
+
+child.on('message', (msg) => {
+  console.log('Message from child:', msg);
+});
+
+child.send({ hello: 'world' });
+```
+
+**When to use:**
+- When you need to run separate Node.js scripts/modules
+- When you need process isolation (not thread isolation)
+- When you need to communicate between processes
+- As an alternative to cluster module for some use cases
+
+## 3. `child_process.exec()`
+
+Creates a shell and executes a command in that shell.
+
+### Characteristics:
+- Buffers output (not good for large data)
+- Uses shell by default (be careful with user input)
+- Convenient for simple commands
+- Returns the whole output at once
+
+### Example:
+```javascript
+const { exec } = require('child_process');
+
+exec('ls -lh', (error, stdout, stderr) => {
+  if (error) {
+    console.error(`exec error: ${error}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
+  console.error(`stderr: ${stderr}`);
+});
+```
+
+**When to use:**
+- For short commands where you want all output at once
+- When you need shell features (pipes, wildcards, etc.)
+- For simple, one-off commands
+- When you don't care about streaming the output
+
+## Comparison Table
+
+| Feature               | spawn()               | fork()          | exec()                  |
+| --------------------- | --------------------- | --------------- | ----------------------- |
+| **Process Type**      | Any executable        | Node.js only    | Any shell command       |
+| **Output Handling**   | Streams               | Streams + IPC   | Buffered                |
+| **Shell**             | No (by default)       | No              | Yes                     |
+| **Memory Efficiency** | Good                  | Moderate        | Poor for large output   |
+| **Use Case**          | Large data, streaming | Node.js modules | Simple shell commands   |
+| **Communication**     | Stdio only            | IPC channel     | Callback only           |
+| **Security**          | More secure           | Secure          | Risk of shell injection |
+
+## Advanced Considerations
+
+### 1. `execFile()`
+A hybrid between `exec()` and `spawn()` that executes a file directly without a shell:
+```javascript
+const { execFile } = require('child_process');
+execFile('myapp', ['arg1', 'arg2'], (error, stdout, stderr) => {
+  // ...
+});
+```
+
+### 2. Security Best Practices
+- Prefer `spawn()` or `execFile()` over `exec()` when possible
+- Always sanitize user input if it's passed to child processes
+- Be cautious with shell interpretation (risk of command injection)
+
+### 3. Performance Considerations
+- `fork()` has more overhead than worker threads but provides better isolation
+- `spawn()` is generally more memory-efficient for large data than `exec()`
+- Shell processes (`exec()`) have additional startup overhead
+
+Choose the method based on whether you need streaming, shell features, Node.js-specific functionality, or process isolation.

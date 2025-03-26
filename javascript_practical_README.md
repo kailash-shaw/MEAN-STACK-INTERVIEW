@@ -3095,12 +3095,49 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 <p>
 
 #### Answer: C
+This code uses a **generator function** (`function*`) and the `yield` keyword to create a simple interactive game. Let's break it down and fill in the missing `console.log` statements to get the expected output.
 
-A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
+#### Explanation of the Generator Function:
+1. `function* startGame()` defines a generator function.
+2. `yield 'Do you love JavaScript?'` pauses execution and returns `'Do you love JavaScript?'` the first time the generator is called.
+3. The next call to the generator (with `.next()`) can pass a value (`answer`), which replaces `yield`.
+4. If `answer` is not `'Yes'`, it returns `"Oh wow... Guess we're done here"`.
+5. If `answer` is `'Yes'`, it returns `'JavaScript loves you back ❤️'`.
 
-Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
+#### How to Use the Generator:
+1. `const game = startGame();` creates a generator object.
+2. The first `game.next()` starts the generator and runs until the first `yield`, returning `{ value: 'Do you love JavaScript?', done: false }`.
+3. The second `game.next('Yes')` sends `'Yes'` into the generator (as `answer`) and runs until completion, returning `{ value: 'JavaScript loves you back ❤️', done: true }`.
 
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
+#### Filling in the `console.log` Statements:
+```javascript
+const game = startGame();
+console.log(game.next().value); // "Do you love JavaScript?"
+console.log(game.next('Yes').value); // "JavaScript loves you back ❤️"
+```
+
+#### Expected Output:
+```
+Do you love JavaScript?
+JavaScript loves you back ❤️
+```
+
+#### What Happens If `answer !== 'Yes'`?
+If we passed a different value (e.g., `'No'`):
+```javascript
+console.log(game.next().value); // "Do you love JavaScript?"
+console.log(game.next('No').value); // "Oh wow... Guess we're done here"
+```
+Output:
+```
+Do you love JavaScript?
+Oh wow... Guess we're done here
+```
+
+#### Summary:
+- The first `console.log` calls `game.next().value` to get the first yielded value.
+- The second `console.log` calls `game.next('Yes').value` to send `'Yes'` and get the final return value.
+- If `answer` is not `'Yes'`, the generator returns early with a different message.
 
 </p>
 </details>
@@ -3501,9 +3538,52 @@ setTimeout(() => {
 
 #### Answer: B
 
-The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
+Let's break down this code step by step to understand its behavior and output.
+#### Key Concepts:
+1. **`var` vs. `const` Scoping**:
+   - `var status = '😎'` is globally scoped (attached to the `window` object in browsers).
+   - `const status = '😍'` is block-scoped to the arrow function inside `setTimeout`.
 
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
+2. **`this` Binding**:
+   - Arrow functions (`() => {}`) do **not** have their own `this`. Instead, they inherit `this` from the surrounding lexical scope.
+   - In the global context (outside any function), `this` refers to the **global object** (`window` in browsers, `global` in Node.js).
+
+3. **`call()` Method**:
+   - `data.getStatus.call(this)` explicitly sets `this` inside `getStatus` to the outer `this` (global object).
+
+#### Step-by-Step Execution:
+1. The global `var status = '😎'` is declared.
+2. `setTimeout` schedules the arrow function to run after 0ms (immediately after the current script).
+3. Inside the arrow function:
+   - `const status = '😍'` is declared (local to the arrow function).
+   - `data` is an object with:
+     - A property `status: '🥑'`.
+     - A method `getStatus()` that returns `this.status`.
+4. **First `console.log` (`data.getStatus()`)**:
+   - `data.getStatus()` is called normally, so `this` refers to `data`.
+   - `this.status` inside `getStatus` is `'🥑'`.
+   - **Output:** `'🥑'`.
+5. **Second `console.log` (`data.getStatus.call(this)`)**:
+   - `call(this)` forces `this` inside `getStatus` to refer to the outer `this` (global object).
+   - The global `status` is `'😎'` (due to `var status = '😎'`).
+   - **Output:** `'😎'`.
+
+#### Why Not `'😍'`?
+- The local `const status = '😍'` is **not** accessible via `this.status` because:
+  - `this` refers to the global object (where `status` is `'😎'`).
+  - `const` does not create properties on the global object (unlike `var`).
+
+#### Final Output:
+```
+🥑
+😎
+```
+
+#### Summary:
+| Expression                  | `this` Inside `getStatus` | `this.status` | Output |
+| --------------------------- | ------------------------- | ------------- | ------ |
+| `data.getStatus()`          | `data`                    | `'🥑'`         | `🥑`    |
+| `data.getStatus.call(this)` | Global object (`window`)  | `'😎'`         | `😎`    |
 
 </p>
 </details>
@@ -3652,9 +3732,42 @@ console.log('I want pizza'[0]);
 
 #### Answer: B
 
-In order to get a character at a specific index of a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case, we want to get the element with index 0, the character `"I'`, which gets logged.
+The code `console.log('I want pizza'[0]);` will output the first character of the string `'I want pizza'`.  
 
-Note that this method is not supported in IE7 and below. In that case, use `.charAt()`.
+#### Explanation:
+- Strings in JavaScript are **zero-indexed**, meaning the first character is at index `0`.
+- `'I want pizza'[0]` accesses the character at index `0` of the string `'I want pizza'`, which is `'I'`.
+
+#### Output:
+```javascript
+console.log('I want pizza'[0]); // Output: 'I'
+```
+
+#### Breakdown:
+| String | `'I'` | `' '` | `'w'` | `'a'` | `'n'` | `'t'` | `' '` | `'p'` | `'i'` | `'z'` | `'z'` | `'a'` |
+| ------ | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Index  | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `10`  | `11`  |
+
+- `'I want pizza'[0]` → `'I'`  
+- `'I want pizza'[7]` → `'p'` (first `'p'` in `'pizza'`)  
+- `'I want pizza'[11]` → `'a'` (last character)  
+
+#### Key Takeaways:
+1. **String Indexing**: Strings are indexed starting at `0`.  
+2. **Bracket Notation**: You can access characters using `string[index]`.  
+3. **Out-of-Bounds Access**: If you try `'I want pizza'[99]`, it returns `undefined` (no error).  
+
+#### Example Variations:
+```javascript
+console.log('I want pizza'[7]); // 'p'
+console.log('I want pizza'[99]); // undefined
+console.log('I want pizza'.charAt(0)); // 'I' (alternative method)
+```  
+
+#### Final Answer:
+```javascript
+'I'
+```
 
 </p>
 </details>
@@ -3713,9 +3826,73 @@ console.log(data);
 
 #### Answer: A
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function that returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`.
+Let's analyze this ES module import/export scenario step by step.
 
-The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.
+#### Module System Behavior:
+1. **In `module.js`**:
+   - `export default () => 'Hello world'` exports a default anonymous arrow function
+   - `export const name = 'Lydia'` exports a named constant
+
+2. **In `index.js`**:
+   - `import * as data from './module'` imports all exports into a namespace object called `data`
+
+#### What `data` Contains:
+When using namespace imports (`import * as data`), the resulting object:
+- Contains all named exports as direct properties
+- Contains the default export under the `default` property
+
+#### Expected `data` Object Structure:
+```javascript
+{
+  default: () => 'Hello world',  // the default export
+  name: 'Lydia'                  // the named export
+}
+```
+
+#### What Gets Logged:
+`console.log(data)` will show an object with:
+- A `default` property containing the arrow function
+- A `name` property with value 'Lydia'
+
+#### Important Notes:
+1. The default export must be accessed as `data.default()`
+2. Named exports are accessed directly (e.g., `data.name`)
+
+#### Practical Usage Example:
+```javascript
+console.log(data.default());  // 'Hello world'
+console.log(data.name);       // 'Lydia'
+```
+
+#### Why This Matters:
+- This demonstrates how ES modules handle mixed (default + named) exports
+- Shows the difference between namespace imports and named imports
+- Illustrates that default exports are treated differently than named exports
+
+#### Alternative Import Approaches:
+1. **Named Imports**:
+   ```javascript
+   import { name } from './module';
+   ```
+
+2. **Default Import**:
+   ```javascript
+   import myFunction from './module';
+   ```
+
+3. **Mixed Import**:
+   ```javascript
+   import myFunction, { name } from './module';
+   ```
+
+#### Final Answer:
+The console will show an object like:
+```javascript
+{
+  default: [Function: default],
+  name: 'Lydia'
+}
+```
 
 </p>
 </details>
