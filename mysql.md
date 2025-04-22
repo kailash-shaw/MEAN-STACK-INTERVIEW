@@ -409,10 +409,256 @@ Or use `pt-online-schema-change` for live systems.
 
 ---
 
-Let me know if you'd like:
 
-- A **PDF version**
-- **Flashcards** for daily review
-- A **mock interview session**
+---
 
-You've got this, Kailash! 💪
+Here’s a list of **MySQL advanced interview questions and answers** that are suitable for someone with **10+ years of experience**. These questions cover deep knowledge of MySQL performance, architecture, optimization, and real-world use cases.
+
+---
+
+### 🔧 **1. What are the differences between InnoDB and MyISAM? When would you use each?**
+
+**Answer:**
+
+| Feature         | InnoDB                             | MyISAM                            |
+|----------------|-------------------------------------|-----------------------------------|
+| Transactions   | Supported (ACID compliant)          | Not supported                     |
+| Locking        | Row-level locking                   | Table-level locking               |
+| Foreign Keys   | Supported                           | Not supported                     |
+| Crash Recovery | Automatic recovery                  | Manual recovery required          |
+| Performance    | Better for write-heavy apps         | Faster for read-heavy tables      |
+
+**Use InnoDB when:** you need transactions, foreign keys, and high concurrency.  
+**Use MyISAM when:** you prioritize read performance and don't need transactions (e.g., reporting tables).
+
+---
+
+### 🚀 **2. How do you optimize a slow-running MySQL query?**
+
+**Answer:**
+1. **Use `EXPLAIN`** to analyze the execution plan.
+2. **Add proper indexes** (especially on WHERE, JOIN, and ORDER BY columns).
+3. **Avoid SELECT *** – only fetch necessary columns.
+4. **Use LIMIT for pagination**.
+5. **Avoid functions on indexed columns**.
+6. **Denormalize data** if necessary for complex joins.
+7. **Check query cache and buffer settings**.
+8. **Partition large tables** if needed.
+
+---
+
+### 🛠️ **3. What are different types of indexing in MySQL?**
+
+**Answer:**
+- **Primary Index**: Unique index on the primary key.
+- **Unique Index**: Ensures all values in a column are unique.
+- **Composite Index**: Index on multiple columns.
+- **Full-Text Index**: Used for full-text searching (MyISAM and InnoDB).
+- **Spatial Index**: For spatial/GIS data types.
+- **BTREE / HASH indexes**: Storage engine-specific.
+
+---
+
+### ⚙️ **4. What is a covering index and when is it used?**
+
+**Answer:**
+A **covering index** is an index that includes **all the columns** required by a query. This avoids accessing the actual table data, improving performance.
+
+Example:
+```sql
+SELECT name, age FROM users WHERE age = 30;
+-- Index on (age, name) makes it a covering index
+```
+
+---
+
+### 🧠 **5. What is the difference between INNER JOIN and LEFT JOIN in execution and performance?**
+
+**Answer:**
+- **INNER JOIN** returns only matching rows in both tables.
+- **LEFT JOIN** returns all rows from the left table and matched rows from the right.
+
+**Performance Tip:** INNER JOINs are generally faster because they return fewer rows and don't need to fill in NULLs for unmatched rows.
+
+---
+
+### 🔐 **6. How does MySQL handle isolation levels and what are the effects?**
+
+**Answer:**
+MySQL (InnoDB) supports:
+- READ UNCOMMITTED – Dirty reads allowed
+- READ COMMITTED – No dirty reads
+- REPEATABLE READ (default) – No non-repeatable reads
+- SERIALIZABLE – Full locking, most strict
+
+**Trade-off:** Higher isolation = less concurrency, more locking.
+
+---
+
+### 📈 **7. How do you handle large data migrations or ALTER TABLE on big tables in production?**
+
+**Answer:**
+- Use **pt-online-schema-change** (Percona Toolkit) or **gh-ost** to avoid downtime.
+- Break migration into **small batches**.
+- Perform during **off-peak hours**.
+- Use **replication** to migrate on a replica first, then promote.
+- Monitor for locks and query performance.
+
+---
+
+### 🧩 **8. What is a deadlock? How do you detect and resolve it in MySQL?**
+
+**Answer:**
+A **deadlock** happens when two or more transactions wait on each other indefinitely.
+
+**Detection:**
+```sql
+SHOW ENGINE INNODB STATUS;
+```
+
+**Resolution:**
+- MySQL automatically rolls back one transaction.
+- To prevent:
+  - Access tables in the **same order**.
+  - Keep transactions **short**.
+  - Use **SELECT ... FOR UPDATE** carefully.
+
+---
+
+### 💾 **9. How does replication work in MySQL?**
+
+**Answer:**
+- **Asynchronous**: Master logs changes in binary logs → Slave reads via I/O thread → Applies using SQL thread.
+- **Semi-Synchronous**: Master waits for at least one slave acknowledgment.
+- **GTID-Based Replication**: Uses global transaction IDs for better failover and consistency.
+
+**Use Cases:** Scaling reads, backups, disaster recovery.
+
+---
+
+### 🧮 **10. What’s the difference between clustered and non-clustered indexes in MySQL?**
+
+**Answer:**
+- **Clustered Index (InnoDB)**: Primary key is the clustered index. Table data is stored **in the leaf nodes** of the index.
+- **Non-Clustered Index**: Secondary indexes store **pointers** to the primary key.
+
+**Impact:** Having a well-designed primary key is crucial for performance in InnoDB.
+
+---
+Absolutely! Since you're aiming at **10+ years of MySQL experience**, here’s **more advanced** content beyond the basics—focused on **real-world architecture, performance, and reliability**. These questions come up in **senior engineer**, **DBA**, and **tech lead** interviews.
+
+---
+
+### 🧱 **11. What is MySQL Query Execution Plan and how do you interpret it?**
+
+**Answer:**
+Use `EXPLAIN` to analyze how MySQL executes a query.
+
+Look at:
+- **type**: 'ALL' = full table scan (bad), 'index', 'range', 'ref', 'const', 'eq_ref', 'system' (best to worst).
+- **key / key_len**: Index being used and its length.
+- **rows**: Estimated rows to read.
+- **Extra**: Watch for “Using filesort”, “Using temporary” – they can signal performance issues.
+
+---
+
+### 🧊 **12. How do you handle MySQL high availability?**
+
+**Answer:**
+- **Replication + Failover tools**:
+  - Native replication (GTID)
+  - Tools: **MHA**, **Orchestrator**, **ProxySQL**, **Vitess**
+- **Clustered DBs**:
+  - **MySQL Group Replication**
+  - **Galera Cluster**
+  - **NDB Cluster**
+- **Cloud-native options**: AWS Aurora, GCP CloudSQL with multi-zone failover
+
+---
+
+### ⚡ **13. How do you handle replication lag?**
+
+**Answer:**
+- Tune **slave I/O and SQL threads**
+- Optimize long-running queries on master
+- Split heavy writes
+- Use **row-based** replication (more efficient than statement-based in many cases)
+- Check `Seconds_Behind_Master` and `performance_schema.replication_applier_status`
+
+---
+
+### 🔁 **14. What are the different replication formats?**
+
+**Answer:**
+1. **Statement-based** – Sends SQL to slave; can cause inconsistencies.
+2. **Row-based** – Sends actual changed rows.
+3. **Mixed** – Auto-switches between the two.
+
+**Best Practice:** Prefer **row-based** for accuracy.
+
+---
+
+### 🧬 **15. How do you handle schema versioning in a CI/CD pipeline?**
+
+**Answer:**
+- Use tools like **Flyway**, **Liquibase**, or **dbmate**
+- Maintain versioned SQL migration scripts in Git
+- Automate migration on deployment
+- Ensure rollback scripts are available
+
+---
+
+### 🔄 **16. Difference between TEMPORARY tables, MEMORY tables, and derived tables?**
+
+**Answer:**
+- **TEMPORARY table**: Exists per session; stored on disk by default (or memory if small).
+- **MEMORY table**: Lives in RAM; volatile.
+- **Derived table**: Result of a subquery used as a temporary table in the query.
+
+---
+
+### 🔍 **17. What is the difference between logical and physical backup?**
+
+**Answer:**
+- **Logical**: `mysqldump`, `mysqlpump` (readable SQL files).
+- **Physical**: `xtrabackup`, LVM snapshots (faster, includes data files).
+
+**Best Practice:** Use **physical backup** for large datasets.
+
+---
+
+### 🧪 **18. What are common MySQL bottlenecks and how do you identify them?**
+
+**Answer:**
+- **Slow Queries** → Use `slow_query_log`
+- **Index Misses** → Use `EXPLAIN` + `SHOW STATUS LIKE 'Handler%'`
+- **Connection Issues** → Monitor `max_connections`, `thread_cache_size`
+- **Disk I/O** → Use `iostat`, monitor `Innodb_buffer_pool_read_requests`
+- **Lock Contention** → `SHOW ENGINE INNODB STATUS`
+
+---
+
+### 📊 **19. How do you monitor MySQL in production?**
+
+**Answer:**
+- Tools: **Percona Monitoring & Management (PMM)**, **Datadog**, **Zabbix**, **Prometheus + Grafana**
+- Metrics to monitor:
+  - Query latency
+  - Connections
+  - Replication delay
+  - Disk/CPU/Memory
+  - Table/Index fragmentation
+  - Deadlocks
+
+---
+
+### 📈 **20. What are histograms in MySQL?**
+
+**Answer:**
+Histograms help the optimizer estimate row counts when **column values are skewed**. Especially useful when indexes aren't available.
+
+```sql
+ANALYZE TABLE my_table UPDATE HISTOGRAM ON my_column;
+```
+
+---
