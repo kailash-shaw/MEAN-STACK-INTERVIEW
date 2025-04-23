@@ -9,7 +9,7 @@
 3. **How would you implement a scalable architecture using Node.js?**
 4. **When should you use child processes, worker threads, or clustering in Node.js?**
 5. **How do you handle backpressure in streams or HTTP requests?**
-6. **What is horizontal and vertical scalling in Nodejs and MongoDB?**
+6. **What are horizontal and vertical scaling in Nodejs and MongoDB?**
 
 
 
